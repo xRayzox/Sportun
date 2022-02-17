@@ -1,0 +1,46 @@
+ <td><img src="{{ asset('/upload/images/'~article.media) }}" width="50" height="60"></td>
+
+
+----------------------------------------------------------------
+function Add(Request $request): Response
+    {
+        $article = new Article();
+//        $article->setCreatedAt(new \DateTimeImmutable());
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->add('Ajouter', SubmitType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $file=$form->get('media')->getData();
+            $filename=md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('images_directory'),
+            $filename);
+            $em = $this->getDoctrine()->getManager();
+            $article->setMedia($filename);
+            $em->persist($article);
+            $em->flush();
+            return $this->redirectToRoute('articleslist');
+        }
+        return $this->render('Back/addarticle.html.twig', [
+            'form' => $form->createView()
+        ])
+-------------------------------------------------service.yaml--------------------------------
+parameters:
+     images_directory: '%kernel.project_dir%/public/upload/images'
+--------------------------form------------------
+ public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('titre')
+            ->add('text',TextareaType::class,[
+                'attr'=>[
+                    'height'=>'100px',
+                    'class'=>'form-control'],
+            ])
+            ->add('media' ,FileType::class,
+        ['label'=>false,
+            'multiple'=>false,
+            'mapped'=>false,
+            'required'=>false])
+        ;
+    }
+

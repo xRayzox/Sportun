@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+	<!-- =============== HEADER-TITLE =============== -->
+	<section class="s-header-title" style="background-image: url(Front/img/bg-1-min.png);">
+		<div class="container">
+			<h1 class="title">Services</h1>
+			<ul class="breadcrambs">
+				<li><a href="index.html">Home</a></li>
+				<li>Services</li>
+			</ul>
+		</div>
+	</section>
+	<!-- ============= HEADER-TITLE END ============= -->
+
+  
+		<!-- ================== S-MAP ================== -->
+
+   <h1>My Google Map</h1>
+
+  <div id="map"></div>
+  <script async defer
+    src="{{asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBQxazOiNN_r-7rocSMM00lZfonu6C-aoU&callback=initMap')}}">
+    </script>
+
+
+	
+	<!-- ================ S-MAP END ================ -->
+	{% endblock %}

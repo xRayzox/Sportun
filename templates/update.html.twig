@@ -1,0 +1,116 @@
+{% extends "back-office.html.twig" %}
+{% block body %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Data Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">Data</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Datatables</h5>
+      
+{{ form_start(form, {attr: {'novalidate': 'novalidate'}}) }}
+<h1> Ajouter un Service </h1>
+<div>
+{{ form_label(form.name,"Name") }}
+ <div class="col-sm-10">
+
+{{ form_widget(form.name,{'attr': {'class': 'form-control'}}) }}
+
+ </div>
+ <div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.name) }}
+ </div>
+</div>
+<div>
+{{ form_label(form.Description,"Description") }}
+ <div class="col-sm-10">
+{{ form_widget(form.Description,{'attr': {'class': 'form-control'}}) }}
+<div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.Description) }}
+ </div>
+  </div>
+ <div>
+
+{{ form_label(form.title,"Title") }}
+ <div class="col-sm-10">
+{{ form_widget(form.title,{'attr': {'class': 'form-control'}}) }}
+ </div> 
+<div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.title) }}
+ </div>
+ </div>
+<div>
+{{ form_label(form.Type,"Type") }}
+ <div class="col-sm-10">
+{{ form_widget(form.Type,{'attr': {'class': 'form-control'}}) }}
+ </div>
+<div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.Type) }}
+ </div>
+ </div>
+ <div>
+{{ form_label(form.Num_Tel,"Num_Tel") }}
+ <div class="col-sm-10">
+{{ form_widget(form.Num_Tel,{'attr': {'class': 'form-control'}}) }}
+ </div>
+<div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.Num_Tel) }}
+ </div>
+ </div>
+ <div>
+{{ form_label(form.Image,"Image") }}
+ <div class="col-sm-10">
+{{ form_widget(form.Image,{'attr': {'class': 'form-control'}}) }}
+ </div>
+<div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.Image) }}
+ </div>
+  </div>
+ <div>
+{{ form_label(form.Location.lat,"Lat") }}
+ <div class="col-sm-10">
+{{ form_widget(form.Location.lat,{'attr': {'class': 'form-control'}}) }}
+ </div>
+<div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.Location.lat) }}
+ </div>
+  </div>
+ <div>
+{{ form_label(form.Location.lng,"Lng") }}
+ <div class="col-sm-10">
+{{ form_widget(form.Location.lng,{'attr': {'class': 'form-control'}}) }}
+ </div>
+<div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.Location.lng) }}
+ </div>
+  </div>
+ <div>
+{{ form_label(form.Location.region,"Region") }}
+ <div class="col-sm-10">
+{{ form_widget(form.Location.region,{'attr': {'class': 'form-control'}}) }}
+ </div>
+<div class="badge border-danger border-1 text-danger" >
+{{ form_errors(form.Location.region) }}
+ </div>
+  </div>
+ <div>
+{{ form_end(form) }}
+ </div>
+   </div>
+        </div>
+      </div>
+</section>
+</main>
+{% endblock %}

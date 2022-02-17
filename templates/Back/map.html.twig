@@ -1,0 +1,128 @@
+  {% extends "back-office.html.twig" %}
+  {% block body %}
+
+  <main id="main" class="main">
+  
+      <div class="pagetitle">
+        <h1>Data Tables</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active">Data</li>
+          </ol>
+        </nav>
+      </div><!-- End Page Title -->
+      <section class="section">
+      <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Datatables</h5>
+        
+   
+  {{ form_start(formm, {attr: {'novalidate': 'novalidate'}}) }}
+  <h1> Ajouter un Service </h1>
+  <div>
+  {{ form_label(formm.name,"Name") }}
+  <div class="col-sm-10">
+
+  {{ form_widget(formm.name,{'attr': {'class': 'form-control'}}) }}
+
+  </div>
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.name) }}
+  </div>
+  </div>
+  <div>
+  {{ form_label(formm.Description,"Description") }}
+  <div class="col-sm-10">
+  {{ form_widget(formm.Description,{'attr': {'class': 'form-control'}}) }}
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.Description) }}
+  </div>
+    </div>
+  <div>
+
+  {{ form_label(formm.title,"Title") }}
+  <div class="col-sm-10">
+  {{ form_widget(formm.title,{'attr': {'class': 'form-control'}}) }}
+  </div> 
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.title) }}
+  </div>
+  </div>
+  <div>
+  {{ form_label(formm.Type,"Type") }}
+  <div class="col-sm-10">
+  {{ form_widget(formm.Type,{'attr': {'class': 'form-control'}}) }}
+  </div>
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.Type) }}
+  </div>
+  </div>
+  <div>
+  {{ form_label(formm.Num_Tel,"Num_Tel") }}
+  <div class="col-sm-10">
+  {{ form_widget(formm.Num_Tel,{'attr': {'class': 'form-control'}}) }}
+  </div>
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.Num_Tel) }}
+  </div>
+  </div>
+  <div>
+  {{ form_label(formm.Image,"Image") }}
+  <div class="col-sm-10">
+  {{ form_widget(formm.Image,{'attr': {'class': 'form-control'}}) }}
+  </div>
+  
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.Image) }}
+  </div>
+    </div>
+  <div>
+ <h1>Location</h1>
+  <div id="map"></div>
+  <script async defer
+    src="{{asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBQxazOiNN_r-7rocSMM00lZfonu6C-aoU&callback=initMap')}}">
+    </script>
+  {{ form_label(formm.Location.lat,"Lat") }}
+  <div class="col-sm-10">
+  {{ form_widget(formm.Location.lat, { 'id': 'lat',  'attr': { 'class' : 'form-control' } }) }}
+  </div>
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.Location.lat) }}
+  </div>
+    </div>
+  <div>
+  {{ form_label(formm.Location.lng,"Lng") }}
+
+  <div  class="col-sm-10">
+
+  {{ form_widget(formm.Location.lng, { 'id': 'lng',  'attr': { 'class' : 'form-control' } }) }}
+  </div>
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.Location.lng) }}
+  </div>
+    </div>
+  <div>
+  {{ form_label(formm.Location.region,"Region") }}
+  <div class="col-sm-10">
+  {{ form_widget(formm.Location.region, { 'id': 'region',  'attr': { 'class' : 'form-control' } }) }}
+  </div>
+  <div class="badge border-danger border-1 text-danger" >
+  {{ form_errors(formm.Location.region) }}
+  </div>
+    </div>
+
+  {{ form_end(formm) }}
+  </div>
+    </div>
+          </div>
+        </div>
+  </section>
+  </main>
+  
+
+
+  {% endblock %}
