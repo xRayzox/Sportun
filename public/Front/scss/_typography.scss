@@ -1,0 +1,156 @@
+/*-------------------- FONTS --------------------*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+
+/*-------------------- DEFAULT STYLES --------------------*/
+*::selection{
+	background: rgba(0,0,0,.3);
+	color: #fff;
+}
+body{
+	color: $primary_color;
+	line-height: 1.6;
+	font-size: 16px;
+	font-family: $font_family;
+	min-width: 320px;
+	position: relative;
+	overflow-x: hidden;
+	color: #fff;
+	background-color: $bg_color;
+	font-weight: 400;
+	@media(max-width: 1199px){
+		font-size: 14px;
+	}
+	&.page-loaded.no-scroll{
+		overflow: hidden;
+	}
+}
+.page-fitness{
+	color: #959595;
+	background-color: #fff;
+	.title-decor{
+		color: #000;
+		padding-bottom: 12px;
+		span{
+			display: block;
+			margin-top: -3px;
+		}
+	}
+	.slogan{
+		color: #8c8c8c;
+	}
+}
+.container{
+	position: relative;
+}
+img{
+	max-width: 100%;
+}
+a{
+	color: #fff;
+	text-decoration: none;
+	transition: .25s ease-in;
+	&:hover{
+		color: $link_hover_color;
+	}
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: $font_family_title;
+	line-height: 1.4;
+	font-weight: 400;
+}
+h1{
+	font-size: 46px;
+	@media(max-width: 1199px){
+		font-size: 32px;
+	}
+}
+h2{
+	font-size: 36px;
+	@media(max-width: 1199px){
+		font-size: 30px;
+	}
+}
+h3{
+	font-size: 24px;
+	@media(max-width: 1366px){
+		font-size: 22px;
+	}
+	@media(max-width: 1199px){
+		font-size: 20px;
+	}
+}
+h4{
+	font-size: 18px;
+}
+h5{
+	font-size: 16px;
+}
+h6{
+	font-size: 14px;
+}
+.title-decor{
+	position: relative;
+	text-align: center;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	span{
+		color: $accent_color;
+	}
+	&:before{
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 45px;
+		height: 4px;
+		background-color: $accent_color;
+	}
+}
+.slogan{
+	text-align: center;
+	max-width: 560px;
+	margin: 0 auto 40px;
+	color: #ccc;
+}
+.section-title-bg{
+	color: #f7f7f7;
+	font-size: 288px;
+	text-transform: uppercase;
+	line-height: .8;
+	position: absolute;
+	left: 50%;
+	max-width: 100%;
+	top: 0;
+	transform: translateX(-50%);
+	font-weight: 700;
+	overflow: hidden;
+	white-space: nowrap;
+	font-family: $font_family_title;
+	text-align: center;
+	pointer-events: none;
+}
+
+/*-------------------- RX Lazy Load Script ------------------------*/
+.rx-lazy_item{
+	opacity: 1;
+	transition: opacity 700ms ease-in-out
+}
+.rx-lazy_hidden{
+	visibility: hidden;
+	opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
