@@ -29,7 +29,6 @@ class Article
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="article text is required")
-     * @Assert\MinLength(min=5,message="votre message ne contient pas 5 lettre")
      */
     private $text;
 
@@ -40,7 +39,7 @@ class Article
     private $media;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="post_id", orphanRemoval=true, cascade={all})
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="post_id", orphanRemoval=true,cascade={"persist", "remove"})
      */
     private $commentaires;
 
