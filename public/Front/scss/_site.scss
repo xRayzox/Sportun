@@ -1,0 +1,4189 @@
+/*-------------------- LOGO --------------------*/
+.logo {
+	color: #fff;
+	font-size: 20px;
+	text-decoration: none;
+	display: inline-block;
+	img{
+		display: block;
+	}
+}
+.btn {
+	font-size: 16px;
+	padding: 11px 40px 10px;
+	border: 2px solid $accent_color;
+	background-color: $accent_color;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	height: 50px;
+	display: inline-block;
+	transition: .25s ease-in;
+	color: #fff;
+	&:hover {
+		background-color: transparent;
+		color: $accent_color;
+	}
+}
+/*--------------------- SOCIAL LIST ---------------------*/
+.social-list{
+	display: flex;
+	align-items: center;
+	li{
+		margin-right: 13px;
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+	a{
+		display: block;
+		text-align: center;
+		color: #919191;
+		font-size: 18px;
+		&:hover{
+			color: $accent_color;
+		}
+	}
+}
+/*----------------------- TO-TOP -----------------------*/
+.to-top{
+	position: fixed;
+	bottom: 30px;
+	right: 20px;
+	opacity: 0;
+	pointer-events: none;
+	z-index: 5;
+	transition: .3s ease-in-out;
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	background-color: $bg_block;
+	&:hover{
+		background-color: $accent_color;
+		color: #fff;
+	}
+	&.active{
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+/*----------------- S-CROSSFIT-SLIDER -----------------*/
+.s-crossfit-slider{
+	position: relative;
+	&:before{
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 66px;
+		background-color: $bg_color;
+		z-index: 4;
+		pointer-events: none;
+		bottom: -1px;
+		clip-path: polygon(100% 100%, 0 0, 0 100%);
+	}
+}
+.slider-navigation{
+	position: absolute;
+	left: 50%;
+	bottom: 31%;
+	width: 100%;
+	transform: translateX(-50%);
+	z-index: 4;
+	.container{
+		display: flex;
+		justify-content: center;
+	}
+	.slider-navigation-cover{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 80px;
+		position: relative;
+	}
+	.slick-dots{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		li{
+			margin-right: 10px;
+			cursor: pointer;
+			&:last-child{
+				margin-right: 0;
+			}
+			&:hover,
+			&.slick-active{
+				button{
+					color: $accent_color;
+				}
+			}
+			button{
+				background-color: transparent;
+				margin: 0;
+				padding: 0;
+				font-family: $font_family_title;
+				font-size: 26px;
+				font-weight: 400;
+				line-height: 34px;
+				border: none;
+				color: #fff;
+				padding: 0 2px;
+				transition: .25s ease-in;
+			}
+		}
+	}
+	.slick-arrow{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+		z-index: 1;
+		display: flex;
+		&:hover{
+			svg{
+				fill: #fff;
+			}
+		}
+		svg{
+			fill: $accent_color;
+			transition: .25s ease-in;
+		}
+		&.slick-arrow-prev{
+			left: 0;
+		}
+		&.slick-arrow-next{
+			right: 0;
+		}
+	}
+}
+
+.page-loaded{
+	.crossfit-slide{
+		&.slick-current{
+			.crossfit-slide-bg{
+				transition: .6s cubic-bezier(0.26, 0.01, 0.22, 1.06) .2s;
+				transform: scale(1) rotate(0deg);
+			}
+			.crossfit-slide-cover{
+				transform: scale(1);
+				opacity: 1;
+				transition-delay: .3s;
+			}
+			.crossfit-slider-effect{
+				transition: .4s cubic-bezier(0.26, 0.01, 0.22, 1.06);
+				transition-delay: .4s;
+				transform: scale(1);
+				opacity: 1;
+				&.effect-2{
+					transition-delay: .48s;
+				}
+			}
+		}
+	}
+}
+
+.crossfit-slide{
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,.4);
+		z-index: 1;
+	}
+	.crossfit-slide-bg{
+		transform-style: preserve-3d;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		transition: .4s ease-in;
+		transform: scale(.7) rotate(10deg);
+	}
+	.crossfit-slide-cover{
+		transform: scale(.5);
+		opacity: 0;
+		transition: .25s cubic-bezier(0.26, 0.01, 0.22, 1.06);
+	}
+	.container{
+		min-height: 774px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		z-index: 2;
+		padding-bottom: 22px;
+	}
+	.title{
+		font-size: 66px;
+		text-transform: uppercase;
+		width: 100%;
+		span{
+			color: $input_focus;
+		}
+	}
+	p{
+		max-width: 660px;
+		margin: 8px auto 40px;
+		padding: 15px 20px;
+		line-height: 1.7;
+		background-color: rgba(0,0,0,.5);
+		font-weight: 300;
+	}
+}
+.crossfit-slider-effect{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 1;
+	transform: scale(2);
+	opacity: 0;
+}
+.crossfit-slider-lite{
+	.crossfit-slide .title span{
+		color: $accent_color;
+	}
+}
+.scene{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	overflow: hidden;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.scene-item{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: center;
+}
+/*----------------------- S-NEWS -----------------------*/
+.s-news{
+	padding: 140px 0;
+}
+.post-item-cover{
+	margin-top: 100px;
+	.title{
+		margin-bottom: 12px;
+		margin-top: 27px;
+	}
+	&:first-child{
+		margin-top: 0;
+	}
+	.post-header{
+		margin-bottom: 22px;
+		overflow: hidden;
+		border-radius: $border_radius;
+		position: relative;
+	}
+	.post-thumbnail{
+		a{
+			display: block;
+			&:hover{
+				opacity: .6;
+			}
+		}
+		img{
+			display: block;
+			width: 100%;
+			height: 548px;
+			object-fit: cover;
+		}
+	}
+	.meta{
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		z-index: 2;
+		font-size: 14px;
+		span{
+			margin-right: 46px;
+			display: flex;
+			align-items: center;
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+		i{
+			font-size: 16px;
+			margin-right: 10px;
+			margin-top: -2px;
+			color: $accent_color;
+		}
+		.post-by{
+			a{
+				margin-right: 5px;
+				&:last-child{
+					margin-right: 0;
+				}
+			}
+		}
+		.post-tags,
+		.post-category{
+			a{
+				margin-right: 5px;
+				position: relative;
+				&:last-child{
+					margin-right: 0;
+				}
+				&:after{
+					content: ',';
+					color: $primary_color;
+				}
+				&:last-child{
+					&:after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.text{
+		color: $secondary_color;
+	}
+	.post-footer{
+		margin-top: 29px;
+		.meta{
+			margin-bottom: 24px;
+		}
+	}
+}
+
+blockquote{
+	margin: 20px 0;
+	padding: 30px 78px 30px 105px;
+	position: relative;
+	border-radius: $border_radius;
+	background-color: $bg_block;
+}
+blockquote p{
+	font-style: italic;
+	font-size: 18px;
+	line-height: 1.6em;
+	position: relative;
+	z-index: 1;
+	color: $title_color;
+}
+blockquote cite{
+	margin-top: 14px;
+	display: block;
+	color: $title_color;
+	font-style: normal;
+}
+blockquote cite:before{
+	content: '—';
+	display: inline-block;
+	margin-right: 10px;
+}
+blockquote:before{
+	content: '\f10e';
+	position: absolute;
+	font-size: 40px;
+	line-height: 40px;
+	top: 30px;
+	left: 30px;
+	font-family: 'FontAwesome';
+	color: $accent_color;
+}
+
+
+/*------------------------ WIDGET ------------------------*/
+.btn-sidebar{
+	display: none;
+	min-width: 140px;
+	width: 100%;
+	@media(max-width: 991px){
+		display: inline-block;
+	}
+}
+.widget{
+	margin-top: 90px;
+}
+.widget:first-child{
+	margin-top: 0;
+}
+.widget .title{
+	text-transform: capitalize;
+	padding-bottom: 22px;
+	margin-bottom: 22px;
+	border-bottom: 1px solid $border_color;
+}
+.widget{
+	&-newsletter,
+	&-instagram,
+	&-search{
+		.title{
+			margin-bottom: 30px;
+		}
+	}
+}
+
+/* WIDGET-TAGS */
+.widget-tags{
+	ul{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		margin-top: -10px;
+		padding-top: 8px;
+		li{
+			margin-right: 16px;
+			margin-top: 10px;
+			a{
+				border: 2px solid $accent_color;
+				box-sizing: border-box;
+				border-radius: $border_radius;
+				font-size: 14px;
+				color: $title_color;
+				padding: 8px 12px 6px;
+				display: block;
+				&:hover{
+					background-color: $title_color;
+					border-color: $title_color;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+/* WIDGET-CATEGORIES */
+.widget-archive li:not(:last-child),
+.widget-categories li:not(:last-child){
+	margin-bottom: 10px;
+}
+.widget-archive li a,
+.widget-categories li a{
+	position: relative;
+	text-transform: capitalize;
+	&:hover{
+		color: $accent_color;
+	}
+}
+.widget-archive li a:before,
+.widget-categories li a:before{
+	content: '\f105';
+	font-family: 'FontAwesome';
+	margin-right: 10px;
+	color: $accent_color;
+}
+
+/* WIDGET-RECENT-POSTS */
+.widget-recent-posts li:not(:last-child){
+	margin-bottom: 20px;
+}
+.widget-recent-posts li a{
+	font-weight: 600;
+	&:hover{
+		color: $accent_color;
+	}
+}
+.widget-recent-posts li .date{
+	display: block;
+	margin-top: 8px;
+	font-size: 14px;
+	i{
+		margin-right: 8px;
+		font-size: 16px;
+		color: $accent_color;
+	}
+}
+
+/* WIDGET-INSTAGRAM */
+.widget-instagram ul{
+	display: flex;
+	flex-wrap: wrap;
+	margin: -10px;
+}
+.widget-instagram li{
+	width: 33.33%;
+	padding: 10px;
+}
+.widget-instagram li a{
+	display: block;
+	position: relative;
+	border-radius: $border_radius;
+	overflow: hidden;
+	&:before{
+		content: '\f06e';
+		font-family: 'FontAwesome';
+		position: absolute;
+		display: block;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		color: $accent_color;
+		z-index: 2;
+		font-weight: 500;
+		font-size: 20px;
+		transition: .25s ease-in;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,.5);
+		z-index: 1;
+		transition: .25s ease-in;
+		opacity: 0;
+	}
+	&:hover{
+		&:after{
+			opacity: 1;
+		}
+		&:before{
+			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+}
+.widget-instagram li img{
+	width: 100%;
+	display: block;
+	height: 89px;
+	object-fit: cover;
+	transition: .25s ease-in;
+}
+.widget-instagram li a:hover img{
+	opacity: .7;
+}
+
+/*-------------------- PAGINATION --------------------*/
+.pagination-cover{
+	margin-top: 94px;
+}
+.pagination{
+	display: flex;
+	flex-wrap: wrap;
+}
+.pagination-item:not(:last-child){
+	margin-right: 10px;
+}
+.pagination-item a{
+	padding-top: 1px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 41px;
+	width: 44px;
+	text-align: center;
+	border: 1px solid rgba(255,255,255,.8);
+	color: $primary_color;
+	display: block;
+	border-radius: 5px;
+}
+.pagination-item a i{
+	vertical-align: 1px;
+	font-weight: 900;
+	color: $primary_color;
+}
+.pagination-item.active a{
+	border-color: $accent_color;
+	background-color: $accent_color;
+}
+.pagination-item.active{
+	pointer-events: none;
+}
+.pagination-item:hover a{
+	border-color: $accent_color;
+}
+
+/*--------------------- S-SINGLE-NEWS ---------------------*/
+.s-single-blog{
+	.post-item-cover .post-thumbnail a{
+		pointer-events: none;
+	}
+}
+/* AUTOR-COVER */
+.autor-cover{
+	margin: 53px 0 37px;
+	border-top: 1px solid $border_color;
+	border-bottom: 1px solid $border_color;
+	padding: 40px 0;
+	display: flex;
+	align-items: center;
+}
+.autor-cover img{
+	width: 124px;
+	height: 124px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin-right: 30px;
+}
+.autor-cover .name{
+	font-weight: 400;
+	font-size: 20px;
+	color: $accent_color;
+	margin-bottom: 6px;
+	font-family: $font_family_title;
+}
+.autor-cover p{
+	max-width: 370px;
+}
+
+/* NAVIGATION */
+.navigation{
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 40px;
+	border-bottom: 1px solid $border_color;
+}
+.navigation-item{
+	max-width: calc(50% - 15px);
+}
+.navigation-right{
+	text-align: right;
+}
+.navigation-item span{
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: capitalize;
+	color: $title_color;
+	transition: .3s ease;
+}
+.navigation-item .title{
+	position: relative;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 29px;
+	color: $title_color;
+	font-family: $font_family_title;
+	transition: .3s ease;
+	&:before{
+		color: $title_color;
+		font-family: 'FontAwesome';
+		position: absolute;
+		top: 1px;
+	}
+}
+.navigation-item.navigation-left .title{
+	padding-left: 20px;
+}
+.navigation-item.navigation-right .title{
+	padding-right: 20px;
+}
+.navigation-item.navigation-left .title:before{
+	left: 0;
+	content: '\f104';
+}
+.navigation-item.navigation-right .title:before{
+	content: '\f105';
+	right: 0;
+}
+.navigation-item:hover .title{
+	color: $link_hover_color;
+}
+
+/*----------------------- REVIEWS -----------------------*/
+.reviews{
+	margin-top: 100px;
+	.btn-form-cover,
+	.checkbox-wrap{
+		text-align: left;
+	}
+}
+.reviews .title{
+	margin-bottom: 20px;
+	letter-spacing: 0;
+}
+.reviews-form{
+	margin-top: 100px;
+}
+.reviews-form .inp-name,
+.reviews-form .inp-email{
+	width: 100%;
+}
+
+.reviews-list .review-item{
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 30px;
+	background-color: $bg_block;
+	padding: 15px;
+}
+.reviews-list ul{
+	padding-left: 80px;
+}
+.review-avatar{
+	margin-right: 20px;
+}
+.review-avatar img{
+	min-width: 50px;
+	max-width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.review-content .name{
+	font-size: 20px;
+	font-weight: 400;
+	font-family: $font_family_title;
+	text-transform: capitalize;
+}
+.review-content .date{
+	margin-bottom: 18px;
+	font-size: 14px;
+	i{
+		font-size: 16px;
+		margin-right: 8px;
+		color: $accent_color;
+	}
+}
+.faq-cover li:not(:last-child){
+	padding-bottom: 38px;
+	border-bottom: 1px solid #534e5f;
+	margin-bottom: 53px;
+}
+.review-btn{
+	margin-top: 13px;
+	font-weight: 500;
+	display: inline-block;
+	color: $link_color;
+	i{
+		margin-right: 8px;
+		color: $link_color;
+		transition: .25s ease-in;
+	}
+	&:hover{
+		color: $link_hover_color;
+		i{
+			color: $link_hover_color;
+		}
+	}
+}
+
+/*----------------- S-RELATED-POSTS -----------------*/
+.s-related-posts{
+	padding-bottom: 110px;
+	&.home-related-posts{
+		padding-top: 128px;
+		padding-bottom: 10px;
+		.related-post-col{
+			&:nth-child(2n){
+				top: 40px;
+			}
+		}
+	}
+	.related-post-col{
+		margin-bottom: 30px;
+	}
+	.post-item-cover{
+		background-color: $bg_block;
+		padding: 0 0 90px;
+		min-height: 202px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		height: 100%;
+		.text{
+			color: $primary_color;
+		}
+		.post-footer{
+			margin-top: 16px;
+		}
+		.title{
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+		.post-header{
+			margin-bottom: 44px;
+			position: relative;
+			.related-post-categ{
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				z-index: 2;
+				text-transform: uppercase;
+				background-color: $accent_color;
+				text-align: center;
+				font-weight: 600;
+				min-width: 120px;
+				line-height: 37px;
+				padding: 0 15px;
+			}
+		}
+		.post-thumbnail img{
+			height: 360px;
+		}
+		.post-footer .meta{
+			margin-bottom: 0;
+		}
+		.btn{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+		.post-content,
+		.post-footer{
+			padding: 0 44px;
+		}
+	}
+}
+
+/*---------------------- S-MAP ----------------------*/
+.s-map{
+	.cont-map{
+		height: 400px;
+	}
+}
+
+/*-------------------- S-CONTACTS --------------------*/
+.s-contacts{
+	padding: 140px 0;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.contact-item{
+	background-color: $bg_block;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	padding: 20px 0;
+	margin-bottom: 20px;
+}
+.contact-item-left{
+	width: 40%;
+	border-right: 2px solid $accent_color;
+	h4{
+		text-transform: uppercase;
+		margin-top: -8px;
+	}
+}
+.contact-item-right{
+	width: 60%;
+	padding: 15px;
+	li{
+		color: $secondary_color;
+	}
+	a{
+		color: $secondary_color;
+		&:hover{
+			color: $accent_color;
+		}
+	}
+}
+
+/*-------------------- S-CROSSFIT --------------------*/
+.s-crossfit{
+	padding: 128px 0 140px;
+	.container{
+		position: relative;
+		>div{
+			position: relative;
+			z-index: 1;
+		}
+	}
+}
+.crossfit-col{
+	padding-top: 40px;
+	&:nth-child(2){
+		padding-top: 0;
+	}
+}
+.crossfit-item{
+	text-align: center;
+	padding: 50px 40px;
+	min-height: 404px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: $bg_block;
+	position: relative;
+	&:before{
+		content: '';
+		position: absolute;
+		width: 95%;
+		height: 95%;
+		left: 50%;
+		top: 50%;
+		opacity: 0;
+		margin-top: 40px;
+		transform: translate(-50%, -50%);
+		border: 7px solid $accent_color;
+		transition: .4s ease-in-out;
+		pointer-events: none;
+	}
+	&:hover{
+		&:before{
+			margin-top: 0;
+			opacity: 1;
+		}
+	}
+	h3{
+		text-transform: uppercase;
+		margin: 25px 0 6px;
+	}
+	p{
+		color: $secondary_color;
+		font-size: 15px;
+		margin-bottom: 45px;
+	}
+}
+.crossfit-icon-1{
+	position: absolute;
+	top: 29%;
+	left: 21%;
+}
+.crossfit-icon-2{
+	position: absolute;
+	top: -12%;
+	left: 0%;
+}
+.crossfit-icon-3{
+	position: absolute;
+	top: 8%;
+	right: 14%;
+}
+
+/*------------------ S-OUR-PROGRAMS ------------------*/
+.s-our-programs{
+	padding: 128px 0 140px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	.our-programs-effect{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 1;
+	}
+	&:after,
+	&:before{
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 24px;
+		background-color: $bg_color;
+		z-index: 2;
+	}
+	&:before{
+		top: -1px;
+		clip-path: polygon(0 0, 100% 100%, 100% 0);
+	}
+	&:after{
+		bottom: -1px;
+		clip-path: polygon(100% 0, 0 100%, 100% 100%);
+	}
+	.container{
+		position: relative;
+		z-index: 3;
+	}
+}
+.mask{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	pointer-events: none;
+}
+.program-col{
+	&:nth-child(2n){
+		padding-top: 40px;
+	}
+}
+.program-item{
+	height: 350px;
+	position: relative;
+	&:hover{
+		.program-item-front{
+			transform: rotateY(180deg);
+			.program-item-inner{
+				transform: translateZ(100px);
+				transition-delay: 0s;
+			}
+		}
+		.program-item-back{
+			transform: rotateY(0deg);
+			.program-item-inner{
+				transform: translateZ(0px);
+				transition-delay: .2s;
+			}
+		}
+	}
+	.program-item-inner{
+		width: 100%;
+		z-index: 2;
+		backface-visibility: hidden;
+		text-align: center;
+		h3{
+			text-transform: uppercase;
+		}
+		.btn{
+			min-width: 134px;
+		}
+	}
+	.program-item-front,
+	.program-item-back{
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+		backface-visibility: hidden;
+		transform-style: preserve-3d;
+	}
+	.program-item-front{
+		transform: rotateY(0deg);
+		z-index: 2;
+		transition: all 0.7s cubic-bezier(0.5, 0.12, 0.46, 0.88);
+		.program-item-inner{
+			transform: translateZ(50px);
+			transition: all 0.4s cubic-bezier(0.5, 0.12, 0.46, 0.88);
+			transition-delay: .2s;			
+		}
+	}
+	.program-item-back{
+		transform: rotateY(-180deg);
+		z-index: 1;
+		transition: all 0.7s cubic-bezier(0.5, 0.12, 0.46, 0.88);
+		&:before{
+			content: '';
+			position: absolute;
+			border: 5px solid $accent_color;
+			top: -14px;
+			bottom: -14px;
+			left: 50%;
+			transform: translate(-50%, 0);
+			width: 94%;
+			z-index: 1;
+			opacity: 1;
+			backface-visibility: hidden;
+			transition: all 0.4s cubic-bezier(0.5, 0.12, 0.46, 0.88);
+		}
+		.program-item-inner{
+			transform: translateZ(125px);
+			transition: all 0.4s cubic-bezier(0.5, 0.12, 0.46, 0.88);
+			h3{
+				margin-bottom: 22px;
+			}
+		}
+	}
+}
+
+/*-------------------- S-CLUB-CARDS --------------------*/
+.s-club-cards{
+	padding: 128px 0 180px;
+	&.club-cards-fitness{
+		padding-bottom: 128px;
+		.section-title-bg{
+			top: 80px;
+		}
+		.club-card-col{
+			&:nth-child(2){
+				.club-card-item{
+					padding-top: 149px;
+					padding-bottom: 149px;
+				}
+			}
+		}
+		.club-card-item{
+			height: auto;
+			background-color: #131415;
+			color: #fff;
+		}
+	}
+}
+.club-card-col{
+	transform: translateY(40px);
+	&:nth-child(2){
+		transform: translateY(0);
+	}
+}
+.club-card-item{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	background-color: $bg_block;
+	box-shadow: 4px 4px 14px 0px rgba(0,0,0,0.15);
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 48px 20px 50px;
+	position: relative;
+	&:before{
+		content: '';
+		position: absolute;
+		width: 95%;
+		height: 95%;
+		left: 50%;
+		top: 50%;
+		opacity: 0;
+		margin-top: 40px;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		border: 7px solid $accent_color;
+		transition: .4s ease-in-out;
+		pointer-events: none;
+	}
+	&:hover{
+		&:before{
+			opacity: 1;
+			margin-top: 0;
+		}
+	}
+	.price-cover{
+		display: flex;
+		justify-content: flex-start;
+		font-family: $font_family_title;
+		text-transform: uppercase;
+		position: relative;
+		padding-bottom: 22px;
+		&:before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 45px;
+			height: 4px;
+			background-color: $accent_color;
+		}
+		.price{
+			font-size: 72px;
+			padding-right: 6px;
+			line-height: .75;
+		}
+		.date{
+			font-size: 18px;
+			padding-left: 2px;
+			span{
+				margin-left: -2px;
+				color: $input_focus;
+				display: block;
+				line-height: .9;
+				font-size: 36px;
+			}
+		}
+	}
+	.list{
+		width: 100%;
+		text-align: center;
+		padding: 20px 0 42px;
+		li{
+			border-bottom: 1px solid $border_color;
+			padding: 11px 0;
+			&:last-child{
+				border-bottom: none;
+			}
+			&.item-excluded{
+				color: rgba(190,190,190,0.66);
+			}
+		}
+	}
+}
+.club-cards-lite{
+	.club-card-item{
+		background-image: none;
+		padding-top: 98px;
+		padding-bottom: 98px;
+		.price-cover{
+			display: block;
+			text-align: center;
+			padding-bottom: 17px;
+			.price{
+				padding-right: 0;
+				display: flex;
+				align-items: flex-start;
+				margin-bottom: 19px;
+				span{
+					color: $accent_color;
+					font-size: 36px;
+					line-height: .75;
+					position: relative;
+					top: -4px;
+				}
+			}
+			.date{
+				padding-left: 0;
+			}
+		}
+		.club-card-text{
+			max-width: 330px;
+			text-align: center;
+			color: $secondary_color;
+			margin: 30px auto 46px;
+		}
+	}
+}
+
+/*----------------- S-CROSSFIT-BANNER -----------------*/
+.s-crossfit-banner{
+	position: relative;
+	background-color: $accent_color;
+	display: flex;
+	justify-content: space-between;
+	&:after,
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 24px;
+		background-color: $bg_color;
+		z-index: 1;
+		pointer-events: none;
+	}
+	&:before{
+		bottom: -1px;
+		clip-path: polygon(100% 100%, 0 0, 0 100%);
+	}
+	&:after{
+		top: -1px;
+		clip-path: polygon(100% 0, 0 0, 0 100%);
+	}
+}
+.crossfit-banner-left{
+	width: 44.5%;
+	height: 604px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+	position: relative;
+	&:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		background-color: rgba(0,0,0,0.5);
+	}
+}
+.crossfit-banner-right{
+	width: 55.5%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 20px 15px 10px 124px;
+	position: relative;
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: left center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-image: url(../img/bg-crossfit.svg);
+	}
+	.text-top{
+		font-family: $font_family_title;
+		color: #000;
+		font-weight: 400;
+		font-size: 48px;
+		line-height: 1.2;
+		margin-bottom: 19px;
+		position: relative;
+		z-index: 1;
+	}
+	h2{
+		font-size: 9em;
+		text-transform: uppercase;
+		line-height: 0.7em;
+		margin-bottom: 29px;
+		position: relative;
+		z-index: 1;
+	}
+	.text-bottom{
+		font-size: 64px;
+		font-weight: 500;
+		text-transform: uppercase;
+		font-style: italic;
+		line-height: 1em;
+		position: relative;
+		z-index: 1;
+		a{
+			font-weight: 700;
+			color: $input_focus;
+			position: relative;
+			&:before{
+				content: '';
+				position: absolute;
+				display: block;
+				bottom: -1px;
+				left: 0;
+				transition: .3s ease;
+				background-color: $input_focus;
+				height: 2px;
+				width: 100%;
+			}
+			&:hover{
+				color: $primary_color;
+				&:before{
+					width: 0;
+					background-color: $primary_color;
+				}
+			}
+		}
+	}
+}
+
+/*---------------- S-TRAINING-SCHEDULE ----------------*/
+.s-training-schedule{
+	padding: 128px 0 140px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.training-schedule-cover{
+	max-width: 1100px;
+	margin: 0 auto;
+	text-align: center;
+}
+.training-schedule-top{
+	border-top: 1px solid $accent_color;
+	background-color: $bg_block;
+	line-height: 41px;
+}
+.training-schedule-table{
+	table{
+		width: 100%;
+		background-color: #343641;
+		font-size: 14px;
+	}
+	thead{
+		background-color: #191a1f;
+		text-transform: uppercase;
+	}
+	th,td{
+		width: 12.5%;
+		text-align: center;
+		border-right: 1px solid #3c3e4a;
+		&:last-child{
+			border-right: none;
+		}
+	}
+	th{
+		border-color: transparent;
+		padding: 10px 5px 10px 5px;
+		color: #999;
+		font-weight: 700;
+	}
+	td{
+		padding: 12px;
+		&:first-child{
+			color: #999;
+			font-weight: 700;
+		}
+		h4{
+			line-height: 1;
+			text-transform: uppercase;
+		}
+		.date{
+			font-weight: 700;
+			margin-top: 2px;
+			color: $accent_color;
+		}
+		.name{
+			text-transform: capitalize;
+		}
+	}
+	tr{
+		border-bottom: 1px solid #3c3e4a;
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+}
+
+/*------------------- PAGE-PROGRAM -------------------*/
+.page-program{
+	.s-club-cards{
+		padding-bottom: 40px;
+	}
+	.s-training-schedule{
+		padding-bottom: 0;
+	}
+}
+
+/*--------------------- S-ABOUT ---------------------*/
+.s-about{
+	padding: 140px 0 0;
+}
+.about-effect-tringle{
+	position: absolute;
+	top: 3px;
+	right: 15%;
+}
+.about-row{
+	align-items: center;
+}
+.about-img-col{
+	flex: 0 0 44%;
+	max-width: 44%;
+}
+.about-img-1{
+	position: relative;
+	display: inline-block;
+	img{
+		display: block;
+		max-width: 100%;
+		position: relative;
+		z-index: 1;
+	}
+	.about-img-effect-1{
+		position: absolute;
+		bottom: 94px;
+		right: -98px;
+		z-index: 0;
+	}
+	.about-img-effect-2{
+		position: absolute;
+		bottom: -36px;
+		left: 202px;
+	}
+}
+.about-img-2{
+	margin-top: -187px;
+	text-align: right;
+	position: relative;
+	z-index: 2;
+	img{
+		max-width: 90%;
+	}
+}
+.about-info-cover{
+	flex: 0 0 56%;
+	max-width: 56%;
+	.title-decor{
+		text-align: left;
+		&:before{
+			transform: none;
+			left: 0;
+		}
+	}
+	.text{
+		a{
+			color: $accent_color;
+			&:hover{
+				color: $primary_color;
+			}
+		}
+		p{
+			margin-bottom: 44px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+	.social-list{
+		li{
+			margin-right: 24px;
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+		a{
+			color: #fff;
+			font-size: 23px;
+			&:hover{
+				color: $accent_color;
+			}
+		}
+	}
+}
+.about-cont{
+	margin: 30px 0 22px;
+	display: flex;
+	align-items: center;
+	li{
+		margin-right: 27px;
+		&:last-child{
+			margin-right: 0;
+		}
+		i{
+			margin-right: 17px;
+			font-size: 18px;
+		}
+		a{
+			color: $accent_color;
+			font-size: 17px;
+			&:hover{
+				color: $primary_color;
+			}
+		}
+	}
+}
+
+/*------------------ S-ABOUT-BOTTOM ------------------*/
+.s-about-bottom{
+	padding-top: 23px;
+}
+.about-bottom-item{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $bg_block;
+	padding: 20px 0;
+	height: 100%;
+	.date-cover{
+		font-family: $font_family_title;
+		text-transform: uppercase;
+		text-align: center;
+		border-right: 2px solid $accent_color;
+		width: 38%;
+		padding: 5px 0;
+		.date{
+			font-size: 48px;
+			font-weight: 400;
+			line-height: .75;
+			margin-bottom: 11px;
+		}
+	}
+}
+.about-bottom-info{
+	width: 62%;
+	padding: 16px 15px 16px 20px;
+	color: $secondary_color;
+	font-size: 15px;
+}
+
+/*------------------ S-OUR-TRAINER ------------------*/
+.s-our-trainer{
+	padding: 128px 0 140px;
+	.about-effect-tringle{
+		top: 30%;
+		right: 5%;
+	}
+}
+.trainer-img-col{
+	display: flex;
+	justify-content: flex-end;
+}
+.our-trainer-row{
+	align-items: center;
+}
+.our-trainer-effect-1,
+.our-trainer-effect-2,
+.our-trainer-effect-3{
+	position: absolute;
+}
+.our-trainer-effect-1{
+	left: 40px;
+	top: -90px;
+}
+.our-trainer-effect-2{
+	bottom: -90px;
+	right: 20%;
+}
+.our-trainer-effect-3{
+	left: -50px;
+	top: -30px;
+}
+.our-trainer-img{
+	position: relative;
+	z-index: 1;
+}
+.trainer-img-cover{
+	display: flex;
+	position: relative;
+}
+.our-trainer-info{
+	.name{
+		color: $accent_color;
+	}
+	.prof{
+		font-weight: 600;
+		margin-bottom: 15px;
+	}
+	p{
+		max-width: 90%;
+	}
+	.social-list{
+		margin-top: 38px;
+		li{
+			margin-right: 18px;
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+		a{
+			font-size: 23px;
+		}
+	}
+}
+
+/*----------------- S-TRAINER-AWARDS -----------------*/
+.s-trainer-awards{
+	padding: 128px 0;
+	text-align: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	.trainer-awards-effect{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		z-index: 1;
+		pointer-events: none;
+	}
+	&:after,
+	&:before{
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 24px;
+		background-color: $bg_color;
+		z-index: 1;
+		pointer-events: none;
+	}
+	&:before{
+		top: -1px;
+		clip-path: polygon(100% 0, 0 0, 0 100%);
+	}
+	&:after{
+		clip-path: polygon(100% 0, 0 100%, 100% 100%);
+		bottom: -1px;
+	}
+	.container{
+		z-index: 2;
+	}
+}
+.trainer-award-col{
+	i{
+		display: block;
+		margin: 0 auto 21px;
+		font-size: 48px;
+		color: $accent_color;
+	}
+	h3{
+		margin-bottom: 5px;
+		text-transform: uppercase;
+	}
+	p{
+		font-size: 15px;
+		line-height: 1.8;
+	}
+}
+
+/*------------------ S-TESTIMONIALS ------------------*/
+.s-testimonials{
+	position: relative;
+	padding: 140px 0;
+	text-align: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	&.s-fitness-testimonials{
+		&:after,
+		&:before{
+			background-color: #fff;
+		}	
+	}
+	&:after,
+	&:before{
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 24px;
+		background-color: $bg_color;
+		z-index: 2;
+		pointer-events: none;
+	}
+	&:before{
+		top: -1px;
+		clip-path: polygon(0 0, 100% 100%, 100% 0);
+	}
+	&:after{
+		clip-path: polygon(100% 100%, 0 0, 0 100%);
+		bottom: -1px;
+	}
+	.container{
+		z-index: 2;
+	}
+}
+.testimonials-effect{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-position: center;
+	background-repeat: no-repeat;
+	object-fit: cover;
+}
+.testimonials-slider{
+	z-index: 1;
+	max-width: 1160px;
+	margin: 0 auto;
+	text-align: center;
+	.slick-dots{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 30px;
+		li{
+			cursor: pointer;
+			position: relative;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: $secondary_color;
+			margin-right: 8px;
+			transition: .25s ease-in;
+			&:hover,
+			&.slick-active{
+				background-color: $accent_color;
+			}
+			&:last-child{
+				margin-right: 0;
+			}
+			button{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				visibility: hidden;
+				opacity: 0;
+				padding: 0;
+				margin: 0;
+			}
+		}
+	}
+}
+.testimonial-slide{
+	color: #fff;
+	img{
+		width: 97px;
+		height: 97px;
+		object-fit: cover;
+		border-radius: 50%;
+		margin: 0 auto 18px;
+		display: block;
+	}
+	.name{
+		text-transform: uppercase;
+		color: $accent_color;
+	}
+	.prof{
+		text-transform: uppercase;
+		font-size: 12px;
+		margin-top: 7px;
+	}
+	p{
+		max-width: 680px;
+		margin: 0px auto 20px;
+		font-style: italic;
+		font-weight: 500;
+		line-height: 1.7em;
+		letter-spacing: 0.5px;
+	}
+}
+.testimonials-border{
+	.testimonials-slider{
+		border: 7px solid $accent_color;
+		padding: 47px 0;
+		.slick-dots{
+			margin-top: 45px;
+		}
+	}
+	.testimonial-slide{
+		p{
+			margin-top: 10px;
+			margin-bottom: 0;
+		}
+		.prof{
+			margin-top: 0;
+		}
+	}
+}
+
+/*------------------ S-BEST-TRAINER ------------------*/
+.s-best-trainer{
+	padding: 128px 0 0;
+	.section-title-bg{
+		top: 80px;
+	}
+}
+.fitness-best-trainer{
+	.best-trainer-slide{
+		.prof{
+			color: #000;
+		}
+	}
+}
+.best-trainer-slide{
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		height: calc(100% - 20px);
+		width: calc(100% - 40px);
+		margin-top: 40px;
+		border: 7px solid $accent_color;
+		pointer-events: none;
+		transition: .4s ease;
+		z-index: 2;
+		opacity: 0;
+	}
+	&:hover{
+		&:before{
+			opacity: 1;
+			margin-top: 20px;
+		}
+		.name,
+		.surname,
+		.prof{
+			opacity: 1;
+		}
+		.best-trainer-img:before{
+			opacity: 0;
+		}
+	}
+	.best-trainer-img{
+		position: relative;
+		margin-bottom: 12px;
+		&:before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transition: .3s ease-in;
+			background-color: rgba(0,0,0,.6);
+		}
+	}
+	img{
+		width: 100%;
+		object-fit: cover;
+		display: block;
+	}
+	.name{
+		line-height: 1.2;
+		color: $accent_color;
+		padding: 0 40px;
+		transition: .4s ease;
+		opacity: 0;
+	}
+	.surname{
+		line-height: 1.2;
+		color: $accent_color;
+		padding: 0 40px;
+		transition: .4s ease;
+		opacity: 0;
+	}
+	.prof{
+		margin-top: 13px;
+		font-size: 14px;
+		color: $primary_color;
+		padding: 0 40px;
+		transition: .4s ease;
+		opacity: 0;
+	}
+}
+
+/*-------------------- PAGE-ABOUT --------------------*/
+.page-about{
+	.s-about-bottom{
+		padding-bottom: 140px;
+	}
+}
+
+/*---------------- S-ABOUT-INFORMATION ----------------*/
+.s-about-information{
+	padding: 140px 0;
+	text-align: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	min-height: 550px;
+	display: flex;
+	align-items: center;
+	.trainer-awards-effect{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		z-index: 1;
+		pointer-events: none;
+	}
+	&:after,
+	&:before{
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 24px;
+		background-color: $bg_color;
+		z-index: 1;
+		pointer-events: none;
+	}
+	&:before{
+		top: -1px;
+		clip-path: polygon(100% 0, 0 0, 0 100%);
+	}
+	&:after{
+		clip-path: polygon(100% 0, 0 100%, 100% 100%);
+		bottom: -1px;
+	}
+	.container{
+		z-index: 2;
+	}
+}
+.about-info-row{
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1140px;
+	margin: 0 auto;
+	.about-info-col{
+		flex: 0 0 20%;
+		max-width: 20%;
+		padding: 0 15px;
+		.number{
+			font-size: 96px;
+			font-weight: 400;
+			line-height: .75;
+			font-family: $font_family_title;
+			position: relative;
+			color: $accent_color;
+			padding-bottom: 26px;
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, 0);
+				width: 46px;
+				height: 4px;
+				background-color: $accent_color;
+			}
+		}
+		h3{
+			text-transform: uppercase;
+			margin-top: 20px;
+		}
+	}
+}
+
+/*------------------- S-OUT-TRAINER -------------------*/
+.s-out-trainer{
+	padding: 128px 0 140px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+.out-trainer-col{
+	margin-bottom: 30px;
+	&:nth-child(2n){
+		transform: translateY(30px);
+	}
+}
+.out-trainer-item{
+	display: flex;
+	justify-content: space-between;
+	background-color: $bg_block;
+	align-items: stretch;
+	transition: .25s ease-in;
+	&:hover{
+		background-color: $primary_color;
+		h3 a{
+			color: #000;
+			&:hover{
+				color: $accent_color;
+			}
+		}
+		p{
+			color: #4d4d4d;
+		}
+		.social-list li a{
+			color: #000;
+			&:hover{
+				color: $accent_color;
+			}
+		}
+	}
+}
+.out-trainer-img{
+	flex: 0 0 30%;
+	max-width: 30%;
+	img{
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.out-trainer-info{
+	flex: 0 0 70%;
+	max-width: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+	padding: 30px;
+	h3{
+		text-transform: uppercase;
+		transition: .25s ease-in;
+	}
+	.prof{
+		font-size: 14px;
+		text-transform: uppercase;
+		margin-bottom: 16px;
+		color: $accent_color;
+		transition: .25s ease-in;
+		font-weight: 500;
+	}
+	p{
+		color: $secondary_color;
+		margin-bottom: 17px;
+		transition: .25s ease-in;
+	}
+	.social-list{
+		li{
+			margin-right: 18px;
+			&:last-child{
+				margin-right: 0;
+			}
+			a{
+				transition: .25s ease-in;
+				font-size: 23px;
+			}
+		}
+	}
+}
+
+/*-------------------- S-CLIENTS --------------------*/
+.s-clients{
+	text-align: center;
+	padding-top: 100px;
+}
+.s-clients img{
+	max-width: 100%;
+	max-height: 100%;
+	margin: 0 auto;
+}
+.clients-cover{
+	margin: 0 -15px;
+	.client-slide{
+		padding: 0 15px;
+		.client-slide-cover{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 147px;
+			img{
+				transition: .25s ease-in;
+				&:hover{
+					opacity: .6;
+				}
+			}
+		}
+	}
+}
+
+/*--------------------- S-COUNTER ---------------------*/
+.s-counter{
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 128px 0 140px;
+	.subscribe-form{
+		max-width: 844px;
+		margin: 47px auto 0;
+		.btn{
+			text-transform: capitalize;
+		}
+		.inp-form{
+			height: 50px;
+			border-radius: 0;
+			border: 2px solid #fff;
+			background-color: #fff;
+			&:focus{
+				border-color: $input_focus;
+			}
+		}
+	}
+}
+#clockdiv{
+	display: flex;
+	justify-content: space-between;
+	max-width: 1080px;
+	margin: 0 auto;
+	font-family: $font_family_title;
+	text-transform: uppercase;
+	font-weight: 400;
+	.clock-item{
+		text-align: center;
+		width: 25%;
+		span{
+			display: block;
+			font-size: 96px;
+			color: $accent_color;
+			line-height: .75;
+			margin-bottom: 10px;
+		}
+		.smalltext{
+			font-size: 24px;
+		}
+	}
+}
+
+/*---------------- S-WELCOME-FITNESS ----------------*/
+.s-welcome-fitness{
+	padding: 140px 0;
+}
+.welcome-fitness-row{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin: 0 auto;
+	max-width: 1140px;
+}
+.welcome-fitness-img{
+	flex: 0 0 50%;
+	max-width: 50%;
+	padding: 0 15px;
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	img{
+		display: block;
+	}
+}
+.welcome-fitness-item{
+	flex: 0 0 50%;
+	max-width: 50%;
+	padding: 93px 15px 0;
+	img{
+		display: block;
+		position: relative;
+		left: -30px;
+		margin-top: -20px;
+	}
+}
+.welcome-fitness-info{
+	padding: 53px 30px 92px 0;
+	position: relative;
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		right: -15px;
+		height: 100%;
+		width: calc(100% + 94px);
+		border: 7px solid $accent_color;
+		z-index: 1;
+		pointer-events: none;
+	}
+	.title-decor{
+		text-align: left;
+		line-height: 1;
+		padding-bottom: 0;
+		margin-bottom: 16px;
+		&:before{
+			display: none;
+		}
+		span{
+			display: block;
+		}
+	}
+	.btn{
+		margin-top: 23px;
+	}
+}
+
+/*------------------- PAGE-FITNESS -------------------*/
+.page-fitness{
+	section{
+		position: relative;
+	}
+	.s-welcome-fitness{
+		padding-top: 0;
+		margin-top: -94px;
+		z-index: 4;
+		position: relative;
+		padding-bottom: 0;
+	}
+
+}
+/*----------------- S-FITNESS-SLIDER -----------------*/
+.s-fitness-slider{
+	position: relative;
+	&:before{
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 46px;
+		background-color: #fff;
+		z-index: 4;
+		pointer-events: none;
+		bottom: -1px;
+		clip-path: polygon(100% 100%, 0 0, 0 100%);
+	}
+	.slider-navigation{
+		.slider-navigation-cover{
+			padding: 0 70px;
+		}
+		.slick-arrow{
+			&:hover{
+				svg{
+					fill: #000;
+				}
+			}
+		}
+		.slick-dots li{
+			&:hover,
+			&.slick-active{
+				button{
+					color: $accent_color;
+				}
+			}
+			button{
+				color: #000;
+			}
+		}
+		.container{
+			justify-content: flex-start;
+		}
+	}
+}
+.fitness-slider{
+	background-color: #f3f3f3;
+}
+.fitness-slide{
+	.fitness-slider-effect{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		transform: scale(2);
+		opacity: 0;
+	}
+	.container{
+		position: relative;
+		min-height: 824px;
+		display: flex;
+		align-items: center;
+	}
+	.slide-img-cover{
+		position: absolute;
+		pointer-events: none;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+		opacity: 0;
+		transition: .3s ease-out;
+		transition-delay: .2s;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%) scale(.8) rotate(10deg);
+	}
+	.slide-img{
+		position: absolute;
+		max-height: 85%;
+		max-width: 100%;
+		display: block;
+		margin: 0 auto;
+	}
+	.slide-img-effect{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		z-index: 1;
+		opacity: .3;
+	}
+	.fitness-slide-cover{
+		position: relative;
+		z-index: 4;
+		.title{
+			text-transform: uppercase;
+			font-size: 66px;
+			line-height: .75;
+			color: #000;
+			position: relative;
+			padding-left: 15px;
+			transform: translateX(-30%);
+			transition: .2s ease-out;
+			opacity: 0;
+			&:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 47px;
+				width: 4px;
+				background-color: $accent_color;
+				transform: translateY(30%);
+				transition: .2s ease-out;
+				transition-delay: .8s;
+				opacity: 0;
+			}
+			span{
+				display: block;
+				color: $accent_color;
+				margin-top: 32px;
+				transform: translateX(-10%);
+				transition: .2s ease-out;
+				transition-delay: .3s;
+				opacity: 0;
+			}
+		}
+	}
+	.text-bg{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-40%,-50%) skew(2deg);
+		filter: blur(10px);
+		transition: .2s ease-out;
+		text-transform: uppercase;
+		color: #e2e2e2;
+		font-size: 238px;
+		line-height: .75;
+		font-family: $font_family_title;
+		text-align: center;
+		opacity: 0;
+	}
+}
+.page-loaded{
+	.fitness-slide.slick-current{
+		.fitness-slider-effect{
+			transition: .3s ease-out;
+			transition-delay: .9s;
+			transform: scale(1);
+			opacity: 1;
+		}
+		.text-bg{
+			left: 50%;
+			transition: .6s ease-out .2s;
+			transform: translate(-50%,-50%) skew(0);
+			filter: blur(0);
+			opacity: 1;
+		}
+		.fitness-slide-cover .title{
+			transition: .6s ease-out .2s;
+			transform: translateX(0%);
+			opacity: 1;
+			&:before{
+				transform: translateY(0);
+				opacity: 1;
+			}
+			span{
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+		.slide-img-cover{
+			transform: translate(-50%,-50%) scale(1) rotate(0);
+			opacity: 1;
+			transition-delay: .7s;
+		}
+	}
+}
+/*--------------- FITNESS-OUR-PROGRAM ---------------*/
+.fitness-our-program{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	text-align: center;
+	.btn{
+		margin-top: 120px;
+	}
+	.section-title-bg{
+		top: -46px;
+	}
+}
+.fitness-program-col{
+	margin-bottom: 30px;
+	&:nth-child(1),
+	&:nth-child(4){
+		transform: translateY(100px);
+	}
+	&:nth-child(2),
+	&:nth-child(5){
+		transform: translateY(50px);
+	}
+}
+.fitness-program-item{
+	height: 490px;
+	position: relative;
+	&:hover{
+		.fitness-program-item-front{
+			transform: rotateY(180deg);
+		}
+		.fitness-program-item-back{
+			transform: rotateY(0deg);
+		}
+	}
+}
+.fitness-program-item-back,
+.fitness-program-item-front{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+	transition: all 0.7s cubic-bezier(0.5, 0.12, 0.46, 0.88);
+}
+.fitness-program-item-front{
+	transform: rotateY(0deg);
+	z-index: 2;
+	display: flex;
+	align-items: flex-end;
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,.6);
+	}
+	.fitness-program-item-inner{
+		position: relative;
+		z-index: 1;
+		background-color: $accent_color;
+		color: #fff;
+		text-align: center;
+		width: 100%;
+		padding: 36px 0;
+		text-transform: uppercase;
+		&:before{
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 100%;
+			width: 100%;
+			height: 30px;
+			background-color: $accent_color;
+			z-index: 2;
+			clip-path: polygon(100% 0, 0 100%, 100% 100%);
+		}
+		.date{
+			font-weight: 300;
+		}
+	}
+}
+.fitness-program-item-back{
+	transform: rotateY(-180deg);
+	z-index: 1;
+	.fitness-program-item-inner{
+		position: absolute;
+		width: calc(100% + 24px);
+		border-width: 7px;
+		height: 58%;
+		transform: translate(-50%, -50%);
+		max-width: none;
+		top: 50%;
+		left: 50%;
+		background-color: transparent;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		border: 7px solid $accent_color;
+		color: #fff;
+		text-transform: uppercase;
+		padding: 20px;
+		backface-visibility: hidden;
+		background-color: rgba(242,56,73,0.5);
+		.date{
+			font-weight: 300;
+			font-size: 18px;
+		}
+	}
+}
+
+/*----------------- S-FITNESS-BANNER -----------------*/
+.s-fitness-banner{
+	background-color: #f3f3f3;
+	position: relative;
+	padding: 81px 0 0;
+	margin-bottom: 211px;
+	&:after,
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 24px;
+		background-color: #fff;
+		z-index: 1;
+		pointer-events: none;
+	}
+	&:after{
+		clip-path: polygon(100% 0, 0 100%, 100% 100%);
+		bottom: -1px;
+	}
+	&:before{
+		top: -1px;
+		clip-path: polygon(100% 0, 0 0, 0 100%);
+	}
+}
+.fitness-banner-effect{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+.fitness-banner-row{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	position: relative;
+	z-index: 2;
+}
+.fitness-banner-left{
+	flex: 0 0 38.5%;
+	max-width: 38.5%;
+	height: 676px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.fitness-banner-right{
+	flex: 0 0 61.5%;
+	max-width: 61.5%;
+	padding: 230px 0 100px 147px;
+	position: relative;
+	color: #000;
+	text-transform: uppercase;
+	z-index: 2;
+	&:before{
+		content: '';
+		position: absolute;
+		top: 80px;
+		right: -15px;
+		left: -113px;
+		height: 100%;
+		border: 7px solid $accent_color;
+		pointer-events: none;
+	}
+	h2{
+		font-size: 90px;
+		line-height: 1em;
+		span{
+			display: block;
+			color: $accent_color;
+		}
+	}
+	p{
+		font-size: 25px;
+		margin-top: 27px;
+		a{
+			position: relative;
+			color: $accent_color;
+			&:before{
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 2px;
+				background-color: $accent_color;
+				transition: .25s ease-in;
+			}
+			&:hover{
+				&:before{
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+/*----------------- S-FITNESS-POSTS -----------------*/
+.s-fitness-posts{
+	position: relative;
+	padding-top: 128px;
+	padding-bottom: 40px;
+	.section-title-bg{
+		top: 80px;
+	}
+}
+.fitness-post-col{
+	transform: translateY(40px);
+	&:nth-child(2){
+		transform: translateY(0);
+	}
+	.post-item-cover{
+		background-color: #fff;
+		box-shadow: 4px 4px 14px 0px rgba(0,0,0,0.15);
+		padding: 0px 0px 40px 0px;
+		.post-header{
+			background-color: $accent_color;
+			padding: 42px 0;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			text-align: center;
+			margin: 0;
+			.date{
+				font-size: 40px;
+				font-weight: 600;
+				color: #fff;
+			}
+		}
+	}
+	.post-content{
+		padding: 32px 38px 0;
+		.text{
+			color: #959595;
+		}
+		.title{
+			font-size: 20px;
+			margin-top: 0;
+			a{
+				color: #000;
+				&:hover{
+					color: $accent_color;
+				}
+			}
+		}
+	}
+	.post-footer{
+		padding: 0 38px;
+		text-align: center;
+		margin-top: 17px;
+		.meta{
+			display: flex;
+			flex-wrap: wrap;
+			text-align: left;
+			margin-bottom: 45px;
+			span{
+				width: calc(50% - 5px);
+				margin-bottom: 5px;
+				margin-right: 0;
+				font-size: 15px;
+				font-weight: 500;
+				i{
+					font-size: 18px;
+					width: 18px;
+					text-align: center;
+				}
+			}
+			a{
+				color: #4d4d4d;
+				&:after{
+					color: #4d4d4d;
+				}
+				&:hover{
+					color: $accent_color;
+				}
+			}
+		}
+	}
+}
+
+/*----------------- S-FITNESS-GALLERY -----------------*/
+.s-fitness-gallery{
+	padding: 128px 0 140px;
+	.section-title-bg{
+		top: 80px;
+	}
+}
+.row-gallery{
+	margin: -1.132%;
+}
+.gallery-item{
+	padding: 1.132%;
+	a{
+		display: block;
+		position: relative;
+		overflow: hidden;
+		border-radius: $border_radius;
+		color: #fff;
+		&:before{
+			content: '\f06e';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+			opacity: 0;
+			z-index: 1;
+			color: #fff;
+			font-size: 30px;
+			font-family: 'FontAwesome';
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			-webkit-transition: .4s ease;
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			width: 95%;
+			height: 95%;
+			left: 50%;
+			top: 50%;
+			opacity: 0;
+			margin-top: 40px;
+			transform: translate(-50%, -50%);
+			border: 7px solid $accent_color;
+			transition: .4s ease-in-out;
+			pointer-events: none;
+			z-index: 3;
+		}
+		img{
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			position: relative;
+			transition: .7s linear;
+			object-fit: cover;
+		}
+		&:hover{
+			&:before{
+				opacity: 1;
+			}
+			&:after{
+				opacity: 1;
+				margin-top: 0;
+			}
+			.gal-item{
+				opacity: 0;
+				transform: translateY(30px);
+			}
+		}
+	}
+	.gal-item{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		z-index: 2;
+		background-image: linear-gradient(180deg, rgba(255,255,255,0) 0%, #000000 64%);
+		padding: 20px 20px 15px 20px;
+		transition: .4s ease;
+		p{
+			font-size: 14px;
+		}
+		.title{
+			text-transform: capitalize;
+		}
+	}
+}
+.grid-sizer,
+.gallery-item{
+	width: 25%;
+}
+
+/* --------------------- MEDIA ---------------------- */
+@media(max-width: 1680px){
+	.crossfit-banner-right{
+		padding-left: 60px;
+		h2{
+			font-size: 8em;
+		}
+		.text-top{
+			font-size: 42px;
+		}
+		.text-bottom{
+			font-size: 48px;
+		}
+	}
+	.crossfit-banner-left{
+		height: 560px;
+	}
+}
+@media(max-width: 1440px){
+	.crossfit-banner-right{
+		.text-bottom{
+			font-size: 42px;
+		}
+		.text-top{
+			font-size: 40px;
+		}
+		h2 {
+			font-size: 7em;
+		}
+	}
+	.crossfit-banner-left {
+		height: 510px;
+	}
+}
+@media(max-width: 1366px){
+	.logo img {
+		max-width: 96px;
+	}
+	.s-crossfit-slider{
+		.slider-navigation{
+			bottom: 28%;
+		}
+		&:before{
+			height: 40px;
+		}
+	}
+	.crossfit-slide{
+		.title{
+			font-size: 56px;
+		}
+		.container {
+			min-height: 700px;
+		}
+	}
+	.s-related-posts .post-item-cover .post-thumbnail img {
+		height: 310px;
+	}
+	#clockdiv .clock-item .smalltext {
+		font-size: 22px;
+	}
+	.crossfit-icon-2 {
+		max-width: 70px;
+	}
+	#clockdiv{
+		max-width: 800px;
+	}
+	.s-counter .subscribe-form {
+		max-width: 600px;
+	}
+	.about-bottom-item{
+		.date-cover{
+			width: 35%;
+		}
+	}
+	.about-bottom-info{
+		width: 65%;
+		padding-right: 10px;
+	}
+	.about-img-1 .about-img-effect-1 {
+		bottom: 50px;
+		right: -40px;
+	}
+	.s-about-information .trainer-awards-effect{
+		display: none;
+	}
+	.about-info-row .about-info-col .number {
+		font-size: 78px;
+		padding-bottom: 30px;
+	}
+	.post-item-cover .post-thumbnail img{
+		height: 460px;
+	}
+	.fitness-slide .container {
+		min-height: 760px;
+	}
+	.section-title-bg {
+		font-size: 200px;
+	}
+	.fitness-post-col .post-content {
+		padding: 32px 20px 0;
+	}
+	.fitness-post-col .post-footer{
+		padding: 0 20px;
+	}
+	.fitness-post-col .post-footer .meta span{
+		font-size: 14px;
+	}
+}
+@media(max-width: 1280px){
+	.crossfit-banner-right{
+		.text-bottom{
+			font-size: 36px;
+		}
+		.text-top{
+			font-size: 34px;
+		}
+		h2 {
+			font-size: 6em;
+		}
+	}
+	.crossfit-banner-left {
+		height: 450px;
+		background-position: center;
+	}
+	.s-related-posts .post-item-cover{
+		.post-content,
+		.post-footer {
+			padding: 0 30px;
+		}
+	}
+}
+
+@media(max-width: 1199px){
+	.s-club-cards{
+		padding: 88px 0 140px;
+	}
+	.s-fitness-gallery,
+	.s-our-trainer,
+	.s-contacts,
+	.s-out-trainer,
+	.s-counter,
+	.s-training-schedule,
+	.s-our-programs,
+	.s-crossfit {
+		padding: 88px 0 100px;
+	}
+	.s-news,
+	.s-about-information,
+	.s-welcome-fitness,
+	.s-testimonials{
+		padding: 100px 0;
+	}
+	.s-fitness-posts,
+	.s-best-trainer,
+	.s-related-posts.home-related-posts{
+		padding-top: 88px;
+	}
+	.s-trainer-awards{
+		padding: 88px 0;
+	}
+	.s-club-cards.club-cards-fitness{
+		padding-bottom: 88px;
+	}
+	.s-about{
+		padding-top: 100px;
+	}
+	.page-about .s-about-bottom{
+		padding-bottom: 100px;
+	}
+	.fitness-banner-right:before,
+	.gallery-item a:after,
+	.testimonials-border .testimonials-slider{
+		border-width: 5px;
+	}
+	.welcome-fitness-info,
+	.club-card-item,
+	.crossfit-item{
+		&:before{
+			border-width: 5px;
+		}
+	}
+	.fitness-banner-effect,
+	.s-trainer-awards .trainer-awards-effect,
+	.our-programs-effect,
+	.crossfit-icon-1,
+	.crossfit-icon-2,
+	.crossfit-icon-3,
+	.testimonials-effect,
+	.crossfit-slider-effect{
+		display: none !important;
+	}
+	.gallery-item a:before{
+		font-size: 22px;
+	}
+	.title-decor{
+		margin-bottom: 17px;
+	}
+	.crossfit-banner-right{
+		.text-top{
+			font-size: 26px;
+		}
+		.text-bottom{
+			font-size: 28px;
+		}
+		h2 {
+			font-size: 5.2em;
+		}
+	}
+	.crossfit-banner-left {
+		height: 400px;
+	}
+	.logo img {
+		max-width: 86px;
+	}
+	.crossfit-slide{
+		.container {
+			min-height: 560px;
+		}
+		.title {
+			font-size: 46px;
+		}
+		p {
+			max-width: 560px;
+			font-size: 14px;
+		}
+	}
+	.slider-navigation{
+		.slider-navigation-cover {
+			padding: 0 60px;
+		}
+		.slick-dots li button{
+			font-size: 22px;
+		}
+		.slick-arrow svg{
+			height: 28px;
+		}
+	}
+	.crossfit-item {
+		padding: 40px 30px;
+		min-height: 360px;
+		img{
+			max-width: 121px;
+		}
+		p{
+			font-size: 14px;
+			margin-bottom: 27px;
+		}
+	}
+	.program-item {
+		height: 270px;
+		.program-item-inner h3{
+			font-size: 18px;
+		}
+		.program-item-back .program-item-inner{
+			transform: translateZ(80px);
+			h3 {
+				margin-bottom: 12px;
+			}
+		}
+		.program-item-front .program-item-inner{
+			transform: translateZ(0px);
+			transition-delay: 0;
+		}
+		&:hover{
+			.program-item-front .program-item-inner{
+				transform: translateZ(80px);
+			}
+		}
+	}
+	.out-trainer-info .social-list li{
+		margin-right: 16px;
+		a {
+			font-size: 18px;
+		}
+	}
+	.btn{
+		font-size: 14px;
+		padding: 12px 40px 10px;
+	}
+	.club-card-item{
+		.price-cover{
+			.price{
+				font-size: 66px;
+			}
+			.date{
+				font-size: 16px;
+				span{
+					font-size: 26px;
+				}
+			}
+		}
+		.list{
+			padding-bottom: 24px;
+			li {
+				padding: 8px 0;
+			}
+		}
+	}
+	.testimonial-slide{
+		img{
+			height: 87px;
+			width: 87px;
+		}
+		p{
+			max-width: 600px;
+		}
+	}
+	.s-related-posts .post-item-cover{
+		padding-bottom: 82px;
+		.post-header{
+			margin-bottom: 32px;
+			.related-post-categ{
+				min-width: 100px;
+				line-height: 32px;
+			}
+		}
+		.post-thumbnail img {
+			height: 250px;
+		}
+	}
+	.post-item-cover .meta span {
+		margin-right: 34px;
+	}
+	.training-schedule-table{
+		table{
+			font-size: 12px;
+		}
+		td h4{
+			font-size: 14px;
+		}
+	}
+	#clockdiv .clock-item{
+		.smalltext{
+			font-size: 20px;
+		}
+		span{
+			font-size: 76px;
+		}
+	}
+	.fitness-our-program,
+	.s-contacts,
+	.s-out-trainer,
+	.s-training-schedule{
+		background-image: none !important;
+	}
+	.welcome-fitness-item{
+		padding-top: 7px;
+	}
+	.best-trainer-slide{
+		padding-bottom: 10px;
+		&:before {
+			height: calc(100% - 10px);
+			width: calc(100% - 20px);
+			border-width: 5px;
+		}
+		&:hover{
+			&:before {
+				margin-top: 10px;
+			}
+		}
+		.name,
+		.surname,
+		.prof{
+			padding: 0 30px;
+		}
+		.prof{
+			margin-top: 8px;
+		}
+	}
+	.club-cards-lite .club-card-item {
+		padding-top: 78px;
+		padding-bottom: 78px;
+	}
+	.s-map .cont-map {
+		height: 350px;
+	}
+	.contact-item-left h4{
+		font-size: 16px;
+	}
+	textarea{
+		height: 166px;
+	}
+	.about-img-1{
+		.about-img-effect-1{
+			display: none;
+		}
+		img {
+			max-width: 85%;
+		}
+	}
+	.about-img-2{
+		margin-top: -110px;
+		img {
+			max-width: 60%;
+		}
+	}
+	.about-info-cover{
+		.social-list{
+			li{
+				margin-right: 16px;
+			}
+			a{
+				font-size: 18px;
+			}
+		}
+		.text p {
+			margin-bottom: 15px;
+		}
+	}
+	.about-cont li{
+		i{
+			margin-right: 12px;
+			font-size: 16px;
+		}
+		a{
+			font-size: 14px;
+		}
+	}
+	.about-bottom-info{
+		font-size: 14px;
+		padding: 10px 15px 10px 20px;
+	}
+	.about-bottom-item .date-cover{
+		h4{
+			font-size: 16px;
+		}
+		.date {
+			font-size: 42px;
+			margin-bottom: 7px;
+		}
+	}
+	.about-img-effect-2,
+	.about-effect-tringle{
+		display: none;
+	}
+	.s-about-information{
+		min-height: 400px;
+	}
+	.about-info-row .about-info-col{
+		.number{
+			font-size: 70px;
+		}
+		h3{
+			font-size: 18px;
+		}
+	}
+	.clients-cover .client-slide .client-slide-cover{
+		height: 100px;
+	}
+	.trainer-award-col p {
+		font-size: 14px;
+		line-height: 1.6;
+	}
+	.our-trainer-info p {
+		max-width: 100%;
+	}
+	.our-trainer-info .social-list li {
+		margin-right: 16px;
+		a{
+			font-size: 18px;
+		}
+	}
+	.our-trainer-effect-3 {
+		left: -30px;
+	}
+	.post-item-cover .post-thumbnail img {
+		height: 380px;
+	}
+	.widget-instagram ul{
+		margin: -5px;
+		li{
+			padding: 5px;
+		}
+	}
+	.fitness-slide .container {
+		min-height: 580px;
+	}
+	.fitness-slide .slide-img-effect{
+		max-height: 52%;
+	}
+	.fitness-slide .fitness-slide-cover{
+		.title{
+			font-size: 40px;
+			&:before{
+				height: 30px;
+			}
+			span{
+				margin-top: 20px;
+			}
+		}
+		.text-bg{
+			font-size: 188px;
+		}
+	}
+	.s-fitness-slider .slider-navigation .slider-navigation-cover {
+		padding: 0px 50px;
+	}
+	.page-fitness .s-welcome-fitness{
+		margin-top: 88px;
+	}
+	.section-title-bg {
+		font-size: 130px;
+	}
+	.s-club-cards.club-cards-fitness .club-card-item {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	.s-club-cards.club-cards-fitness .club-card-col:nth-child(2) .club-card-item {
+		padding-top: 96px;
+		padding-bottom: 102px;
+	}
+	.fitness-program-col:nth-child(2), .fitness-program-col:nth-child(5) {
+		transform: translateY(30px);
+	}
+	.fitness-program-col:nth-child(1), .fitness-program-col:nth-child(4) {
+		-webkit-transform: translateY(60px);
+		transform: translateY(60px);
+	}
+	.fitness-program-item {
+		height: 350px;
+	}
+	.fitness-our-program .section-title-bg {
+		top: -6px;
+	}
+	.fitness-our-program .btn {
+		margin-top: 60px;
+	}
+	.fitness-post-col .post-item-cover{
+		.post-header{
+			padding: 30px 0;
+			.date {
+				font-size: 30px;
+			}
+		}
+	}
+	.fitness-post-col .post-footer .meta{
+		margin-bottom: 30px;
+		span{
+			font-size: 12px;
+			i {
+				font-size: 16px;
+				width: 16px;
+				margin-right: 6px;
+			}
+		}
+	}
+	.gallery-item .gal-item{
+		p{
+			font-size: 12px;
+		}
+		.title{
+			font-size: 16px;
+		}
+	}
+	.s-fitness-banner{
+		padding-top: 0;
+		margin-bottom: 100px;
+	}
+	.fitness-banner-left{
+		height: 600px;
+		flex: 0 0 40%;
+		max-width: 40%;
+	}
+	.fitness-banner-right{
+		flex: 0 0 60%;
+		max-width: 60%;
+		padding: 158px 0 0px 110px;
+		p{
+			font-size: 20px;
+		}
+		h2 {
+			font-size: 70px;
+		}
+	}
+	.fitness-slide .text-bg{
+		font-size: 188px;
+	}
+	.header-fitness .logo img{
+		max-width: 120px;
+	}
+	.fitness-slide .fitness-slider-effect{
+		display: none;
+	}
+	.widget-instagram li img{
+		height: 63px;
+	}
+}
+
+@media(max-width: 991px){
+	.crossfit-banner-right {
+		padding-left: 40px;
+		h2{
+			font-size: 60px;
+		}
+		.text-top{
+			font-size: 24px;
+		}
+		.text-bottom{
+			font-size: 26px;
+		}
+	}
+	.crossfit-banner-left {
+		height: 350px;
+	}
+	.crossfit-slide .title {
+		font-size: 40px;
+	}
+	.s-crossfit-slider:before {
+		height: 30px;
+	}
+	.crossfit-item{
+		padding: 40px 20px;
+		img {
+			max-width: 111px;
+		}
+	}
+	.btn {
+		padding: 12px 30px 10px;
+	}
+	.program-item {
+		height: 220px;
+		.program-item-inner h3 {
+			font-size: 16px;
+			max-width: 110px;
+			margin: 0 auto;
+		}
+		.program-item-inner .btn {
+			min-width: 110px;
+		}
+	}
+	.out-trainer-info {
+		padding: 24px;
+	}
+	.club-card-item{
+		.price-cover{
+			.price{
+				font-size: 50px;
+			}
+			.date{
+				font-size: 14px;
+				span{
+					font-size: 20px;
+				}
+			}
+		}
+		.list{
+			li {
+				padding: 6px 0;
+			}
+		}
+	}
+	.club-card-item{
+		background-size: cover;
+	}
+	.training-schedule-table td {
+		padding: 6px;
+	}
+	.our-trainer-effect-1,
+	.our-trainer-effect-2,
+	.our-trainer-effect-3,
+	.welcome-fitness-item img{
+		display: none !important;
+	}
+	.welcome-fitness-item {
+		padding-top: 20px;
+	}
+	.welcome-fitness-info {
+		padding: 40px 15px 45px 0;
+	}
+	.club-cards-lite .club-card-item {
+		padding-top: 58px;
+		padding-bottom: 58px;
+	}
+	.club-cards-lite .club-card-item .club-card-text{
+		margin-bottom: 34px;
+	}
+	.s-related-posts .post-item-cover .post-thumbnail img {
+		height: 190px;
+	}
+	.s-related-posts .post-item-cover .post-content,
+	.s-related-posts .post-item-cover .post-footer {
+		padding: 0 20px;
+	}
+	.about-row{
+		align-items: flex-start;
+	}
+	.s-about-bottom{
+		padding-top: 88px;
+	}
+	.about-bottom-info {
+		font-size: 13px;
+		padding: 5px 10px;
+	}
+	.about-info-row .about-info-col{
+		.number{
+			font-size: 62px;
+		}
+		h3{
+			font-size: 14px;
+		}
+	}
+	.s-about-information {
+		min-height: 350px;
+	}
+	.s-trainer-awards{
+		padding-bottom: 48px;
+	}
+	.trainer-award-col{
+		margin-bottom: 40px;
+	}
+	.widgets{
+		margin-top: 40px;
+		display: none;
+		width: 100% !important;
+	}
+	.widget-instagram li img{
+		height: 180px;
+	}
+	.fitness-slide .text-bg {
+		font-size: 140px;
+	}
+	.fitness-slide .container {
+		min-height: 520px;
+	}
+	.fitness-program-item-inner{
+		h3{
+			font-size: 18px;
+		}
+	}
+	.fitness-program-item {
+		height: 280px;
+	}
+	.fitness-program-item-front .fitness-program-item-inner{
+		padding: 18px 0;
+		&:before{
+			height: 16px;
+		}
+	}
+	.fitness-program-item-back .fitness-program-item-inner .date{
+		font-size: 14px;
+	}
+	.fitness-banner-left{
+		flex: 0 0 50%;
+		max-width: 50%;
+		height: 520px;
+	}
+	.fitness-banner-right{
+		flex: 0 0 50%;
+		max-width: 50%;
+		padding: 158px 0 0px 50px;
+		&:before{
+			left: -60px;
+		}
+		h2 {
+			font-size: 50px;
+		}
+		p{
+			font-size: 16px;
+		}
+	}
+	.fitness-post-col .post-item-cover .post-header {
+		padding: 20px 0;
+		.date{
+			font-size: 24px;
+		}
+	}
+	.fitness-post-col .post-content .title{
+		font-size: 16px;
+		line-height: 1.2;
+	}
+	.fitness-post-col .post-footer .meta{
+		span{
+			width: 100%;
+			margin-bottom: 4px;
+		}
+		.post-category,
+		.post-tags{
+			display: none;
+		}
+	}
+	.gallery-item .gal-item{
+		padding: 10px;
+	}
+	.s-news .row{
+		flex-direction: column-reverse;
+	}
+	.blog-cover{
+		margin-top: 88px;
+	}
+}
+
+@media(max-width: 767px){
+	.testimonials-border .testimonial-slide p{
+		padding: 0 10px;
+	}
+	.s-our-programs{
+		padding-bottom: 70px;
+	}
+	.club-cards-lite .club-card-item {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		.club-card-text {
+			max-width: 350px;
+		}
+	}
+	.crossfit-banner-left {
+		height: 300px;
+	}
+	.crossfit-banner-right{
+		.text-top{
+			font-size: 20px;
+		}
+		.text-bottom{
+			font-size: 20px;
+		}
+		h2 {
+			font-size: 44px;
+		}
+	}
+	.logo img {
+		max-width: 76px;
+	}
+	.crossfit-slide{
+		.title{
+			font-size: 34px;
+		}
+		.container {
+			min-height: 350px;
+		}
+	}
+	.crossfit-slide p{
+		margin-bottom: 0;
+	}
+	.crossfit-col {
+		padding-top: 0;
+		margin-bottom: 30px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	.crossfit-item {
+		min-height: auto;
+	}
+	.program-item {
+		height: 280px;
+		.program-item-inner{
+			.btn{
+				min-width: 130px;
+			}
+			h3{
+				max-width: none;
+				font-size: 18px;
+			}
+		}
+	}
+	.club-card-col{
+		margin-bottom: 30px;
+		transform: translateY(0);
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	.out-trainer-col{
+		&:last-child{
+			margin-bottom: 0;
+		}
+		&:nth-child(2n) {
+			transform: translateY(0);
+		}
+	}
+	.s-club-cards{
+		padding-bottom: 100px;
+	}
+	.s-related-posts .related-post-col{
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	.s-related-posts.home-related-posts.crossfit-lite-posts .related-post-col:nth-child(2n),
+	.s-related-posts.home-related-posts .related-post-col:nth-child(2n){
+		top: 0;
+	}
+	.training-schedule-table{
+		overflow: hidden;
+		overflow-x: auto;
+		width: 100%;
+		table{
+			width: 730px;
+		}
+	}
+	#clockdiv .clock-item{
+		.smalltext{
+			font-size: 16px;
+		}
+		span {
+			font-size: 56px;
+		}
+	}
+	.s-counter .subscribe-form {
+		max-width: 440px;
+	}
+	.s-our-programs .program-col{
+		padding-top: 0;
+		margin-bottom: 30px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	.to-top{
+		display: none;
+	}
+	.s-contacts .contact-item:last-child{
+		margin-bottom: 94px;
+	}
+	.s-map .cont-map {
+		height: 280px;
+	}
+	.about-img-col{
+		display: none;
+	}
+	.about-info-cover {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+	.s-about-bottom{
+		.row > div{
+			margin-bottom: 30px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+	.about-bottom-info{
+		font-size: 14px;
+		width: 60%;
+		padding: 5px 20px;
+		text-align: center;
+	}
+	.about-bottom-item .date-cover {
+		width: 40%;
+	}
+	.about-info-cover{
+		text-align: center;
+		.title-decor{
+			text-align: center;
+			&:before{
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+		.social-list{
+			justify-content: center;
+		}
+	}
+	.about-cont{
+		justify-content: center;
+		flex-direction: column;
+		li{
+			margin-right: 0;
+			margin-bottom: 6px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+	.s-about{
+		padding-top: 88px;
+	}
+	.about-info-row .about-info-col{
+		flex: 0 0 25%;
+		max-width: 25%;
+		padding: 0 15px;
+		&:last-child{
+			display: none;
+		}
+	}
+	.trainer-img-col{
+		justify-content: center;
+		img{
+			max-width: 250px;
+		}
+	}
+	.our-trainer-info{
+		text-align: center;
+		margin-top: 22px;
+		.social-list{
+			justify-content: center;
+		}
+	}
+	.post-item-cover .post-thumbnail img {
+		height: 290px;
+	}
+	.pagination-item a {
+		font-size: 16px;
+		line-height: 29px;
+		width: 32px;
+	}
+	.navigation-item .title{
+		font-size: 16px;
+	}
+	.autor-cover img {
+		width: 90px;
+		height: 90px;
+		margin-right: 15px;
+	}
+	.review-content .name,
+	.autor-cover .name{
+		font-size: 18px;
+	}
+	.reviews-list ul {
+		padding-left: 30px;
+	}
+	.reviews-form,
+	.reviews {
+		margin-top: 88px;
+	}
+	blockquote{
+		padding: 15px 10px 15px 50px;
+		p{
+			font-size: 14px;
+		}
+		&:before {
+			font-size: 30px;
+			line-height: 30px;
+			top: 15px;
+			left: 10px;
+		}
+	}
+	.fitness-slide .container {
+		min-height: 320px;
+	}
+	.s-fitness-slider:before{
+		height: 30px;
+	}
+	.fitness-slide .text-bg {
+		font-size: 96px;
+	}
+	.fitness-slide .fitness-slide-cover .title {
+		font-size: 30px;
+		&:before{
+			height: 23px;
+			width: 3px;
+		}
+		span{
+			margin-top: 10px;
+		}
+	}
+	.section-title-bg {
+		font-size: 80px;
+	}
+	.s-fitness-gallery .section-title-bg,
+	.s-fitness-posts .section-title-bg,
+	.s-best-trainer .section-title-bg,
+	.s-club-cards.club-cards-fitness .section-title-bg {
+		top: 98px;
+	}
+	.fitness-our-program .section-title-bg {
+		top: 10px;
+	}
+	.s-club-cards.club-cards-fitness .club-card-col:nth-child(2) .club-card-item {
+		padding-top:60px;
+		padding-bottom: 60px;
+	}
+	.fitness-program-item-front .fitness-program-item-inner{
+		padding: 14px 0;
+		.date{
+			font-size: 12px;
+		}
+	}
+	.fitness-program-item-back .fitness-program-item-inner{
+		padding: 10px;
+		.date{
+			font-size: 12px;
+		}
+	}
+	.fitness-program-item-inner{
+		h3 {
+			font-size: 16px;
+		}
+	}
+	.fitness-program-item {
+		height: 250px;
+	}
+	.fitness-banner-right h2 {
+		font-size: 38px;
+	}
+	.fitness-banner-right {
+		padding: 130px 0 0px 20px;
+		&:before{
+			top: 64px;
+		}
+		p{
+			font-size: 14px;
+		}
+	}
+	.fitness-banner-left{
+		height: 430px;
+	}
+	.fitness-post-col {
+		transform: translateY(0);
+		margin-bottom: 30px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	.s-fitness-posts{
+		padding-bottom: 0;
+	}
+	.fitness-post-col .post-footer .meta span{
+		width: calc(50% - 5px);
+	}
+	.grid-sizer, .gallery-item {
+		width: 33.33%;
+	}
+}
+@media(max-width: 575px){
+	.reviews-list ul {
+		padding-left: 15px;
+	}
+	.best-trainer-slide{
+		.prof{
+			font-size: 12px;
+		}
+		.surname,
+		.name{
+			font-size: 16px;
+		}
+	}
+	.s-welcome-fitness{
+		padding-top: 88px;
+	}
+	.crossfit-banner-left{
+		display: none;
+	}
+	.crossfit-slide{
+		.title{
+			font-size: 30px;
+		}
+		p{
+			font-size: 12px;
+		}
+		.container {
+			min-height: 440px;
+		}
+	}
+	.program-item {
+		height: 320px;
+	}
+	.crossfit-banner-right {
+		padding: 70px 15px;
+		width: 100%;
+		h2{
+			font-size: 52px;
+		}
+	}
+	.s-related-posts .post-item-cover{
+		.post-thumbnail img {
+			height: 190px;
+		}
+	}
+	.post-item-cover .meta{
+		font-size: 12px;
+		span {
+			margin-right: 14px;
+			margin-bottom: 4px;
+		}
+		i{
+			margin-right: 8px;
+		}
+	}
+	#clockdiv .clock-item{
+		.smalltext{
+			font-size: 14px;
+		}
+		span {
+			font-size: 34px;
+		}
+	}
+	.s-counter .subscribe-form .btn{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.welcome-fitness-img{
+		display: none;
+	}
+	.welcome-fitness-item {
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding: 0 15px;
+	}
+	.welcome-fitness-info {
+		padding: 0;
+		text-align: center;
+		.title-decor{
+			text-align: center;
+			padding-bottom: 20px;
+			margin-bottom: 17px;
+			span{
+				display: inline;
+			}
+			&:before{
+				display: block;
+			}
+		}
+		&:before{
+			display: none;
+		}
+	}
+	.s-about-information{
+		padding-bottom: 60px;
+	}
+	.about-info-row .about-info-col{
+		flex: 0 0 50%;
+		max-width: 50%;
+		margin-bottom: 40px;
+		h3{
+			margin-top: 10px;
+		}
+		.number {
+			font-size: 40px;
+			padding-bottom: 17px;
+			&:before{
+				height: 3px;
+				width: 35px;
+			}
+		}
+	}
+	.post-item-cover{
+		.title{
+			font-size: 20px;
+		}
+		.post-thumbnail img {
+			height: 190px;
+		}
+	}
+	.navigation-item .title{
+		display: none;
+	}
+	.navigation-item{
+		position: relative;
+		&:before{
+			color: $link_color;
+			font-family: 'FontAwesome';
+			position: absolute;
+			top: -1px;
+		}
+		&.navigation-left{
+			padding-left: 12px;
+			&:before{
+				content: '\f104';
+				left: 0;
+			}
+		}
+		&.navigation-right{
+			padding-right: 12px;
+			&:before{
+				content: '\f105';
+				right: 0;
+			}
+		}
+	}
+	.review-comment,
+	.autor-cover p{
+		font-size: 12px;
+	}
+	.grid-sizer, .gallery-item {
+		width: 50%;
+	}
+	.fitness-banner-left,
+	.gallery-item .gal-item p{
+		display: none;
+	}
+	.fitness-banner-right {
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding: 88px 0;
+		text-align: center;
+		&:before{
+			display: none;
+		}
+	}
+	.fitness-slide{
+		.container {
+			min-height: 450px;
+		}
+		.slide-img{
+			max-height: 70%;
+			max-width: 80%;
+		}
+		.slide-img-effect {
+			max-height: 40%;
+		}
+		.fitness-slide-cover .title {
+			padding: 10px 20px;
+			background-color: rgba(0,0,0,.7);
+			color: #fff;
+			&:before{
+				display: none;
+			}
+		}
+		.text-bg {
+			font-size: 50px;
+			top: 20px;
+			transform: translate(-50%,0);
+		}
+	}
+	.page-loaded .fitness-slide.slick-current{
+		.text-bg{
+			transform: translate(-50%,0);
+		}
+	}
+	.fitness-our-program{
+		.fitness-program-col{
+			transform: translateY(0);
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+	.fitness-our-program .btn {
+		margin-top: 40px;
+	}
+	.gallery-item .gal-item .title {
+		font-size: 14px;
+	}
+	.widget-instagram li img {
+		height: 100px;
+	}
+}

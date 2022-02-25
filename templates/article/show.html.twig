@@ -1,0 +1,13 @@
+{{ article.titre }}
+{{ article.text }}
+    <tr>
+        {% for commentaire in commentaires %}
+            <td>{{ commentaire.username }}</td>
+        <td>{{ commentaire.text }}</td>
+        <td> <a href="{{ path('supprimerArticle',{'id':article.id}) }}">Delete</a>
+            <a href="{{ path('updateArticle',{'id':article.id}) }}">Update</a>
+            <a href="{{ path('showArticle',{'id':article.id}) }}">Show</a></td>
+        </td>
+        {% endfor %}
+    </tr>
+<a href="{{ path('addArticle') }}">Add Article</a>

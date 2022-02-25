@@ -1,0 +1,11 @@
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+<h1>Ajouter un article</h1>
+{{ form_errors(form.titre) }}
+{{ form_label(form.titre,"titre de l'article") }}
+{{ form_widget(form.titre) }}
+{{ form_errors(form.text) }}
+{{ form_label(form.text,"contenu de l'article") }}
+{{ form_widget(form.text)}}
+{{ form_widget(form.media) }}
+{{ form_end(form) }}
+{#{{ form(form) }}#}

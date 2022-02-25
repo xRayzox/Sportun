@@ -1,0 +1,58 @@
+{% extends "back-office.html.twig" %}
+{% block body %}
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>articles</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="col-lg-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Table with stripped rows</h5>
+
+                        <!-- Table with stripped rows -->
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">titre</th>
+                                <th scope="col">text</th>
+                                <th scope="col">img</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for article in article %}
+                                <tr>
+                                    <td>{{ article.id }}</td>
+                                    <td>{{ article.titre }}</td>
+                                    <td>{{ article.text }}</td>
+                                    <td><img src="{{ asset('/upload/images/'~article.media) }}" width="50" height="60"></td>
+                                    <td> <a href="{{ path('supprimerArticle',{'id':article.id}) }}">Delete</a>
+                                        <a href="{{ path('updateArticle',{'id':article.id}) }}">Update</a>
+                                        <a href="{{ path('showArticleBack',{'id':article.id}) }}">Show</a></td>
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <!-- End Table with stripped rows -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+{% endblock %}

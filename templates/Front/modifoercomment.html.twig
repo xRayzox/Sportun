@@ -1,0 +1,270 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!--===================== S-NEWS =====================-->
+    <section class="s-news">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-9 blog-cover">
+                    <!--============= AUTOR-COVER END =============-->
+                    <!--================ NAVIGATION ================-->
+                    <div class="navigation">
+                        <a href="#" class="navigation-item navigation-left">
+                            <span>previous</span>
+                            <div class="title">Sed ut perspiciatis unde</div>
+                        </a>
+                        <a href="#" class="navigation-item navigation-right">
+                            <span>next</span>
+                            <div class="title">Sed ut perspiciatis unde</div>
+                        </a>
+                    </div>
+                    <!--============== NAVIGATION END ==============-->
+                    <div class="reviews">
+                        <h2 class="title">modifier commentaire</h2>
+                        <div class="reviews-form">
+                            {% block commentaire %}
+                                {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                                <h1>Ajouter un article</h1>
+                                <h2 class="title">Leave a Comment</h2>
+                                <form action="/">
+                                    <ul class="form-cover">
+                                        <li class="inp-name">
+                                            <label></label>
+                                            {{ form_errors(form.username) }}
+                                            {{ form_widget(form.username) }}
+                                        </li>
+                                        <li class="inp-email">
+                                            <label>{{ form_label(form.text,"contenu du commentaire") }}</label>
+                                            {{ form_errors(form.text) }}
+                                            {{ form_widget(form.text) }}
+                                        </li>
+                                        {#                                       <li class="inp-text">#}
+                                        {#                                           <label>Message * (required)</label>#}
+                                        {#                                           <textarea name="your-text"></textarea>#}
+                                        {#                                       </li>#}
+                                    </ul>
+                                    {#                                   <div class="checkbox-wrap">#}
+                                    {#                                       <div class="checkbox-cover">#}
+                                    {#                                           <input type="checkbox">#}
+                                    {#                                       </div>#}
+                                    {#                                   </div>#}
+                                    <div class="btn-form-cover">
+                                        {#                                       <button type="submit" class="btn">send comment</button>#}
+                                        {{ form_end(form) }}
+                                    </div>
+                                </form>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <!--================= SIDEBAR =================-->
+                <div class="col-12 col-lg-3 sidebar">
+                    <a href="#" class="btn btn-sidebar"><span>Widgets</span></a>
+                    <ul class="widgets">
+                        <!--=========== WIDGET-SEARCH ===========-->
+                        <li class="widget widget-search">
+                            <h3 class="title">Search</h3>
+                            <form class="search-form">
+                                <input class="inp-form" type="email" name="search" placeholder="Search">
+                                <button type="submit" class="btn-form"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </li>
+                        <!--========= WIDGET-SEARCH END =========-->
+                        <!--=========== WIDGET-ARHIVE ===========-->
+                        <li class="widget widget-archive">
+                            <h3 class="title">Archive</h3>
+                            <ul>
+                                <li><a href="#">January 2019</a></li>
+                                <li><a href="#">February 2019</a></li>
+                                <li><a href="#">March 2019</a></li>
+                                <li><a href="#">April 2019</a></li>
+                                <li><a href="#">May 2019</a></li>
+                            </ul>
+                        </li>
+                        <!--========= WIDGET-ARHIVE END =========-->
+                        <!--========= WIDGET-CATEGORIES =========-->
+                        <li class="widget widget-categories">
+                            <h3 class="title">Categories</h3>
+                            <ul>
+                                <li><a href="#">Training</a></li>
+                                <li><a href="#">Courses</a></li>
+                                <li><a href="#">Conferences</a></li>
+                                <li><a href="#">Development</a></li>
+                                <li><a href="#">UI/UX Designer</a></li>
+                            </ul>
+                        </li>
+                        <!--======= WIDGET-CATEGORIES END =======-->
+                        <!--======== WIDGET-RECENT-POSTS ========-->
+                        <li class="widget widget-recent-posts">
+                            <h3 class="title">Recent Blog Posts</h3>
+                            <ul>
+                                <li>
+                                    <a href="#">Mobile App Design: From Beginner to Intermediate</a>
+                                    <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 27, 2019 at 5:47 pm</div>
+                                </li>
+                                <li>
+                                    <a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+                                    <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 17, 2018 at 5:47 pm</div>
+                                </li>
+                                <li>
+                                    <a href="#">Nam libero tempore, cum soluta nobis est eligendi optio</a>
+                                    <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 8, 2018 at 5:47 pm</div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--====== WIDGET-RECENT-POSTS END ======-->
+                        <!--========== WIDGET-INSTAGRAM ==========-->
+                        <li class="widget widget-instagram">
+                            <h3 class="title">Instagram</h3>
+                            <ul>
+                                <li>
+                                    <a href="#"><img src="{{ asset('Front/img/insta-widget-1.jpg') }}" alt="img"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{{ asset('Front/img/insta-widget-2.jpg') }}" alt="img"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{{ asset('Front/img/insta-widget-3.jpg') }}" alt="img"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{{ asset('Front/img/insta-widget-4.jpg') }}" alt="img"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{{ asset('Front/img/insta-widget-5.jpg') }}" alt="img"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{{ asset('Front/img/insta-widget-6.jpg') }}" alt="img"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--======== WIDGET-INSTAGRAM END ========-->
+                        <!--========== WIDGET-NEWSLETTER ==========-->
+                        <li class="widget widget-newsletter">
+                            <h3 class="title">newsletter</h3>
+                            <form class="subscribe-form">
+                                <input class="inp-form" type="email" name="subscribe" placeholder="Your E-mail">
+                                <button type="submit" class="btn-form"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </li>
+                        <!--======== WIDGET-NEWSLETTER END ========-->
+                    </ul>
+                </div>
+                <!--=============== SIDEBAR END ===============-->
+            </div>
+        </div>
+    </section>
+    <!--=================== S-NEWS END ===================-->
+
+    <!--================== RELATED POSTS ==================-->
+    <section class="s-related-posts">
+        <div class="container">
+            <h2 class="title-decor">Related <span>Posts</span></h2>
+            <p class="slogan">Maecenas consequat ex id lobortis venenatis. Mauris id erat enim. Morbi dolor dolor, auctor tincidunt lorem ut, venenatis dapibus miq.</p>
+            <div class="row">
+                <div class="col-md-6 related-post-col">
+                    <div class="post-item-cover">
+                        <div class="post-header">
+                            <div class="related-post-categ">fitness</div>
+                            <div class="post-thumbnail">
+                                <a href="single-blog"><img src="{{ asset('Front/img/blog-4.jpg') }}" alt="img"></a>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="meta">
+                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>
+                            </div>
+                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>
+                            <div class="text">
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                            <div class="meta">
+                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
+                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
+                            </div>
+                            <a href="single-blog.html" class="btn"><span>read more</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 related-post-col">
+                    <div class="post-item-cover">
+                        <div class="post-header">
+                            <div class="related-post-categ">lifting</div>
+                            <div class="post-thumbnail">
+                                <a href="single-blog"><img src="{{ asset('Front/img/blog-1.jpg') }}" alt="img"></a>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="meta">
+                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>
+                            </div>
+                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>
+                            <div class="text">
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                            <div class="meta">
+                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
+                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
+                            </div>
+                            <a href="single-blog.html" class="btn"><span>read more</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 related-post-col">
+                    <div class="post-item-cover">
+                        <div class="post-header">
+                            <div class="related-post-categ">fitness</div>
+                            <div class="post-thumbnail">
+                                <a href="single-blog"><img src="{{ asset('Front/img/blog-3.jpg') }}" alt="img"></a>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="meta">
+                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>
+                            </div>
+                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>
+                            <div class="text">
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                            <div class="meta">
+                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
+                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
+                            </div>
+                            <a href="single-blog" class="btn"><span>read more</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 related-post-col">
+                    <div class="post-item-cover">
+                        <div class="post-header">
+                            <div class="related-post-categ">lifting</div>
+                            <div class="post-thumbnail">
+                                <a href="single-blog"><img src="{{ asset('Front/img/blog-2.jpg') }}" alt="img"></a>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="meta">
+                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>
+                            </div>
+                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>
+                            <div class="text">
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>
+                            </div>
+                        </div>
+                        <div class="post-footer">
+                            <div class="meta">
+                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
+                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
+                            </div>
+                            <a href="single-blog" class="btn"><span>read more</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================ RELATED POSTS END ================-->{% endblock %}

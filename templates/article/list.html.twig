@@ -1,0 +1,24 @@
+{#{% for a in article %}#}
+{#    {{ a.titre }}#}
+{#    {{ a.text }}#}
+{#{% endfor %}#}
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Action</td>
+    </tr>
+    {% for article in article %}
+        <tr>
+            <td>{{ article.titre }}</td>
+            <td>{{ article.text }}</td>
+
+            <td> <a href="{{ path('supprimerArticle',{'id':article.id}) }}">Delete</a>
+                <a href="{{ path('updateArticle',{'id':article.id}) }}">Update</a>
+                <a href="{{ path('showArticle',{'id':article.id}) }}">Show</a></td>
+            </td>
+
+        </tr>
+    {% endfor %}
+</table>
+<a href="{{ path('addArticle') }}">Add Article</a>

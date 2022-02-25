@@ -1,0 +1,6 @@
+
+{% for c in commentaire %}
+    {{ c.username }}
+    {{ c.text }}
+<a href="{{ path('commentaire_delete',{'id':c.id}) }}">Delete</a>
+{% endfor %}

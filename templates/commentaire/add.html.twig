@@ -1,0 +1,12 @@
+{{ form_start(form) }}
+<h1>Ajouter un article</h1>
+{{ form_errors(form.n) }}
+{{ form_label(form.username,"le username") }}
+{{ form_widget(form.username) }}
+{{ form_errors(form.text) }}
+{{ form_label(form.text,"contenu du commentaire") }}
+{{ form_widget(form.text) }}
+{{ form_errors(form.article) }}
+{{ form_label(form.article,"l'id de l'article") }}
+{{ form_widget(form.article) }}
+{{ form_end(form) }}
