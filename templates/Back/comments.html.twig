@@ -17,7 +17,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Table with stripped rows</h5>
+                        <h5 class="card-title"></h5>
 
                         <!-- Table with stripped rows -->
                         <table class="table table-striped">
@@ -26,21 +26,16 @@
                                 <th scope="col">id</th>
                                 <th scope="col">titre</th>
                                 <th scope="col">text</th>
-                                <th scope="col">img</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for article in article %}
+                            {% for c in commentaires %}
                                 <tr>
-                                    <td>{{ article.id }}</td>
-                                    <td>{{ article.titre }}</td>
-                                    <td>{{ article.text }}</td>
-                                    <td><img src="{{ asset('/upload/images/'~article.media) }}" width="50" height="60"></td>
-                                    <td> <a href="{{ path('supprimerArticle',{'id':article.id}) }}">supprimer</a>
-                                        <a href="{{ path('updateArticle',{'id':article.id}) }}">modifier</a>
-                                        <a href="{{ path('showArticleBack',{'id':article.id}) }}">afficher</a></td>
+                                    <td>{{ c.id }}</td>
+                                    <td>{{ c.username }}</td>
+                                    <td>{{ c.text }}</td>
+                                    <td> <a href="{{ path('commentaire_deleteback',{'id':c.id}) }}">supprimer</a>
                                     </td>
-
                                 </tr>
                             {% endfor %}
                             </tbody>

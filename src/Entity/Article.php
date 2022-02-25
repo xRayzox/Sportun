@@ -29,11 +29,13 @@ class Article
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="article text is required")
+     * @Assert\MinLength(min=5,message="votre message ne contient pas 5 lettre")
      */
     private $text;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="image is required")
      */
     private $media;
 

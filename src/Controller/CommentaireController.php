@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Entity\Commentaire;
 use App\Form\CommentaireType;
+use App\Repository\ArticleRepository;
 use App\Repository\CommentaireRepository;
 use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,7 +34,9 @@ class CommentaireController extends AbstractController
     {
         $comment = new Commentaire();
         $form = $this->createForm(CommentaireType::class, $comment);
-        $form->add('Ajouter', SubmitType::class);
+        $form->add('Ajouter', SubmitType::class,
+            ['attr'=>['class'=>'btn'],
+                ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
@@ -69,6 +72,29 @@ class CommentaireController extends AbstractController
         return $this->redirectToRoute('showArticle',['id'=>$post->getId()]);
     }
     /**
+     * @Route("/suppback/{id}", name="commentaire_deleteback")
+     */
+    public function deleteback($id, CommentaireRepository $repository): Response
+    {
+        $commentaire=$repository->find($id);
+        $post = $commentaire->getArticle();
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($commentaire);
+        $em->flush();
+        return $this->redirectToRoute('commentes',['id'=>$post->getId()]);
+    }
+    /**
+     * @Route("/commentsList",name="commentes")
+     */
+    public function show(CommentaireRepository $repo)
+    {
+        // $repo=$this->getDoctrine()->getRepository(Article::class);
+        $com = $repo->findAll();
+        return $this->render('Back/comments.html.twig', [
+            'commentaires' => $com
+        ]);
+    }
+    /**
      * @Route("/updatecomment/{id}", name="updateCommentaire")
      */
     public function updateCommentaire(Request $request, $id,CommentaireRepository $rep)
@@ -76,7 +102,8 @@ class CommentaireController extends AbstractController
         $comment = $rep->find($id);
         $post = $comment->getArticle();
         $form = $this->createForm(CommentaireType::class, $comment);
-        $form->add("Modifier", SubmitType::class);
+        $form->add("Modifier", SubmitType::class,['attr'=>['class'=>'btn'],
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted()&& $form->isValid()) {
 //            ->setCreatedAt(new \ DateTimeImmutable())

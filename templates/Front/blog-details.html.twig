@@ -63,7 +63,7 @@
                                     <div class="review-avatar"><img src="{{ asset('Front/img/comments-photo-1.png') }}" alt="img"></div>
                                     <div class="review-content">
                                         <h6 class="name">{{ c.username }}</h6>
-                                        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</div>
+{#                                        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</div>#}
                                         <p class="review-comment">{{ c.text}}
                                         </p>
                                         <a class="review-btn" href="{{ path('updateCommentaire',{'id':c.id}) }}"><i class="fa fa-reply" aria-hidden="true"></i> comment</a>
@@ -79,7 +79,6 @@
                                {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
                                <h1>Ajouter un article</h1>
                               <h2 class="title">Leave a Comment</h2>
-                               <form action="/">
                                    <ul class="form-cover">
                                        <li class="inp-name">
                                            <label></label>
@@ -105,7 +104,6 @@
 {#                                       <button type="submit" class="btn">send comment</button>#}
                                        {{ form_end(form) }}
                                    </div>
-                               </form>
                             {% endblock %}
                         </div>
                     </div>

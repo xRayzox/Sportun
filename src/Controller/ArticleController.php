@@ -28,7 +28,7 @@ class ArticleController extends AbstractController
     /**
      * @param Request $request
      * @return Response
-     * @Route("article/Add", name="addArticle")
+     * @Route("articleAdd", name="addArticle")
      * @throws \Exception
      */
     function Add(Request $request): Response
@@ -36,7 +36,7 @@ class ArticleController extends AbstractController
         $article = new Article();
 //        $article->setCreatedAt(new \DateTimeImmutable());
         $form = $this->createForm(ArticleType::class, $article);
-        $form->add('Ajouter', SubmitType::class);
+        $form->add('Ajouter', SubmitType::class,['attr'=>['class'=>'class="col-sm-2 col-form-label']]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $file=$form->get('media')->getData();
@@ -63,12 +63,12 @@ class ArticleController extends AbstractController
         $comment= $this->getDoctrine()->getRepository(Commentaire::class)->listCommentaireByArticle($post->getId());
 return $this->render('Back/showarticle.html.twig', [
     'article' => $post,
-    'commentaire' => $comment,
+    'commentaires' => $comment,
 
 ]);
 }
     /**
-     * @Route("/articlesList/show",name="articleslist")
+     * @Route("/articlesList",name="articleslist")
      */
     public function show(ArticleRepository $repo)
     {
@@ -98,12 +98,12 @@ return $this->render('Back/showarticle.html.twig', [
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
         $filename=$article->getmedia();
         $form = $this->createForm(ArticleType::class, $article);
-        $form->add('modifier',SubmitType::class);
+        $form->add('modifier',SubmitType::class,['attr'=>['class'=>'class="col-sm-2 col-form-label']]);
         $form->handleRequest($request);
         if ($form->isSubmitted()&&$form->isValid()) {
-            $file=$form->get('media')->getData();
-            //$filename=md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('images_directory'),
+            $fil=$form->get('media')->getData();
+            $filename=md5(uniqid()).'.'.$fil->guessExtension();
+            $fil->move($this->getParameter('images_directory'),
                 $filename);
             $em = $this->getDoctrine()->getManager();
             $article->setMedia($filename);
@@ -117,7 +117,7 @@ return $this->render('Back/showarticle.html.twig', [
      * @Route ("/SupprimerArticle/{id}",name="supprimerArticle")
      */
     function Delete($id,ArticleRepository $repository){
-        $article=$repository->find($id);
+        $article=$this->getDoctrine()->getRepository(Article::class)->find($id);
         $em=$this->getDoctrine()->getManager();
         $em->remove($article);
         $em->flush();
