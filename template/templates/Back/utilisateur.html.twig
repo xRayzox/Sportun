@@ -1,0 +1,66 @@
+ {% extends "back-office.html.twig" %}
+
+{% block body %}
+
+
+    <div id="calendrier"></div>
+
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Data Tables</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Tables</li>
+                    <li class="breadcrumb-item active">Data</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Datatables</h5>
+
+                            <table border="1" class="table table-bordered border-primary">
+
+
+                                <tr>
+                                    <th>nom</th>
+                                    <th>prenom</th>
+                                    <th>adresse</th>
+                                    <th>telephone</th>
+                                    <th>email</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                </tr>
+                                {% for e in users %}
+                                    <tr>
+
+                                        <td>{{e.nom}}</td>
+                                        <td>{{e.prenom}}</td>
+                                        <td>{{e.adresse}}</td>
+                                        <td>{{e.telephone}}</td>
+                                        <td>{{e.email}}</td>
+                                        <td>{{e.Role}}</td>
+                                        <td>
+
+                                            <a href="{{ path('deleteuser', {'id': e.id}) }}">Supprimer</a>
+                                            <a href="{{ path('updateuser', {'id': e.id}) }}">modiffier</a>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
