@@ -6,7 +6,7 @@
         <h1>Form Elements</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index">Home</a></li>
+                <li class="breadcrumb-item"><a href="home">Home</a></li>
                 <li class="breadcrumb-item">Forms</li>
                 <li class="breadcrumb-item active">Elements</li>
             </ol>
@@ -40,6 +40,22 @@
                                 {{ form_errors(form.media,{'attr':{'class':'form-control'}}) }}
 
                             </div>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">
+                                {{ form_label(form.tag,"tag") }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.tag,{'attr':{'class':'form-control'}}) }}
+                            </div>
+                            {{ form_errors(form.tag,{'attr':{'class':'form-control'}}) }}
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">
+                                {{ form_label(form.decription,"description de l'article") }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.decription,{'attr':{'class':'form-control'}}) }}
+                            </div>
+                            {{ form_errors(form.decription,{'attr':{'class':'form-control'}}) }}
+                        </div>
 {#                            <div class="row mb-3">#}
 {#                                <label for="inputColor" class="col-sm-2 col-form-label">Color Picker</label>#}
 {#                                <div class="col-sm-10">#}
@@ -73,30 +89,6 @@
 {#                <div class="card">#}
 {#                    <div class="card-body">#}
 {#                        <h5 class="card-title">Advanced Form Elements</h5>#}
-
-{#                        <!-- Advanced Form Elements -->#}
-{#                        <form>#}
-{#                            <div class="row mb-5">#}
-{#                                <label class="col-sm-2 col-form-label">Switches</label>#}
-{#                                <div class="col-sm-10">#}
-{#                                    <div class="form-check form-switch">#}
-{#                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">#}
-{#                                        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>#}
-{#                                    </div>#}
-{#                                    <div class="form-check form-switch">#}
-{#                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>#}
-{#                                        <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>#}
-{#                                    </div>#}
-{#                                    <div class="form-check form-switch">#}
-{#                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>#}
-{#                                        <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>#}
-{#                                    </div>#}
-{#                                    <div class="form-check form-switch">#}
-{#                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>#}
-{#                                        <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
 
 {#                            <div class="row mb-5">#}
 {#                                <label class="col-sm-2 col-form-label">Ranges</label>#}
@@ -151,42 +143,6 @@
 {#                                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">#}
 {#                                    </div>#}
 
-{#                                    <div class="input-group mb-3">#}
-{#                                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">#}
-{#                                        <span class="input-group-text" id="basic-addon2">@example.com</span>#}
-{#                                    </div>#}
-
-{#                                    <label for="basic-url" class="form-label">Your vanity URL</label>#}
-{#                                    <div class="input-group mb-3">#}
-{#                                        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>#}
-{#                                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">#}
-{#                                    </div>#}
-
-{#                                    <div class="input-group mb-3">#}
-{#                                        <span class="input-group-text">$</span>#}
-{#                                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">#}
-{#                                        <span class="input-group-text">.00</span>#}
-{#                                    </div>#}
-
-{#                                    <div class="input-group mb-3">#}
-{#                                        <input type="text" class="form-control" placeholder="Username" aria-label="Username">#}
-{#                                        <span class="input-group-text">@</span>#}
-{#                                        <input type="text" class="form-control" placeholder="Server" aria-label="Server">#}
-{#                                    </div>#}
-
-{#                                    <div class="input-group">#}
-{#                                        <span class="input-group-text">With textarea</span>#}
-{#                                        <textarea class="form-control" aria-label="With textarea"></textarea>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-
-{#                        </form><!-- End General Form Elements -->#}
-
-{#                    </div>#}
-{#                </div>#}
-
-{#            </div>#}
         </div>
     </section>
 

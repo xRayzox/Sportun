@@ -1,29 +1,108 @@
 {% extends 'base.html.twig' %}
 {% block content %}
+    <meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="{{ article.titre }}" />
+    <meta property="og:description"        content="{{ article.decription }}" />
+    <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--===================== S-NEWS =====================-->
     <section class="s-news">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v13.0&appId=683212913114745&autoLogAppEvents=1" nonce="J1tpdd1I"></script>
         <script>
             window.fbAsyncInit = function() {
                 FB.init({
-                    appId            : '3144723902473993',
+                    appId            : '683212913114745',
                     autoLogAppEvents : true,
                     xfbml            : true,
                     version          : 'v13.0'
                 });
             };
-            var comment=$('.comment').val(); // your comment text box
-            $.ajax({
-                type: 'POST',
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                // Mostramos un mensaje con la respuesta de PHP
-                success: function(data) {
+        </script>
+        <input type="hidden" value="{{ article.id }}" id="idarticle">
+        <script>
 
-                    $('.commentbox').append("</br>"+comment); // list of comments. its inserting your last comment at the end of line.
-
-                }
+            $(document).ready(function () {
+                $(".btn").click(function(e)
+                {e.preventDefault();
+                    var formData  =$("#form").serialize(); //data mn formulaire
+                    let idart = $("#idarticle").val();
+                    // let user = $("#user").val();
+                    var msg = $("#textid").val();
+                    console.log(idart);
+                    // let date = $("#nom").text();
+                    $.ajax({
+                        url:"http://127.0.0.1:8000/commentaire/add/"+msg+"/"+idart,
+                        type:"post",
+                        data:formData,
+                        success:function(dataBack)
+                        {
+                        }, error: function (xhr, status, error)
+                        {
+                            console.log(error);
+                        }
+                    });
+                    $('.hh').val("");
+                    document.getElementById("textid").value = "";
+                });
+                //get Information for commentaire
+                setInterval(function () {
+                    let idarticle = $("#idarticle").val();
+                    $.ajax({
+                        url:"http://127.0.0.1:8000/commentaire/"+idarticle,
+                        type: "get",
+                        dataType: "json",
+                        cache: false,
+                        success: function (data , status) {
+                            console.log(data)
+                            let l = data.length;
+                            console.log(l,"taille");
+                            var MSG="";
+                            for (let i =0; i < l; i++){
+                                MSG +="<div class='review-item'>"+
+                                        {#                                    <div class="review-avatar"><img src="{{ asset('Front/img/comments-photo-1.png') }}" alt="img"></div>#}
+                                    "    <div class='review-content'>"+
+                                           " <h6 class='name'>"+data[i].username+"</h6>"+
+                                            {#                                        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</div>#}
+                                            "<p class='review-comment'>"+data[i].text+"</p>"+
+                                            "<a class='review-btn' href='http://127.0.0.1:8000/updatecomment/"+data[i].id+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i> modifier</a>"+
+                                            "<a class='review-btn' href='http://127.0.0.1:8000/supp/"+data[i].id+"'><i class='fa fa-times' aria-hidden='true'></i> supprimer</a>"+
+                                        "</div>"+
+                                    "</div>";
+                            }
+                            $("#listedecomment").html(MSG);
+                        },
+                        error: function (data) {
+                            console.log("err",idarticle );
+                        },
+                    });
+                },10000);
             });
+        </script>
+
+        <script src="{{ asset('https://unpkg.com/axios/dist/axios.min.js') }}"></script>
+
+        <script>
+            function onClickBtnLike(event) {
+                event.preventDefault();
+                const url = this.href;
+                const spanCount = this.querySelector('span.js-likes');
+                const  icone = this.querySelector('i');
+                axios.get(url).then(function (response) {
+                    spanCount.textContent=response.data.likes;
+                    if (icone.classList.contains('fas')){
+                        icone.classList.replace('fas','far');
+                    }
+                    else {
+                        icone.classList.replace('far','fas');
+                    }
+                })
+            }
+            document.querySelectorAll('a.js-like').forEach(function(link){
+                link.addEventListener('click',onClickBtnLike);
+            })
         </script>
         <div class="container">
             <div class="row">
@@ -38,7 +117,7 @@
                             <div class="meta">
                                 <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
                                 <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ article.createdAt |date('d/m/y') }}</span>
-                                <span class="post-category"><i class="fa fa-tag" aria-hidden="true"></i><a href="#">Fitness</a></span>
+                                <span class="post-category"><i class="fa fa-tag" aria-hidden="true"></i><a href="#">{{ article.decription }}</a></span>
                             </div>
                             <h2 class="title">{{ article.titre }}</h2>
                             <div class="text">
@@ -48,31 +127,37 @@
                         <div class="post-footer">
                             <div class="meta">
                                 <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">{{ commentaires | length  }} Comments(s)</a></span>
-                                <span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">Aenean</a><a href="#">Mattis</a></span>
-                                <div id="shareBtn" class="btn btn-success clearfix">Share Dialog</div>
-                                <script>
-                                    document.getElementById('shareBtn').onclick = function() {
-                                        FB.ui({
-                                            display: 'popup',
-                                            method: 'share',
-                                            href: 'https://www.facebook.com/sportun.officiel',
-                                        }, function(response){});
-                                    }
-                                    document.getElementById('commentbtn').onclick = function() {
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "/commentaire/new",
-                                            data: {
 
-                                            },
-                                            dataType: "json",
-                                            success: function(response) {
-                                                //ici tu mets la nouvelle liste du commentaire
-//exemple quand tu veux afficher ajouter le commentaire dans la nouvelle liste tu peux utiliser document.getElementById('listecommentaire').innerHTML += le nouveau commentaire
-                                            }
-                                        });
-                                    }
-                                </script>
+                                <a href="{{ path('PosteLike',{'id':i.id}) }}" class="btn btn-link js-like">
+
+                                    {% if app.user and i.JaimePar(app.user) %}
+                                        <div class="row">
+                                            <div class="col-2">   <i class="fa fa-thumbs-up"></i></div>
+                                            <div class="col-6">   <span class="js-label">je n'aime pas</span></div>
+                                            <div class="col-2">   <span class="js-likes">{{ i.postLikes|length}}</span></div>
+
+                                        </div>
+                                    {% else %}
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <i class="fa fa-thumbs-up"></i></div>
+                                            <div class="col-6">
+                                                <span class="js-label">j'aime</span>
+                                            </div>
+                                            <div class="col-2">
+                                                <span class="js-likes">{{ i.postLikes|length}}</span></div>
+
+                                        </div>
+                                    {% endif %}
+                                </a>
+
+{#                                <span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">Aenean</a><a href="#">Mattis</a></span>#}
+{#                                <div id="shareBtn" class="btn btn-success clearfix">partage sur facebook</div>#}
+{#                                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true">fb share</div>#}
+{#                                <script src="{{asset('Front/js/jscommnt.js')}}">#}
+{#                                </script>#}
+                                <div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
                             </div>
                         </div>
                     </div>
@@ -100,30 +185,27 @@
                     <div class="reviews">
                         <h2 class="title">Comments</h2>
                         <ul class="reviews-list">
-                            <li class="item">
+                            <li class="item" id="listedecomment">
 {#             hedhi awel comment                   #}
-                                <div id="listedecomment"></div>
-                                <script
-                                    src="Front/js/jscommnt.js" ></script>
-                                {% for c in commentaires %}
-                                <div class="review-item">
-                                    <div class="review-avatar"><img src="{{ asset('Front/img/comments-photo-1.png') }}" alt="img"></div>
-                                    <div class="review-content">
-                                        <h6 class="name">{{ c.username }}</h6>
+{#                                {% for c in commentaires %}#}
+{#                                <div class="review-item">#}
+{#                                    <div class="review-avatar"><img src="{{ asset('Front/img/comments-photo-1.png') }}" alt="img"></div>#}
+{#                                    <div class="review-content">#}
+{#                                        <h6 class="name">{{ c.username }}</h6>#}
 {#                                        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</div>#}
-                                        <p class="review-comment">{{ c.text}}
-                                        </p>
-                                        <a class="review-btn" href="{{ path('updateCommentaire',{'id':c.id}) }}"><i class="fa fa-reply" aria-hidden="true"></i> comment</a>
-                                        <a class="review-btn" href="{{ path('commentaire_delete',{'id':c.id}) }}"><i class="fa fa-reply" aria-hidden="true"></i> deleate</a>
-                                    </div>
-                                </div>
-                                {% endfor %}
+{#                                        <p class="review-comment">{{ c.text}}#}
+{#                                        </p>#}
+{#                                        <a class="review-btn" href="{{ path('updateCommentaire',{'id':c.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> modifier</a>#}
+{#                                        <a class="review-btn" href="{{ path('commentaire_delete',{'id':c.id}) }}"><i class="fa fa-times" aria-hidden="true"></i> supprimer</a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                {% endfor %}#}
                                 {#            hedhi end commente                    #}
                             </li>
                         </ul>
                         <div class="reviews-form">
                            {% block commentaire %}
-                               {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                               {{ form_start(form,{'id':'form','attr':{'novalidate':'novalidate'}}) }}
                                <h1>Ajouter un article</h1>
                               <h2 class="title">Leave a Comment</h2>
                                    <ul class="form-cover">
@@ -135,7 +217,7 @@
                                        <li class="inp-email">
                                            <label>{{ form_label(form.text,"contenu du commentaire") }}</label>
                                            {{ form_errors(form.text) }}
-                                           {{ form_widget(form.text) }}
+                                           {{ form_widget(form.text,{'id':'textid'}) }}
                                        </li>
 {#                                       <li class="inp-text">#}
 {#                                           <label>Message * (required)</label>#}
@@ -243,10 +325,12 @@
                         <!--========== WIDGET-NEWSLETTER ==========-->
                         <li class="widget widget-newsletter">
                             <h3 class="title">newsletter</h3>
+
                             <form class="subscribe-form">
                                 <input class="inp-form" type="email" name="subscribe" placeholder="Your E-mail">
                                 <button type="submit" class="btn-form"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
+
                         </li>
                         <!--======== WIDGET-NEWSLETTER END ========-->
                     </ul>
@@ -256,7 +340,6 @@
         </div>
     </section>
     <!--=================== S-NEWS END ===================-->
-
     <!--================== RELATED POSTS ==================-->
     <section class="s-related-posts">
         <div class="container">
@@ -370,4 +453,6 @@
             </div>
         </div>
     </section>
-    <!--================ RELATED POSTS END ================-->{% endblock %}
+
+    <!--================ RELATED POSTS END ================-->
+{% endblock %}

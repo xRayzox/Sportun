@@ -22,31 +22,34 @@
 							</div>
 							<h2 class="title">{{ article.titre }}</h2>
 							<div class="text">
-								<p>{{ article.text }}</p>
+								<p>{{ article.decription }}</p>
 							</div>
 						</div>
 						<div class="post-footer">
 							<div class="meta">
 								<span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="{{ path('showArticle',{'id':article.id}) }}" > Comments(s)</a></span>
-{#								<span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">Aenean</a><a href="#">Mattis</a></span>#}
+								<span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">{{ article.tag }}</a></span>
 							</div>
 							<a href="{{ path('showArticle',{'id':article.id}) }}" class="btn"><span>ouvrir</span></a>
 {#							{{ socialButtons() }}#}
+{#							{{ socialButtons( { 'facebook': {'locale':'fr_FR', 'send':true}} ) }}#}
 						</div>
 						</a>
 					</div>
 					{% endfor %}
-{#					<div class="pagination-cover">#}
-{#						<ul class="pagination">#}
-{#							<li class="pagination-item item-prev"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>#}
+					<div class="pagination-cover">
+						<ul class="pagination">
+						{{ knp_pagination_render(article) }}
+
+						{#							<li class="pagination-item item-prev"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>#}
 {#							<li class="pagination-item active"><a href="#">1</a></li>#}
 {#							<li class="pagination-item"><a href="#">2</a></li>#}
 {#							<li class="pagination-item"><a href="#">3</a></li>#}
 {#							<li class="pagination-item"><a href="#">4</a></li>#}
 {#							<li class="pagination-item"><a href="#">5</a></li>#}
 {#							<li class="pagination-item item-next"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>#}
-{#						</ul>#}
-{#					</div>#}
+						</ul>
+					</div>
 				</div>
 				<!--================= SIDEBAR =================-->
 				<div class="col-12 col-lg-3 sidebar">

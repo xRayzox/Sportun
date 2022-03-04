@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
  */
@@ -28,7 +28,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=50,
+     * @Assert\Length(min=10,
      *     maxMessage="minimum 50 letter")
      */
     private $text;
@@ -39,7 +39,7 @@ class Article
     private $media;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="post_id", orphanRemoval=true,cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="article", orphanRemoval=true, cascade={"persist"})
      */
     private $commentaires;
 
@@ -47,6 +47,16 @@ class Article
      * @ORM\Column(type="date_immutable", nullable=true)
      */
     private $created_at;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $decription;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $tag;
 
     public function __construct()
     {
@@ -114,7 +124,8 @@ class Article
 
     public function removeCommentaire(Commentaire $commentaire): self
     {
-        if ($this->commentaires->removeElement($commentaire)) {
+        if ($this->commentaires->contains($commentaire)) {
+            $this->commentaires->removeElement($commentaire);
             // set the owning side to null (unless already changed)
             if ($commentaire->getArticle() === $this) {
                 $commentaire->setArticle(null);
@@ -132,6 +143,30 @@ class Article
     public function setCreatedAt(?\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getDecription(): ?string
+    {
+        return $this->decription;
+    }
+
+    public function setDecription(string $decription): self
+    {
+        $this->decription = $decription;
+
+        return $this;
+    }
+
+    public function getTag(): ?string
+    {
+        return $this->tag;
+    }
+
+    public function setTag(string $tag): self
+    {
+        $this->tag = $tag;
 
         return $this;
     }

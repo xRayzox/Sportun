@@ -61,4 +61,11 @@ class ArticleRepository extends ServiceEntityRepository
             ->setParameter('id',$id);
         return $query->getSingleScalarResult();
     }
+    public function findBySlug($slug){
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager
+            ->createQuery("SELECT a. as moyenne FROM APP\Entity\Commentaire a JOIN a.article a WHERE a.slug=:slug ")
+            ->setParameter('slug',$slug);
+        return $query->getSingleScalarResult();
+    }
 }

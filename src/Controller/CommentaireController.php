@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class CommentaireController extends AbstractController
 {
@@ -26,7 +27,6 @@ class CommentaireController extends AbstractController
             'controller_name' => 'CommentaireController',
         ]);
     }
-
     /**
      * @Route("/single-blog/{id}", name="showArticle")
      */
@@ -38,15 +38,15 @@ class CommentaireController extends AbstractController
             ['attr'=>['class'=>'btn'],
                 ]);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-
-            $comment->setArticle($post);
-       //     ->setCreatedAt(new \ DateTimeImmutable())
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($comment);
-            $entityManager->flush();
-        }
+//        if ($form->isSubmitted() && $form->isValid())
+//        {
+//
+//            $comment->setArticle($post);
+//       //     ->setCreatedAt(new \ DateTimeImmutable())
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($comment);
+//            $entityManager->flush();
+//        }
         $post= $this->getDoctrine()->getRepository(Article::class)->find($id);
 
         $comment= $this->getDoctrine()->getRepository(Commentaire::class)->listCommentaireByArticle($post->getId());
@@ -60,7 +60,7 @@ class CommentaireController extends AbstractController
     }
 
     /**
-     * @Route("/supp/{id}", name="commentaire_delete")
+     * @Route("/suppcomnt/{id}", name="commentaire_delete")
      */
     public function delete($id, CommentaireRepository $repository): Response
     {
@@ -115,16 +115,102 @@ class CommentaireController extends AbstractController
         }
         return $this->render("Front/modifoercomment.html.twig", array('form' => $form->createView()));
     }
-        /**
-     * @Route("/commentaire/new", name="add_comentaire")
+    /**
+     * @Route("/commentaire/{idAct}", name="commentaire")
      */
-    public function ajaxAction(Request $request)
+    public function getcomment($idAct): Response
     {
-       // $commentaires= $this->getDoctrine()->getRepository(Commentaire::class)->listCommentaireByArticle($id);
-        if ($request->isXMLHttpRequest()) {
-            return new JsonResponse(array('data' => 'this is a json response'));
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($idAct);
+        $commentaires =$this->getDoctrine()->getRepository(Commentaire::class)->listCommentaireByArticle($article->getId());
+        $dt = array();
+        foreach ($commentaires as $key => $cat) {
+            $dt[$key]['id'] = $cat->getId();
+//            $dt[$key]['username'] = $cat->getIduser()->getNom();
+            $dt[$key]['username'] = $cat->getUsername();
+            $dt[$key]['text'] = $cat->getText();
+//            $dt[$key]['dateCom'] = $cat->getDateCom();
+            // $dt[$key]['images'] = $cat->getDureExercice();
         }
-
-        return new Response('This is not ajax!', 400);
+        return new JsonResponse($dt);
     }
+    /**
+     * @Route("/commentaire/add/{msg}/{idArt}", name="commentaireadd")
+     */
+    public function setcomment($idArt, $msg): Response
+    {
+        //$user=$this->getUser();
+        //$user = $this->getDoctrine()->getRepository(User::class)->find();
+        $user="aaaa";
+        $cm = new Commentaire();
+        $cm->setUsername($user);
+        $dte = date('Y-m-d h:m');
+        var_dump($dte);
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($idArt);
+        $cm->setArticle($article);
+        $cm->setText($msg);
+        //$cm->setDateCom($dte);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($cm);
+        $em->flush();
+        return new JsonResponse($cm);
+    }
+//    /**
+//     * Permet de liker ou unliker un publication
+//     *
+//     * @Route ("/publication/{id}/like", name="PosteLike")
+//     * @param Publications $publication
+//     * @param EntityManagerInterface $manager
+//     * @param PostLikeRepository $likeRepository
+//     * @param
+//     * @return Response
+//     */
+//    public function like(Publications $publication,PostLikeRepository $likeRepository,EntityManagerInterface $manager,$id):Response
+//    {
+//
+//        // $user = $this->getUser();
+//
+//        $idu=44; //id ta3 utilisateur
+//        $user = $this->getDoctrine()->getRepository(User::class)->find($idu);
+//        //   $publications=$this->getDoctrine()->getRepository(Publications::class)->find($id);
+//
+//
+//        if (!$user) return $this->json([
+//            'code' => 403,
+//            'message' => "Unauthorized"
+//        ], 403);
+//
+//
+//
+//        if($publication->JaimePar($user)) {
+//            $like = $likeRepository->findOneBy ([
+//                'post' => $publication,
+//                'user' => $user
+//
+//            ]);
+//            $manager->remove($like);
+//            $manager->flush();
+//
+//            return $this->json([
+//                'code' => 200,
+//                'message' => 'Like bien supprimé',
+//
+//                'likes' => $likeRepository->count(['post' => $publication])
+//            ], 200);
+//        }
+//
+//        $like= new  PostLike();
+//        $like->setPost($publication)
+//            ->setUser($user);
+//
+//        $manager->persist($like);
+//        $manager->flush();
+//
+//
+//        return $this->json([
+//            'code' => 200,
+//            'message' => 'Like bien ajouté',
+//            'likes' => $likeRepository->count(['post' => $publication])
+//        ], 200);
+//    }
+
 }

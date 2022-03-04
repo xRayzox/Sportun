@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CommentaireRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
  * @ORM\Entity(repositoryClass=CommentaireRepository::class)
  */
@@ -14,6 +15,7 @@ class Commentaire
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     *
      */
     private $id;
 
@@ -30,8 +32,8 @@ class Commentaire
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="commentaires",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="commentaires")
+     * @ORM\JoinColumn(name="article_id",nullable=false,onDelete="CASCADE")
      */
     private $article;
 

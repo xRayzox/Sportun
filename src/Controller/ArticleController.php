@@ -7,6 +7,7 @@ use App\Entity\Commentaire;
 use App\Form\ArticleType;
 use App\Form\CommentaireType;
 use App\Repository\ArticleRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +35,6 @@ class ArticleController extends AbstractController
     function Add(Request $request): Response
     {
         $article = new Article();
-//        $article->setCreatedAt(new \DateTimeImmutable());
         $form = $this->createForm(ArticleType::class, $article);
         $form->add('Ajouter', SubmitType::class,['attr'=>['class'=>'class="col-sm-2 col-form-label']]);
         $form->handleRequest($request);
@@ -64,7 +64,6 @@ class ArticleController extends AbstractController
 return $this->render('Back/showarticle.html.twig', [
     'article' => $post,
     'commentaires' => $comment,
-
 ]);
 }
     /**
@@ -81,12 +80,18 @@ return $this->render('Back/showarticle.html.twig', [
     /**
      * @Route("/blog",name="blog")
      */
-    public function showfront(ArticleRepository $repo)
+    public function showfront(ArticleRepository $repo,Request $request,PaginatorInterface $paginator)
     {
         $repo=$this->getDoctrine()->getRepository(Article::class);
         $article = $repo->findAll();
+
+        $articles=$paginator->paginate(
+            $article,
+            $request->query->getInt('page',1),4
+        );
         return $this->render('Front/blog.html.twig', [
-            'article' => $article
+//            'article' => $article,
+            'article'=>$articles
         ]);
     }
 
@@ -102,9 +107,10 @@ return $this->render('Back/showarticle.html.twig', [
         $form->handleRequest($request);
         if ($form->isSubmitted()&&$form->isValid()) {
             $fil=$form->get('media')->getData();
-            $filename=md5(uniqid()).'.'.$fil->guessExtension();
-            $fil->move($this->getParameter('images_directory'),
-                $filename);
+            if ($fil!=null) {
+                $fil->move($this->getParameter('images_directory'),
+                    $filename);
+            }
             $em = $this->getDoctrine()->getManager();
             $article->setMedia($filename);
             $em->persist($article);
@@ -118,21 +124,11 @@ return $this->render('Back/showarticle.html.twig', [
      */
     function Delete($id,ArticleRepository $repository){
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+        $filename=$article->getMedia();
+        unlink($this->getParameter('images_directory').'/'.$filename);
         $em=$this->getDoctrine()->getManager();
         $em->remove($article);
         $em->flush();
         return $this->redirectToRoute('articleslist');
     }
-//    /**
-//     * @Route("/commentaire/new", name="add_comentaire")
-//     */
-//    public function ajaxAction(Request $request)
-//    {
-//        $commentaires= $this->getDoctrine()->getRepository(Commentaire::class)->listCommentaireByArticle($id);
-//        if ($request->isXMLHttpRequest()) {
-//            return new JsonResponse(array('data' => 'this is a json response'));
-//        }
-//
-//        return new Response('This is not ajax!', 400);
-//    }
 }

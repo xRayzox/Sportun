@@ -25,6 +25,8 @@ class ArticleType extends AbstractType
             'multiple'=>false,
             'mapped'=>false,
             'required'=>false])
+            ->add('tag')
+            ->add('decription')
         ;
     }
 
