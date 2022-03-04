@@ -115,4 +115,16 @@ class CommentaireController extends AbstractController
         }
         return $this->render("Front/modifoercomment.html.twig", array('form' => $form->createView()));
     }
+        /**
+     * @Route("/commentaire/new", name="add_comentaire")
+     */
+    public function ajaxAction(Request $request)
+    {
+       // $commentaires= $this->getDoctrine()->getRepository(Commentaire::class)->listCommentaireByArticle($id);
+        if ($request->isXMLHttpRequest()) {
+            return new JsonResponse(array('data' => 'this is a json response'));
+        }
+
+        return new Response('This is not ajax!', 400);
+    }
 }

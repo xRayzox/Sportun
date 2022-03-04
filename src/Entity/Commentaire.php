@@ -30,7 +30,7 @@ class Commentaire
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="commentaires",cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $article;

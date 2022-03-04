@@ -28,18 +28,18 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="article text is required")
+     * @Assert\Length(min=50,
+     *     maxMessage="minimum 50 letter")
      */
     private $text;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="image is required")
      */
     private $media;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="post_id", orphanRemoval=true,cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="post_id", orphanRemoval=true,cascade={"persist"})
      */
     private $commentaires;
 
@@ -106,7 +106,7 @@ class Article
     {
         if (!$this->commentaires->contains($commentaire)) {
             $this->commentaires[] = $commentaire;
-            $commentaire->setPostId($this);
+            $commentaire->setArticle($this);
         }
 
         return $this;
@@ -116,8 +116,8 @@ class Article
     {
         if ($this->commentaires->removeElement($commentaire)) {
             // set the owning side to null (unless already changed)
-            if ($commentaire->getPostId() === $this) {
-                $commentaire->setPostId(null);
+            if ($commentaire->getArticle() === $this) {
+                $commentaire->setArticle(null);
             }
         }
 

@@ -114,10 +114,10 @@ return $this->render('Back/showarticle.html.twig', [
         return $this->render("Back/updatearticle.html.twig",array('form'=>$form->createView()));
     }
     /**
-     * @Route ("/SupprimerArticle/{id}",name="supprimerArticle",methods={"DELETE"})
+     * @Route ("/SupprimerArticle/{id}",name="supprimerArticle")
      */
     function Delete($id,ArticleRepository $repository){
-        $article=$repository->find($id);
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
         $em=$this->getDoctrine()->getManager();
         $em->remove($article);
         $em->flush();

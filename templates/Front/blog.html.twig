@@ -27,10 +27,11 @@
 						</div>
 						<div class="post-footer">
 							<div class="meta">
-								<span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="{{ path('showArticle',{'id':article.id}) }}" >Comments(s)</a></span>
+								<span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="{{ path('showArticle',{'id':article.id}) }}" > Comments(s)</a></span>
 {#								<span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">Aenean</a><a href="#">Mattis</a></span>#}
 							</div>
 							<a href="{{ path('showArticle',{'id':article.id}) }}" class="btn"><span>ouvrir</span></a>
+{#							{{ socialButtons() }}#}
 						</div>
 						</a>
 					</div>
@@ -55,7 +56,9 @@
 						<li class="widget widget-search">
 							<h3 class="title">Search</h3>
 							<form class="search-form">
-								<input class="inp-form" type="email" name="search" placeholder="Search">
+								<label>
+									<input class="inp-form" type="email" name="search" placeholder="Search">
+								</label>
 								<button type="submit" class="btn-form"><i class="fa fa-search" aria-hidden="true"></i></button>
 							</form>
 						</li>

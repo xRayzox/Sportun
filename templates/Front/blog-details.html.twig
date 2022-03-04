@@ -1,7 +1,30 @@
 {% extends 'base.html.twig' %}
 {% block content %}
+
     <!--===================== S-NEWS =====================-->
     <section class="s-news">
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId            : '3144723902473993',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v13.0'
+                });
+            };
+            var comment=$('.comment').val(); // your comment text box
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                // Mostramos un mensaje con la respuesta de PHP
+                success: function(data) {
+
+                    $('.commentbox').append("</br>"+comment); // list of comments. its inserting your last comment at the end of line.
+
+                }
+            });
+        </script>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-9 blog-cover">
@@ -26,6 +49,30 @@
                             <div class="meta">
                                 <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">{{ commentaires | length  }} Comments(s)</a></span>
                                 <span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">Aenean</a><a href="#">Mattis</a></span>
+                                <div id="shareBtn" class="btn btn-success clearfix">Share Dialog</div>
+                                <script>
+                                    document.getElementById('shareBtn').onclick = function() {
+                                        FB.ui({
+                                            display: 'popup',
+                                            method: 'share',
+                                            href: 'https://www.facebook.com/sportun.officiel',
+                                        }, function(response){});
+                                    }
+                                    document.getElementById('commentbtn').onclick = function() {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/commentaire/new",
+                                            data: {
+
+                                            },
+                                            dataType: "json",
+                                            success: function(response) {
+                                                //ici tu mets la nouvelle liste du commentaire
+//exemple quand tu veux afficher ajouter le commentaire dans la nouvelle liste tu peux utiliser document.getElementById('listecommentaire').innerHTML += le nouveau commentaire
+                                            }
+                                        });
+                                    }
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -107,6 +154,10 @@
                             {% endblock %}
                         </div>
                     </div>
+{#                    fb script#}
+
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+{#end b script#}
                 </div>
                 <!--================= SIDEBAR =================-->
                 <div class="col-12 col-lg-3 sidebar">
@@ -234,7 +285,7 @@
                                 <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
                                 <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
                             </div>
-                            <a href="single-blog.html" class="btn"><span>read more</span></a>
+                            <a href="single-blog" class="btn"><span>read more</span></a>
                         </div>
                     </div>
                 </div>
@@ -260,7 +311,7 @@
                                 <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
                                 <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
                             </div>
-                            <a href="single-blog.html" class="btn"><span>read more</span></a>
+                            <a href="single-blog" class="btn"><span>read more</span></a>
                         </div>
                     </div>
                 </div>
