@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CommentaireRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
  * @ORM\Entity(repositoryClass=CommentaireRepository::class)
  */
@@ -14,18 +15,22 @@ class Commentaire
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("students:read")
+     *
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="username is required")
+     * @Groups("students:read")
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="comment is required")
+     * @Groups("students:read")
      */
     private $text;
 

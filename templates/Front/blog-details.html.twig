@@ -24,6 +24,40 @@
 
                 }
             });
+
+                $( document ).ready(function() {
+                $("#comment").onsubmit(function(e){
+                    /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+                    var value = $(this).val();
+                    /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+                    $.ajax({
+                        type: "POST",
+                        url: "/commentaire/new",
+                        data: {
+                            'searchValue' : value
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            if(response){
+                                $('#t li#search').empty();
+                                $.each(JSON.parse(retour), function(i, obj) {
+                                    $('#t li#listedecomment').hide();
+                                    // $('#t li#search').append('<div class="review-item"> <div class="review-content"> <h6 class="name">'+obj.username+'</h6> <p class="review-comment">'+obj.text+' </p> <a class="review-btn" href="updatecomment/'+obj.id+'">modifier</a> </br><a href="supp/'+obj.id+'">supprimer</a></div> </div>
+                                });
+                            }
+                            else
+                            {
+                                $('#t li#all').show();
+                                $('#t li#search').empty();
+                                $('#t li#search').fadeIn('fast');
+                            }
+                        },
+                    });
+                    return false;
+                });
+            });
+
+
         </script>
         <div class="container">
             <div class="row">
@@ -50,29 +84,29 @@
                                 <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">{{ commentaires | length  }} Comments(s)</a></span>
                                 <span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">Aenean</a><a href="#">Mattis</a></span>
                                 <div id="shareBtn" class="btn btn-success clearfix">Share Dialog</div>
-                                <script>
-                                    document.getElementById('shareBtn').onclick = function() {
-                                        FB.ui({
-                                            display: 'popup',
-                                            method: 'share',
-                                            href: 'https://www.facebook.com/sportun.officiel',
-                                        }, function(response){});
-                                    }
-                                    document.getElementById('commentbtn').onclick = function() {
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "/commentaire/new",
-                                            data: {
+{#                                <script>#}
+{#                                    document.getElementById('shareBtn').onclick = function() {#}
+{#                                        FB.ui({#}
+{#                                            display: 'popup',#}
+{#                                            method: 'share',#}
+{#                                            href: 'https://www.facebook.com/sportun.officiel',#}
+{#                                        }, function(response){});#}
+{#                                    }#}
+{#                                    document.getElementById('commentbtn').onclick = function() {#}
+{#                                        $.ajax({#}
+{#                                            type: "POST",#}
+{#                                            url: "/commentaire/new",#}
+{#                                            data: {#}
 
-                                            },
-                                            dataType: "json",
-                                            success: function(response) {
-                                                //ici tu mets la nouvelle liste du commentaire
-//exemple quand tu veux afficher ajouter le commentaire dans la nouvelle liste tu peux utiliser document.getElementById('listecommentaire').innerHTML += le nouveau commentaire
-                                            }
-                                        });
-                                    }
-                                </script>
+{#                                            },#}
+{#                                            dataType: "json",#}
+{#                                            success: function(response) {#}
+{#                                                //ici tu mets la nouvelle liste du commentaire#}
+{#//exemple quand tu veux afficher ajouter le commentaire dans la nouvelle liste tu peux utiliser document.getElementById('listecommentaire').innerHTML += le nouveau commentaire#}
+{#                                            }#}
+{#                                        });#}
+{#                                    }#}
+{#                                </script>#}
                             </div>
                         </div>
                     </div>
@@ -100,14 +134,11 @@
                     <div class="reviews">
                         <h2 class="title">Comments</h2>
                         <ul class="reviews-list">
-                            <li class="item">
+                            <li class="item" id="listedecomment">
 {#             hedhi awel comment                   #}
-                                <div id="listedecomment"></div>
-                                <script
-                                    src="Front/js/jscommnt.js" ></script>
                                 {% for c in commentaires %}
                                 <div class="review-item">
-                                    <div class="review-avatar"><img src="{{ asset('Front/img/comments-photo-1.png') }}" alt="img"></div>
+{#                                    <div class="review-avatar"><img src="{{ asset('Front/img/comments-photo-1.png') }}" alt="img"></div>#}
                                     <div class="review-content">
                                         <h6 class="name">{{ c.username }}</h6>
 {#                                        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</div>#}
