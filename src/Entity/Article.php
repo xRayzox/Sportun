@@ -32,9 +32,9 @@ class Article
      *     maxMessage="minimum 50 letter")
      */
     private $text;
-
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("articles:read")
      */
     private $media;
 

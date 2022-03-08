@@ -68,4 +68,11 @@ class ArticleRepository extends ServiceEntityRepository
             ->setParameter('slug',$slug);
         return $query->getSingleScalarResult();
     }
+    public function searchArticle($str){
+        return $this->createQueryBuilder('article')
+            ->where('article.titre LIKE :nsc OR article.decription LIKE :nsc OR article.text LIKE :nsc OR article.tag LIKE :nsc')
+            ->setParameter('nsc', '%'.$str.'%')
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -128,34 +128,35 @@
                             <div class="meta">
                                 <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">{{ commentaires | length  }} Comments(s)</a></span>
 
-                                <a href="{{ path('PosteLike',{'id':i.id}) }}" class="btn btn-link js-like">
+{#                                <a href="{{ path('PosteLike',{'id':i.id}) }}" class="btn btn-link js-like">#}
 
-                                    {% if app.user and i.JaimePar(app.user) %}
-                                        <div class="row">
-                                            <div class="col-2">   <i class="fa fa-thumbs-up"></i></div>
-                                            <div class="col-6">   <span class="js-label">je n'aime pas</span></div>
-                                            <div class="col-2">   <span class="js-likes">{{ i.postLikes|length}}</span></div>
+{#                                    {% if app.user and i.JaimePar(app.user) %}#}
+{#                                        <div class="row">#}
+{#                                            <div class="col-2">   <i class="fa fa-thumbs-up"></i></div>#}
+{#                                            <div class="col-6">   <span class="js-label">je n'aime pas</span></div>#}
+{#                                            <div class="col-2">   <span class="js-likes">{{ i.postLikes|length}}</span></div>#}
 
-                                        </div>
-                                    {% else %}
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <i class="fa fa-thumbs-up"></i></div>
-                                            <div class="col-6">
-                                                <span class="js-label">j'aime</span>
-                                            </div>
-                                            <div class="col-2">
-                                                <span class="js-likes">{{ i.postLikes|length}}</span></div>
+{#                                        </div>#}
+{#                                    {% else %}#}
+{#                                        <div class="row">#}
+{#                                            <div class="col-2">#}
+{#                                                <i class="fa fa-thumbs-up"></i></div>#}
+{#                                            <div class="col-6">#}
+{#                                                <span class="js-label">j'aime</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-2">#}
+{#                                                <span class="js-likes">{{ i.postLikes|length}}</span></div>#}
 
-                                        </div>
-                                    {% endif %}
-                                </a>
+{#                                        </div>#}
+{#                                    {% endif %}#}
+{#                                </a>#}
 
 {#                                <span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">Aenean</a><a href="#">Mattis</a></span>#}
 {#                                <div id="shareBtn" class="btn btn-success clearfix">partage sur facebook</div>#}
 {#                                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true">fb share</div>#}
 {#                                <script src="{{asset('Front/js/jscommnt.js')}}">#}
 {#                                </script>#}
+
                                 <div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
                             </div>
@@ -249,9 +250,36 @@
                         <li class="widget widget-search">
                             <h3 class="title">Search</h3>
                             <form class="search-form">
-                                <input class="inp-form" type="email" name="search" placeholder="Search">
+                                <input class="inp-form" type="text" name="search" id="search" placeholder="Search">
                                 <button type="submit" class="btn-form"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
+{#                            <script>#}
+{#                                $( document ).ready(function() {#}
+{#                                    $("#search").keyup(function(e){#}
+{#                                        var value = $(this).val();#}
+{#                                        $.ajax({#}
+{#                                            url : "{{ path('searchStudentx') }}",#}
+{#                                            type : 'GET',#}
+{#                                            data: {#}
+{#                                                'searchValue' : value#}
+{#                                            },#}
+{#                                            success : function(retour){#}
+{#                                                if(retour){#}
+{#                                                    $('#t tbody#search').empty();#}
+{#                                                    $.each(JSON.parse(retour), function(i, obj) {#}
+{#                                                        $('#t tbody#search').append('<tr><td> '+obj.id+'  </td><td>    '+obj.nsc+'  </td><td>'+obj.email+' </td><td><a href="updateStudent/'+obj.id+'">modifier</a> </br><a href="deleteStudent/'+obj.id+'">supprimer</a></td></tr>');#}
+{#                                                    });#}
+{#                                                }#}
+{#                                                else#}
+{#                                                {#}
+
+{#                                                }#}
+{#                                            },#}
+{#                                        });#}
+{#                                        return false;#}
+{#                                    });#}
+{#                                });#}
+{#                            </script>#}
                         </li>
                         <!--========= WIDGET-SEARCH END =========-->
                         <!--=========== WIDGET-ARHIVE ===========-->
@@ -322,16 +350,16 @@
                             </ul>
                         </li>
                         <!--======== WIDGET-INSTAGRAM END ========-->
-                        <!--========== WIDGET-NEWSLETTER ==========-->
-                        <li class="widget widget-newsletter">
-                            <h3 class="title">newsletter</h3>
+{#                        <!--========== WIDGET-NEWSLETTER ==========-->#}
+{#                        <li class="widget widget-newsletter">#}
+{#                            <h3 class="title">newsletter</h3>#}
 
-                            <form class="subscribe-form">
-                                <input class="inp-form" type="email" name="subscribe" placeholder="Your E-mail">
-                                <button type="submit" class="btn-form"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </form>
+{#                            <form class="subscribe-form">#}
+{#                                <input class="inp-form" type="email" name="subscribe" placeholder="Your E-mail">#}
+{#                                <button type="submit" class="btn-form"><i class="fa fa-search" aria-hidden="true"></i></button>#}
+{#                            </form>#}
 
-                        </li>
+{#                        </li>#}
                         <!--======== WIDGET-NEWSLETTER END ========-->
                     </ul>
                 </div>
@@ -340,119 +368,119 @@
         </div>
     </section>
     <!--=================== S-NEWS END ===================-->
-    <!--================== RELATED POSTS ==================-->
-    <section class="s-related-posts">
-        <div class="container">
-            <h2 class="title-decor">Related <span>Posts</span></h2>
-            <p class="slogan">Maecenas consequat ex id lobortis venenatis. Mauris id erat enim. Morbi dolor dolor, auctor tincidunt lorem ut, venenatis dapibus miq.</p>
-            <div class="row">
-                <div class="col-md-6 related-post-col">
-                    <div class="post-item-cover">
-                        <div class="post-header">
-                            <div class="related-post-categ">fitness</div>
-                            <div class="post-thumbnail">
-                                <a href="single-blog"><img src="{{ asset('Front/img/blog-4.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <div class="meta">
-                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>
-                            </div>
-                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>
-                            <div class="text">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="meta">
-                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
-                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
-                            </div>
-                            <a href="single-blog" class="btn"><span>read more</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 related-post-col">
-                    <div class="post-item-cover">
-                        <div class="post-header">
-                            <div class="related-post-categ">lifting</div>
-                            <div class="post-thumbnail">
-                                <a href="single-blog"><img src="{{ asset('Front/img/blog-1.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <div class="meta">
-                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>
-                            </div>
-                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>
-                            <div class="text">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="meta">
-                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
-                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
-                            </div>
-                            <a href="single-blog" class="btn"><span>read more</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 related-post-col">
-                    <div class="post-item-cover">
-                        <div class="post-header">
-                            <div class="related-post-categ">fitness</div>
-                            <div class="post-thumbnail">
-                                <a href="single-blog"><img src="{{ asset('Front/img/blog-3.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <div class="meta">
-                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>
-                            </div>
-                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>
-                            <div class="text">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="meta">
-                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
-                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
-                            </div>
-                            <a href="single-blog" class="btn"><span>read more</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 related-post-col">
-                    <div class="post-item-cover">
-                        <div class="post-header">
-                            <div class="related-post-categ">lifting</div>
-                            <div class="post-thumbnail">
-                                <a href="single-blog"><img src="{{ asset('Front/img/blog-2.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <div class="meta">
-                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>
-                            </div>
-                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>
-                            <div class="text">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="meta">
-                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>
-                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>
-                            </div>
-                            <a href="single-blog" class="btn"><span>read more</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{#    <!--================== RELATED POSTS ==================-->#}
+{#    <section class="s-related-posts">#}
+{#        <div class="container">#}
+{#            <h2 class="title-decor">Related <span>Posts</span></h2>#}
+{#            <p class="slogan">Maecenas consequat ex id lobortis venenatis. Mauris id erat enim. Morbi dolor dolor, auctor tincidunt lorem ut, venenatis dapibus miq.</p>#}
+{#            <div class="row">#}
+{#                <div class="col-md-6 related-post-col">#}
+{#                    <div class="post-item-cover">#}
+{#                        <div class="post-header">#}
+{#                            <div class="related-post-categ">fitness</div>#}
+{#                            <div class="post-thumbnail">#}
+{#                                <a href="single-blog"><img src="{{ asset('Front/img/blog-4.jpg') }}" alt="img"></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="post-content">#}
+{#                            <div class="meta">#}
+{#                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>#}
+{#                            </div>#}
+{#                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>#}
+{#                            <div class="text">#}
+{#                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="post-footer">#}
+{#                            <div class="meta">#}
+{#                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>#}
+{#                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>#}
+{#                            </div>#}
+{#                            <a href="single-blog" class="btn"><span>read more</span></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 related-post-col">#}
+{#                    <div class="post-item-cover">#}
+{#                        <div class="post-header">#}
+{#                            <div class="related-post-categ">lifting</div>#}
+{#                            <div class="post-thumbnail">#}
+{#                                <a href="single-blog"><img src="{{ asset('Front/img/blog-1.jpg') }}" alt="img"></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="post-content">#}
+{#                            <div class="meta">#}
+{#                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>#}
+{#                            </div>#}
+{#                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>#}
+{#                            <div class="text">#}
+{#                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="post-footer">#}
+{#                            <div class="meta">#}
+{#                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>#}
+{#                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>#}
+{#                            </div>#}
+{#                            <a href="single-blog" class="btn"><span>read more</span></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 related-post-col">#}
+{#                    <div class="post-item-cover">#}
+{#                        <div class="post-header">#}
+{#                            <div class="related-post-categ">fitness</div>#}
+{#                            <div class="post-thumbnail">#}
+{#                                <a href="single-blog"><img src="{{ asset('Front/img/blog-3.jpg') }}" alt="img"></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="post-content">#}
+{#                            <div class="meta">#}
+{#                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>#}
+{#                            </div>#}
+{#                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>#}
+{#                            <div class="text">#}
+{#                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="post-footer">#}
+{#                            <div class="meta">#}
+{#                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>#}
+{#                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>#}
+{#                            </div>#}
+{#                            <a href="single-blog" class="btn"><span>read more</span></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 related-post-col">#}
+{#                    <div class="post-item-cover">#}
+{#                        <div class="post-header">#}
+{#                            <div class="related-post-categ">lifting</div>#}
+{#                            <div class="post-thumbnail">#}
+{#                                <a href="single-blog"><img src="{{ asset('Front/img/blog-2.jpg') }}" alt="img"></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="post-content">#}
+{#                            <div class="meta">#}
+{#                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>October 31, 2019</span>#}
+{#                            </div>#}
+{#                            <h3 class="title"><a href="single-blog">Sed ut perspiciatis unde omnis</a></h3>#}
+{#                            <div class="text">#}
+{#                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem...</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="post-footer">#}
+{#                            <div class="meta">#}
+{#                                <span class="post-by"><i class="fa fa-user" aria-hidden="true"></i><a href="#">By Rovadex</a></span>#}
+{#                                <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">2 Comments(s)</a></span>#}
+{#                            </div>#}
+{#                            <a href="single-blog" class="btn"><span>read more</span></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
 
     <!--================ RELATED POSTS END ================-->
 {% endblock %}

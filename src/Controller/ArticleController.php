@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class ArticleController extends AbstractController
 {
@@ -21,8 +22,10 @@ class ArticleController extends AbstractController
      */
     public function index(): Response
     {
+//        $user=$this->getUser()->getUsername();
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
+//            'user'=>$user
         ]);
     }
 
@@ -130,5 +133,14 @@ return $this->render('Back/showarticle.html.twig', [
         $em->remove($article);
         $em->flush();
         return $this->redirectToRoute('articleslist');
+    }
+    public function searchAction(Request $request,NormalizerInterface $Normalizer): Response
+    {
+        $repository = $this->getDoctrine()->getRepository(Article::class);
+        $requestString=$request->get('searchValue');
+        $articles = $repository->searchArticle($requestString);
+        $jsonContent = $Normalizer->normalize($articles, 'json',['groups'=>'articles:read']);
+        $retour=json_encode($jsonContent);
+        return new Response($retour);
     }
 }
