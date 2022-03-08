@@ -1,11 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    <meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+    <meta property="og:url"                content="http://127.0.0.1:8000/single-blog/{{ article.id }}" />
     <meta property="og:type"               content="article" />
     <meta property="og:title"              content="{{ article.titre }}" />
     <meta property="og:description"        content="{{ article.decription }}" />
-    <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
-
+    <meta property="og:image"              content="{{ asset('/upload/images/'~article.media) }}" />
+    <style>
+        .star{
+            font-size: 1.5rem;
+        }
+        .hover{
+            color: yellow;
+        }
+    </style>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--===================== S-NEWS =====================-->
     <section class="s-news">
@@ -104,6 +119,54 @@
                 link.addEventListener('click',onClickBtnLike);
             })
         </script>
+        <script>
+            const stars =document.querySelectorAll('.star');
+            let check = false;
+            stars.forEach(star=>{
+                star.addEventListener('mouseover',selectStars);
+                star.addEventListener('mouseleave',unselectStars);
+
+                star.addEventListener('click',activeSelect);
+
+
+
+            })
+            function selectStars(e){
+                const data =e.target;
+                const etoiles = priviousSiblings(data);
+                if(!check){
+                    etoiles.forEach(etoile=>{
+                        etoile.classList.add('hover');
+                    })
+                }
+
+
+            }
+            function unselectStars(e){
+                const data =e.target;
+                const etoiles = priviousSiblings(data);
+                if(!check){
+                    etoiles.forEach(etoile=>{
+                        etoile.classList.remove('hover');
+                    })
+                }
+
+            }
+            function priviousSiblings(data){
+                let values=[data];
+                while (data = data.previousSibling){
+                    if(data.nodeName ==='I'){
+                        values.push(data);
+                    }
+                }
+                return values;
+            }
+            function  activeSelect(e){
+                check=true;
+
+                document.querySelector('.note').innerHTML='Note: '+ e.target.dataset.note;
+            }
+        </script>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-9 blog-cover">
@@ -127,6 +190,12 @@
                         <div class="post-footer">
                             <div class="meta">
                                 <span class="post-comment"><i class="fa fa-comment" aria-hidden="true"></i><a href="#">{{ commentaires | length  }} Comments(s)</a></span>
+                                <div><i class="star" data-note="1">&#9733;</i>
+<i class="star" data-note="2">&#9733;</i>
+<i class="star" data-note="3">&#9733;</i>
+<i class="star" data-note="4">&#9733;</i>
+<i class="star" data-note="5">&#9733;</i>
+<i class="note">Note:</i></div>
 
 {#                                <a href="{{ path('PosteLike',{'id':i.id}) }}" class="btn btn-link js-like">#}
 
@@ -157,8 +226,17 @@
 {#                                <script src="{{asset('Front/js/jscommnt.js')}}">#}
 {#                                </script>#}
 
-                                <div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
-                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+{#                                <div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>#}
+{#                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>#}
+{#                                <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2F127.0.0.1%3A8000%2Fsingle-blog%2F{{article.id}}&layout=button_count&size=small&width=91&height=20&appId" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;#}
+{#clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>#}
+{#                                <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:8000/single-blog/{{ article.id }}" >#}
+{#                                    <i class="fa fa-facebook-f"><h6>share</h6></i>#}
+                                <div class="fb-share-button"
+                                     data-href="http://127.0.0.1:8000/single-blog/{{ article.id }}"
+                                     data-layout="button_count">
+                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -171,36 +249,11 @@
                         </div>
                     </div>
                     <!--============= AUTOR-COVER END =============-->
-                    <!--================ NAVIGATION ================-->
-                    <div class="navigation">
-                        <a href="#" class="navigation-item navigation-left">
-                            <span>previous</span>
-                            <div class="title">Sed ut perspiciatis unde</div>
-                        </a>
-                        <a href="#" class="navigation-item navigation-right">
-                            <span>next</span>
-                            <div class="title">Sed ut perspiciatis unde</div>
-                        </a>
-                    </div>
-                    <!--============== NAVIGATION END ==============-->
                     <div class="reviews">
                         <h2 class="title">Comments</h2>
                         <ul class="reviews-list">
                             <li class="item" id="listedecomment">
 {#             hedhi awel comment                   #}
-{#                                {% for c in commentaires %}#}
-{#                                <div class="review-item">#}
-{#                                    <div class="review-avatar"><img src="{{ asset('Front/img/comments-photo-1.png') }}" alt="img"></div>#}
-{#                                    <div class="review-content">#}
-{#                                        <h6 class="name">{{ c.username }}</h6>#}
-{#                                        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</div>#}
-{#                                        <p class="review-comment">{{ c.text}}#}
-{#                                        </p>#}
-{#                                        <a class="review-btn" href="{{ path('updateCommentaire',{'id':c.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> modifier</a>#}
-{#                                        <a class="review-btn" href="{{ path('commentaire_delete',{'id':c.id}) }}"><i class="fa fa-times" aria-hidden="true"></i> supprimer</a>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                {% endfor %}#}
                                 {#            hedhi end commente                    #}
                             </li>
                         </ul>
@@ -220,18 +273,8 @@
                                            {{ form_errors(form.text) }}
                                            {{ form_widget(form.text,{'id':'textid'}) }}
                                        </li>
-{#                                       <li class="inp-text">#}
-{#                                           <label>Message * (required)</label>#}
-{#                                           <textarea name="your-text"></textarea>#}
-{#                                       </li>#}
                                    </ul>
-{#                                   <div class="checkbox-wrap">#}
-{#                                       <div class="checkbox-cover">#}
-{#                                           <input type="checkbox">#}
-{#                                       </div>#}
-{#                                   </div>#}
                                    <div class="btn-form-cover">
-{#                                       <button type="submit" class="btn">send comment</button>#}
                                        {{ form_end(form) }}
                                    </div>
                             {% endblock %}
