@@ -1,0 +1,298 @@
+/*--------------------- FOOTER ---------------------*/
+footer{
+	background-color: #000;
+	padding-top: 55px;
+	position: relative;
+	z-index: 6;
+	.social-list li {
+		margin-right: 18px;
+	}
+}
+.footer-item-logo{
+	.logo-footer{
+		display: inline-block;
+		margin-bottom: 16px;
+	}
+	p{
+		margin-bottom: 34px;
+		max-width: 200px;
+		font-size: 14px;
+	}
+}
+.footer-item{
+	padding-top: 7px;
+	h3{
+		margin-bottom: 19px;
+	}
+}
+.footer-link{
+	li{
+		margin-bottom: 10px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+}
+.footer-cont{
+	li{
+		margin-bottom: 10px;
+	}
+	i{
+		font-size: 18px;
+		width: 18px;
+		text-align: center;
+		margin-right: 15px;
+	}
+}
+.footer-blog{
+	li{
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	.img-cover{
+		width: 70px;
+		height: 70px;
+		flex: 0 0 auto;
+		margin-right: 20px;
+		&:hover{
+			opacity: .6;
+		}
+		img{
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.footer-blog-info{
+		.name{
+			font-weight: 600;
+			margin-bottom: 2px;
+		}
+		p{
+			font-size: 14px;
+		}
+	}
+}
+
+.footer-bottom{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 26px 0;
+	margin-top: 52px;
+	border-top: 1px solid #333;
+	.copyright{
+		font-size: 14px;
+	}	
+}
+.footer-menu{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	li{
+		margin-right: 36px;
+		&:last-child{
+			margin-right: 0;
+		}
+		&.active{
+			a{
+				color: $accent_color;
+			}
+		}
+		a{
+			font-family: $font_family_title;
+			text-transform: uppercase;
+			font-size: 14px;
+			line-height: 18px;
+			display: block;
+		}
+	}
+}
+
+/*------------------ FOOTER-FITNESS ------------------*/
+.footer-fitness{
+	padding-top: 50px;
+	color: #fff;
+	.footer-item-logo{
+		flex: 0 0 18%;
+		max-width: 18%;
+	}
+	.footer-item-blog{
+		flex: 0 0 28%;
+		max-width: 28%;
+	}
+	.footer-item-link{
+		flex: 0 0 22%;
+		max-width: 22%;
+	.footer-link{
+		display: flex;
+		flex-wrap: wrap;
+		li{
+			flex: 0 0 50%;
+			max-width: 50%;
+			text-transform: capitalize;
+			font-weight: 600;
+		}
+	}
+	}
+	.footer-item-subscribe{
+		flex: 0 0 32%;
+		max-width: 32%;
+		p{
+			font-size: 14px;
+			line-height: 23px;
+			margin-bottom: 14px;
+		}
+		.subscribe-form{
+			.btn-form,
+			.inp-form{
+				border-radius: 0;
+			}
+		}
+	}
+	.footer-bottom{
+		justify-content: center;
+		.copyright{
+			a{
+				color: $accent_color;
+				&:hover{
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+
+/*----------------------- MEDIA -----------------------*/
+@media(max-width: 1199px){
+	.footer-blog .img-cover{
+		display: none;
+	}
+}
+@media(max-width: 991px){
+	.footer-item-logo,
+	.footer-item{
+		margin-bottom: 50px;
+	}
+	.footer-bottom{
+		margin-top: 0;
+	}
+	.footer-menu li {
+		margin-right: 23px;
+	}
+	.footer-fitness .footer-item-link,
+	.footer-fitness .footer-item-logo {
+		flex: 0 0 40%;
+		max-width: 40%;
+	}
+	.footer-fitness .footer-item-subscribe,
+	.footer-fitness .footer-item-blog{
+		flex: 0 0 60%;
+		max-width: 60%;
+	}
+	.footer-fitness .footer-item-subscribe p{
+		margin-bottom: 17px;
+	}
+}
+@media(max-width: 767px){
+	.footer-bottom{
+		flex-direction: column;
+		align-items: flex-start;
+		.copyright {
+			font-size: 14px;
+			margin-bottom: 15px;
+		}
+	}
+	.footer-menu li {
+		margin-right: 36px;
+	}
+	.logo-footer img{
+		max-width: 150px;
+	}
+	.header-fitness .header-menu .container {
+		padding-top: 9px;
+		padding-bottom: 5px;
+	}
+	.header-fitness .nav-list > li {
+		margin-left: 0;
+		>a{
+			padding: 0 15px;
+		}
+		&.dropdown ul {
+			margin-top: 0;
+		}
+	}
+	.footer-cont{
+		i{
+			display: none;
+		}
+	}
+	.footer-item-logo p {
+		margin-bottom: 25px;
+	}
+}
+@media(max-width: 575px){
+	.footer-bottom .copyright {
+		font-size: 12px;
+	}
+	.footer-menu{
+		flex-wrap: wrap;
+		li {
+			margin-right: 10px;
+			a{
+				font-size: 12px;
+			}
+		}
+	}
+	.footer-item-logo p{
+		max-width: 100%;
+	}
+	.footer-fitness{
+		.footer-item-link,
+		.footer-item-logo,
+		.footer-item-subscribe,
+		.footer-item-blog{
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		.footer-item {
+			padding-top: 0;
+		}
+		.footer-bottom .copyright,
+		.footer-item-logo .logo-footer{
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
