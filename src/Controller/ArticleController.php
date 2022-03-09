@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 
 class ArticleController extends AbstractController
 {
@@ -142,5 +143,33 @@ return $this->render('Back/showarticle.html.twig', [
         $jsonContent = $Normalizer->normalize($articles, 'json',['groups'=>'articles:read']);
         $retour=json_encode($jsonContent);
         return new Response($retour);
+    }
+    public function backChart(ChartBuilderInterface $chartBuilder){
+        $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
+
+        $chart->setData([
+            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            'datasets' => [
+                [
+                    'label' => 'My First dataset',
+                    'backgroundColor' => 'rgb(255, 99, 132)',
+                    'borderColor' => 'rgb(255, 99, 132)',
+                    'data' => [0, 10, 5, 2, 20, 30, 45],
+                ],
+            ],
+        ]);
+
+        $chart->setOptions([
+            'scales' => [
+                'y' => [
+                    'suggestedMin' => 0,
+                    'suggestedMax' => 100,
+                ],
+            ],
+        ]);
+
+        return $this->render('Back/blog.html.twig', [
+            'chart' => $chart,
+        ]);
     }
 }

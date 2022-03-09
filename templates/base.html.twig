@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
+	{% block head %}
 	<meta charset="UTF-8">{{asset('')}}
 	<title>Fitmax</title>
 	<!-- =================== META =================== -->
@@ -16,6 +17,7 @@
 	<link rel="stylesheet" href="{{asset('Front/css/bootstrap-grid.css')}}">
 	<link rel="stylesheet" href="{{asset('Front/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('Front/css/style.css')}}">
+{% endblock %}
 	{% endblock %}
 </head>
 
