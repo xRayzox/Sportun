@@ -34,7 +34,6 @@ class Article
     private $text;
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("articles:read")
      */
     private $media;
 
@@ -54,9 +53,10 @@ class Article
     private $decription;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=tag::class, inversedBy="articles")
      */
     private $tag;
+
 
     public function __construct()
     {
