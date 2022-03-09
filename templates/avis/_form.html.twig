@@ -1,0 +1,12 @@
+
+                        {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                         {{ form_widget(form.comment) }}
+                          {% if not form.comment.vars.valid %}
+                        <div class="alert alert-danger">
+                        {{ form_errors(form.comment) }}
+                        </div>
+                        {% endif %}
+                        {{ form_widget(form) }}
+                         <button class="btn">{{ button_label|default('comment') }}</button>
+                        {{ form_end(form) }}
+    <br>

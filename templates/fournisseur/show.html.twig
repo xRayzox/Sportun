@@ -1,0 +1,35 @@
+{% extends 'back-office.html.twig' %}
+
+{% block title %}Fournisseur{% endblock %}
+
+{% block body %}
+    <h1>Fournisseur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ fournisseur.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ fournisseur.description }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ fournisseur.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+<center>
+    <a href="{{ path('fournisseur_index') }}">back to list</a>
+
+    <a href="{{ path('fournisseur_edit', {'id': fournisseur.id}) }}">edit</a>
+
+    {{ include('fournisseur/_delete_form.html.twig') }}
+    </center>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block content %} {{asset('')}}
+	<!-- ============ S-FITNESS-SLIDER ============ -->
+	<section class="s-fitness-slider">
+		<div class="slider-navigation">
+			<div class="container">
+				<div class="slider-navigation-cover"></div>
+			</div>
+		</div>
+		<div class="fitness-slider">
+			<div class="fitness-slide">
+				<div class="fitness-slider-effect">
+					<div data-hover-only="true" class="scene">
+						<span class="scene-item" data-depth="0.4" style="'background-image: url(/Front/img/effect-1-1.svg);"></span>
+					</div>
+				</div>
+				<div class="slide-img-cover">
+					<div data-hover-only="true" class="scene">
+						<img class="slide-img" data-depth="0.2" src="{{asset('/Front/img/woman1.png')}}" alt="img">
+					</div>
+				</div>
+				<div class="container">
+					<img class="slide-img-effect" src="{{asset('/Front/img/slider-square.svg')}}" alt="img">
+					<div class="text-bg">workout</div>
+					<div class="fitness-slide-cover">
+						<h2 class="title">push <span>yourself</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="fitness-slide">
+				<div class="fitness-slider-effect">
+					<div data-hover-only="true" class="scene">
+						<span class="scene-item" data-depth="0.4" style="background-image: url(/Front/img/effect-1-1.svg);"></span>
+					</div>
+				</div>
+				<div class="slide-img-cover">
+					<div data-hover-only="true" class="scene">
+						<img class="slide-img" data-depth="0.2" src="{{asset('/Front/img/woman2.png')}}" alt="img">
+					</div>
+				</div>
+				<div class="container">
+					<img class="slide-img-effect" src="{{asset('/Front/img/slider-square.svg')}}" alt="img">
+					<div class="text-bg">Yoga</div>
+					<div class="fitness-slide-cover">
+						<h2 class="title">push <span>yourself</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="fitness-slide">
+				<div class="fitness-slider-effect">
+					<div data-hover-only="true" class="scene">
+						<span class="scene-item" data-depth="0.4" style="background-image: url(/Front/img/effect-1-1.svg);"></span>
+					</div>
+				</div>
+				<div class="slide-img-cover">
+					<div data-hover-only="true" class="scene">
+						<img class="slide-img" data-depth="0.2" src="{{asset('/Front/img/woman3.png')}}" alt="img">
+					</div>
+				</div>
+				<div class="container">
+					<img class="slide-img-effect" src="{{asset('/Front/img/slider-square.svg')}}" alt="img">
+					<div class="text-bg">Cardio</div>
+					<div class="fitness-slide-cover">
+						<h2 class="title">push <span>yourself</span></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ========== S-FITNESS-SLIDER END ========== -->
+
+        <center>
+	    {{ include('avis/_form.html.twig') }}
+        </center>
+
+
+
+	
+{% endblock %}

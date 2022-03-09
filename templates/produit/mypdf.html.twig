@@ -1,0 +1,24 @@
+<h2>List des produits</h2>
+<centre>
+
+    <table class="table" border=5>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Prix</th>
+                <th>Quantity</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.name }}</td>
+                <td>{{ produit.prix }} Dt</td>
+                <td>{{ produit.quantity }}</td>
+                <td>{{ produit.type }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</centre>

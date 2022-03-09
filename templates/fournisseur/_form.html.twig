@@ -1,0 +1,26 @@
+
+                        {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                         {{ form_widget(form.name) }}
+                          {% if not form.name.vars.valid %}
+                        <div class="alert alert-danger">
+                        {{ form_errors(form.name) }}
+                        </div>
+                        {% endif %}
+                        <br>
+                         {{ form_widget(form.description) }}
+                          {% if not form.description.vars.valid %}
+                        <div class="alert alert-danger">
+                        {{ form_errors(form.description) }}
+                        </div>
+                        {% endif %}
+                        <br>
+                        {{ form_widget(form.email) }}
+                          {% if not form.email.vars.valid %}
+                        <div class="alert alert-danger">
+                        {{ form_errors(form.email) }}
+                        </div>
+                        {% endif %}
+                        {{ form_widget(form) }}
+                         <button class="btn">{{ button_label|default('save') }}</button>
+                        {{ form_end(form) }}
+    <br>
