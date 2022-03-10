@@ -1,0 +1,39 @@
+
+{% extends 'base.html.twig' %}
+{% block content %}
+
+<section class="s-about">
+		<div class="container">
+			<img class="about-effect-tringle" src="{{asset('Front/img/tringle-about-top.svg')}}" alt="img">
+			<div class="row about-row">
+				<div class="col-md-5 about-img-col">
+					<div class="about-img-cover">
+						<div class="about-img-1">
+							<img class="about-img-effect-1" src="{{asset('Front/img/square-yellow.svg')}}" alt="img">
+							<img class="about-img-effect-2" src="{{asset('Front/img/group-circle-2.svg')}}" alt="img">
+							<img src="{{ asset('/upload/images/'~Serv.Image) }}"  width="423" height="423" alt="img">
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-md-7 about-info-cover">
+					<h2 class="title-decor" style="color:#f23849">{{Serv.name}} </h2>
+					<div class="text">
+						Type:<p>{{Serv.Type}}</p>
+						Description:<p>{{Serv.Description}}</p>
+					</div>
+					<ul class="about-cont">
+						<li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:18004886040">{{Serv.NumTel}}</a></li>
+						<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:fitmax@gmail.com">Sportun@Softwave.com</a></li>
+					</ul>
+					<ul class="social-list">
+						<li><a target="_blank" href="https://www.facebook.com/rovadex"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a target="_blank" href="https://twitter.com/RovadexStudio"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a target="_blank" href="https://www.youtube.com"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+						<li><a target="_blank" href="https://www.instagram.com/rovadex"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	{% endblock %}

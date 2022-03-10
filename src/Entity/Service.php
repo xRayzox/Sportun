@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-
+use App\Repository\ServiceRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="ServiceRepository"::class)
+ * @ORM\Entity(repositoryClass=ServiceRepository::class)
  */
 class Service
 {

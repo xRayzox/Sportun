@@ -13,6 +13,7 @@ function initMap() {
         });
       
         infoWindow.open(map);
+        
         // Configure the click listener.
         map.addListener("click", (mapsMouseEvent) => {
           // Close the current InfoWindow.
@@ -28,6 +29,7 @@ function initMap() {
           document.getElementById('lat').value = obj.lat;
           document.getElementById('lng').value = obj.lng;
           console.log(obj.lat);
+       
           
           infoWindow.setContent(
             JSON.stringify(mapsMouseEvent.latLng.toJSON())
@@ -39,5 +41,6 @@ function initMap() {
        
         });
       }
+ 
       
       

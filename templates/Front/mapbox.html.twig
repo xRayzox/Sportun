@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+	<!-- =============== HEADER-TITLE =============== -->
+	<section class="s-header-title" style="background-image: url(Front/img/bg-1-min.png);">
+		<div class="container">
+			<h1 class="title">Services</h1>
+			<ul class="breadcrambs">
+				<li><a href="index.html">Home</a></li>
+				<li>Services</li>
+			</ul>
+		</div>
+	</section>
+	<!-- ============= HEADER-TITLE END ============= -->
+<script src="{{asset('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js')}}"></script>
+<link rel="stylesheet" href="{{asset('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css')}}" type="text/css">
+  <script src="{{asset('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js')}}"></script>
+<link rel="stylesheet" href="{{asset('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css')}}" type="text/css">
+		<!-- ================== S-MAP ================== -->
+
+   <h1>MapBox</h1>
+   <strong>Set Route:
+   <select class="form-control" id="tot">
+   <option>Choose</option>
+      {% for tot in tot %}
+      <option value="{{tot.name}}">{{tot.name}}</option>
+      {% endfor %}
+</select>
+
+  <div id="mapbox" style='width: 100%; height: 500px;'></div>
+
+  <script src="{{asset('Front/js/mapbox.js')}}"></script>
+	<!-- ================ S-MAP END ================ -->
+	{% endblock %}

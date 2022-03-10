@@ -60,7 +60,21 @@ class ServiceRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }*/
-
-  
+    public function findBynomrec($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT s , L FROM APP\Entity\Service s
+                JOIN s.Location L
+                WHERE s.name LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
+    public function OrderBynom(){
+        $em=$this->getEntityManager();
+        $query=$em->createQuery('SELECT s , L FROM APP\Entity\Service s
+        JOIN s.Location L Order BY s.name ASC');
+        return $query->getResult();
+    }
   
 }

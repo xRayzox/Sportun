@@ -1,0 +1,62 @@
+<h1 align="center">Liste des Services</h1>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width:50px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 3px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+<table id="customers">
+
+	<tr>
+	
+		
+		<th scope="row">Id</th>
+		<th scope="row">name</th>
+		<th scope="row">Description</th>
+		<th scope="row">Title</th>
+		<th scope="row">type</th>
+		<th scope="row">NumTel</th>
+		<th scope="row">Lat</th>
+		<th scope="row">Lng</th>
+		<th scope="row">region</th>
+
+	</tr>
+
+	{% for Recuperation in Recuperations %}
+
+		<tr>
+			<td>{{ Recuperation.id }}</td>
+			<td>{{ Recuperation.name }}</td>
+			<td>{{ Recuperation.Description }}</td>
+			<td>{{ Recuperation.title }}</td>
+			<td>{{ Recuperation.Type}}</td>
+			<td>{{ Recuperation.NumTel}}</td>
+			<td>{{ Recuperation.location.lat }}</td>
+			<td>{{ Recuperation.location.lng }}</td>
+			<td>{{ Recuperation.location.region }}</td>
+
+
+		</tr>
+
+	{% endfor %}
+
+</table>

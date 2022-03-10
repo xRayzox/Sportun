@@ -8,18 +8,24 @@
 	<meta name="description" content="">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="shortcut icon" href="{{asset('Front/img/favicon.png')}}">
+	<link rel="shortcut icon" href="{{asset('Front/img/sportun.png')}}">
 	<!-- =================== STYLE =================== -->
 	<link rel="stylesheet" href="{{asset('Front/css/slick.min.css')}}">
 	<link rel="stylesheet" href="{{asset('Front/css/bootstrap-grid.css')}}">
 	<link rel="stylesheet" href="{{asset('Front/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('Front/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('Front/css/map.css')}}">
-	<script src="{{asset('Front/js/clean.js')}}"></script>
+	<link rel="stylesheet" href="{{asset('Front/css/mapbox.css')}}">
+	<script src="{{asset('https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js')}}"></script>
+<link href="{{asset('https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css')}}" rel='stylesheet' type='text/css' />
+		<script src="{{asset('Front/js/clean.js')}}"></script>
 	<script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}"></script>
 	<script src = "{{asset('https://code.jquery.com/jquery-2.2.4.min.js')}}"></script> 
 	<script src="{{asset('https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js')}}"></script>
 <link href="{{asset('https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css')}}" rel='stylesheet' />
+<script src="{{asset('https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js')}}"></script>
+<link href="{{asset('https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css')}}"rel='stylesheet' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body id="home">
@@ -49,30 +55,33 @@
 			<div class="container">
 				<div class="header-left">
 					<ul class="header-cont">
-						<li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:18004886040">1-800-488-6040</a></li>
+						<li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+216-27-435-939">+216-27-435-939</a></li>
 						<li><i class="fa fa-clock-o" aria-hidden="true"></i>Mon - Fri: 8:00AM - 7:00PM | Sat - Sun: Closed</li>
 					</ul>
 				</div>
+				
 				<div class="header-right">
-					<form class="search-form">
-						<input type="search" class="search-form__field" placeholder="Search" value="" name="s">
-						<button type="submit" class="search-form__submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-					</form>
-					<a href="about.html">Sign in/registre</a>
+					
+					<a href="about.html">Sign in</a>
+					<strong style="color:red  " >|</strong>
+					<a href="about.html">Sign up</a>
 				</div>
+				<a href="#" class="fa fa-shopping-cart" style="font-size:30px;color:blanc"></a>
+
 			</div>
 		</div>
 		<div class="header-menu">
 			<div class="container">
 				<div class="header-logo">
-					<a href="index.html" class="logo"><img src="{{asset('Front/img/logo.svg')}}" alt="logo"></a>
+					<a href="index.html" class="logo"><img src="{{asset('Front/img/sportun.png')}}" alt="logo"></a>
 				</div>
 				<nav class="nav-menu">
 					<ul class="nav-list">
 						<li class="active" ><a href="home.html" >Home</a></li>
 						<li><a href="about.html">About</a></li>
 						<li><a href="produits.html">Produits</a></li>
-						<li><a href="services.html">Services</a></li>	
+						<li><a href="/mapbox">Services</a></li>	
+						<li><a href="services.html">Event</a></li>	
 						<li><a href="blog.html">Blog</a></li>
 						<li><a href="contacts.html">Contacts</a></li>
 					</ul>
@@ -109,8 +118,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 footer-item-logo">
-					<a href="index.html" class="logo-footer"><img src="{{asset('Front/img/footer-logo2.svg')}}" alt="logo"></a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+					<a href="index.html" class="logo" ><img src="{{asset('Front/img/sportun.png')}}" alt="logo"></a>
+					
 					<ul class="social-list">
 						<li><a target="_blank" href="https://www.facebook.com/rovadex"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 						<li><a target="_blank" href="https://twitter.com/RovadexStudio"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -118,50 +127,28 @@
 						<li><a target="_blank" href="https://www.instagram.com/rovadex"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
-				<div class="col-sm-6 col-lg-3 footer-item footer-item-list">
-					<h3>Links</h3>
-					<ul class="footer-link">
-						<li><a href="#">Sed ut perspiciatis unde</a></li>
-						<li><a href="#">Omnis iste natus error sit</a></li>
-						<li><a href="#">Voluptatem accusantium</a></li>
-						<li><a href="#">Doloremque laudantium</a></li>
-					</ul>
-				</div>
+				
 				<div class="col-sm-6 col-lg-3 footer-item">
 					<h3>Contact us</h3>
 					<ul class="footer-cont">
-						<li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:18004886040">1-800-488-6040</a></li>
-						<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:crossFit@gmail.com">CrossFit@gmail.com</a></li>
-						<li><i class="fa fa-map-marker" aria-hidden="true"></i><a href="contacts.html">London,Street 225r.21</a></li>
+						<li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:18004886040">+216-27-435-939</a></li>
+						<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:crossFit@gmail.com">sportun@softwave.com</a></li>
+						<li><i class="fa fa-map-marker" aria-hidden="true"></i><a href="contacts.html">Ariana</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-6 col-lg-3 footer-item">
-					<h3>Blog</h3>
-					<ul class="footer-blog">
-						<li>
-							<a href="blog.html" class="img-cover"><img src="{{asset('Front/img/footer-icon-1.jpg')}}" alt="img"></a>
-							<div class="footer-blog-info">
-								<div class="name"><a href="blog.html">Sed ut perspiciatis</a></div>
-								<p>Omnis iste natus error sit voluptatem…</p>
-							</div>
-						</li>
-						<li>
-							<a href="blog.html" class="img-cover"><img src="{{asset('Front/img/footer-icon-2.jpg')}}" alt="img"></a>
-							<div class="footer-blog-info">
-								<div class="name"><a href="blog.html">Sed ut perspiciatis</a></div>
-								<p>Omnis iste natus error sit voluptatem…</p>
-							</div>
-						</li>
-					</ul>
+					<h3>About</h3>
+					<p>All</p>
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<div class="copyright"><a href="#" target="_blank">Rovadex</a> © 2019. Fitmax. All Rights Reserved.</div>
+				<div class="copyright"><a href="#" target="_blank">Softwave</a> © 2022. Fitmax. All Rights Reserved.</div>
 				<ul class="footer-menu">
 					<li class="active"><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>
 					<li><a href="about.html">Produits</a></li>
 					<li><a href="services.html">Services</a></li>
+					<li><a href="services.html">Event</a></li>
 					<li><a href="blog.html">Blog</a></li>
 					<li><a href="contacts.html">Contacts</a></li>
 				</ul>
@@ -182,6 +169,7 @@
 	<script src="{{asset('Front/js/rx-lazy.js')}}"></script>
 	<script src="{{asset('Front/js/parallax.min.js')}}"></script>
 	<script src="{{asset('Front/js/scripts.js')}}"></script>
+	
 	
 </body>
 </html>
