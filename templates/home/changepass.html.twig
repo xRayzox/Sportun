@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<form action="{{path('change_pass')}}" method="post">
+                    <input type="email" name="email" placeholder="Votre email"> 
+					<input type="password" name="pass1" placeholder="Introduir le nouveau mot de passe"> 
+                    <input type="password" name="pass2" placeholder="Confirmez votre mot de passe"> 
+					<center>
+						<button type="submit" class="btn btn-primary">Envoyer</button>
+					</center>
+				</form>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+{% endblock %}

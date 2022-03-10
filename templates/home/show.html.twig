@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<h2>Caractéristique et informations</h2><br>
+				<div class="card">
+					<h3>Nom:
+					</h3>
+					<h4>{{ user.nom }}</h4>
+				</div>
+				<div class="card">
+					<h3>Prenom:
+					</h3>
+					<h4>{{ user.prenom }}</h4>
+				</div>
+				<div class="card">
+					<h3>Email:
+					</h3>
+					<h4>{{ user.email }}</h4>
+				</div>
+				<div class="card">
+					<h3>Poid:
+					</h3>
+					{% if user.caracteristique is same as(null) %}
+						<h4 style="color:red;">Pas de valeur dans le sytéme</h4>
+					{% else %}
+						<h4>{{ user.caracteristique.poid }}</h4>
+					{% endif %}
+				</div>
+				<div class="card">
+					<h3>Longuer:
+					</h3>
+					{% if user.caracteristique is same as(null) %}
+						<h4 style="color:red;">Pas de valeur dans le sytéme</h4>
+					{% else %}
+						<h4>{{ user.caracteristique.height }}</h4>
+					{% endif %}
+				</div>
+				{% if not app.user.role is same as("Client") %}
+					<div class="card">
+						<h3>Diplome:
+						</h3>
+						<img src="/uploads/diplome/{{ user.diplome }}" alt="" srcset="" height="300px" width="300px">
+					</div>
+				{% endif %}
+                
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+{% endblock %}

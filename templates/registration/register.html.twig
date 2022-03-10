@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+
+{% block body %}
+	{% for message in app.flashes('alert4') %}
+		<div class="alert alert-rose alert-with-icon" data-notify="container">
+			<i class="material-icons" data-notify="icon">notifications</i>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<i class="material-icons">close</i>
+			</button>
+			<span data-notify="message">{{message}}</span>
+		</div>
+	{% endfor %}
+    <h1 style="text-align:center">Register</h1>
+<div style="width:25%;  margin-left:auto;
+   margin-right:auto;">
+    {{ form_start(registrationForm) }}
+
+    {{ form_row(registrationForm.nom) }}
+    {{ form_row(registrationForm.prenom) }}
+    {{ form_row(registrationForm.adresse) }}
+    {{ form_row(registrationForm.telephone ) }}
+    {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+    {{ form_row(registrationForm.Role) }}
+    {{form_row(registrationForm.diplome , {'attr' : {'class' : "form-control"}})}}
+    {{ form_row(registrationForm.captchaCode) }}
+    {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn" >Register</button>
+    {{ form_end(registrationForm,{'render_rest':false}) }}</div>
+{% endblock %}

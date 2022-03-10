@@ -1,0 +1,172 @@
+button, input[type="button"], input[type="submit"]{
+	-webkit-appearance:button;
+	cursor:pointer;
+	font-family: $font_family;
+	transition: .25s ease-in;
+}
+button[disabled], html input[disabled]{
+	cursor:default;
+}
+button::-moz-focus-inner, input::-moz-focus-inner{
+	padding:0;
+	border:0;
+}
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea{
+	display: block;
+	width: 100%;
+	height: 44px;
+	padding: 0 10px;
+	font-family: $font_family;
+	background-color: $bg_block;
+	border: 2px solid transparent;
+	border-bottom-color: $accent_color;
+	color: #fff;
+	font-weight: 400;
+	transition: .25s ease-in;
+	&:focus{
+		border-color: $input_focus;
+	}
+}
+textarea{
+	padding-top: 10px;
+	resize: none;
+	height: 184px;
+}
+input::-moz-placeholder {             color: #fff;}
+input::-webkit-input-placeholder {    color: #fff;}
+input:-ms-input-placeholder {         color: #fff;}
+input::-ms-input-placeholder {        color: #fff;}
+input::placeholder {                  color: #fff;}
+textarea::-moz-placeholder {          color: #fff;}
+textarea::-webkit-input-placeholder { color: #fff;}
+textarea:-ms-input-placeholder {      color: #fff;}
+textarea::-ms-input-placeholder {     color: #fff;}
+textarea::placeholder {               color: #fff;}
+
+/*-------------- SEARCH FORM AND SUBSCRIBE FORM --------------*/
+.search-form,
+.subscribe-form{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	.inp-form{
+		display: block;
+		width: calc(100% - 49px);
+		background-color: #fff;
+		border-radius: 30px 0 0 30px;
+		border: none;
+		background-color: #fff;
+		color: #000;
+		height: 40px;
+		font-size: 14px;
+		padding: 0 20px;
+	}
+	.btn-form{
+		border-radius: 0 30px 30px 0;
+		width: 49px;
+		height: 40px;
+		text-align: center;
+		color: #fff;
+		border: 2px solid $accent_color;
+		flex: 0 0 auto;
+		background-color: $accent_color;
+		font-size: 14px;
+		&:hover{
+			background-color: transparent;
+			color: $accent_color;
+		}
+	}
+	.inp-form::-moz-placeholder {             color: #919191;}
+	.inp-form::-webkit-input-placeholder {    color: #919191;}
+	.inp-form:-ms-input-placeholder {         color: #919191;}
+	.inp-form::-ms-input-placeholder {        color: #919191;}
+	.inp-form::placeholder {                  color: #919191;}
+}
+
+.form-cover{
+	label{
+		display: block;
+		font-size: 14px;
+		margin-bottom: 8px;
+		font-weight: 500;
+	}
+	li{
+		margin-bottom: 19px;
+	}
+}
+.btn-form-cover{
+	text-align: right;
+}
+.checkbox-wrap{
+	margin-bottom: 30px;
+	margin-top: 30px;
+	font-size: 14px;
+}
+.checkbox-cover{
+	position: relative;
+	display: inline-block;
+}
+.checkbox-cover p{
+	position: relative;
+	padding-left: 44px;
+	color: $secondary_color;
+	font-family: $font_family;
+}
+.checkbox-cover p:before{
+	content: '';
+	display: inline-block;
+	border: 1px solid $input_border_color;
+	width: 26px;
+	height: 26px;
+	line-height: 24px;
+	font-family: "FontAwesome";
+	font-size: 14px;
+	position: absolute;
+	top: -2px;
+	left: 0;
+	text-align: center;
+	color: $accent_color;
+	border-radius: 5px;
+}
+.checkbox-cover input{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	margin: 0;
+}
+.checkbox-cover input:checked + p:before{
+	content: '\f00c';
+	background-color: $accent_color;
+	color: #fff;
+}
+#success_page{
+	color: $title_color;
+}
+#success_page h3{
+	color: #fcbd56;
+	margin-bottom: 5px;
+}
+#message{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	top: 100%;
+	text-align: left;
+	color: $link_color;
+	margin: 15px 0;
+	padding: 0 15px;
+}
+#message .error_message{
+	color: $accent_color;
+	font-weight: 500;
+	font-size: 18px;
+}

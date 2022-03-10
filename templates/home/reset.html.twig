@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<form action="{{path('reset_password')}}" method="post">
+                    <input type="email" name="email" placeholder="Votre email"> 
+					<input type="text" name="code" placeholder="Introduir le code envoyé par SMS"> 
+					<center>
+						<button type="submit" class="btn btn-primary">Envoyer</button>
+					</center>
+				</form>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+{% endblock %}
