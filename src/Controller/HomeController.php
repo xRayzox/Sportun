@@ -253,7 +253,7 @@ public function backk(Request $request): Response
             'Recuperations'=>$Recuperations
         ]);
 
-        // Load HTML to Dompdf
+        // Load HTML to DompdfPDF
         $dompdf->loadHtml($html);
 // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
         $dompdf->setPaper('A4', 'portrait');
