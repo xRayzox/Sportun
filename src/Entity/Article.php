@@ -6,6 +6,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
@@ -41,11 +42,11 @@ class Article
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="article", orphanRemoval=true, cascade={"persist"})
      */
     private $commentaires;
-
-    /**
-     * @ORM\Column(type="date_immutable", nullable=true)
-     */
-    private $created_at;
+//
+//    /**
+//     * @ORM\Column(type="date_immutable", nullable=true)
+//     */
+//    private $created_at;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -53,14 +54,35 @@ class Article
     private $decription;
 
     /**
-     * @ORM\ManyToOne(targetEntity=tag::class, inversedBy="articles")
+     * @ORM\Column(type="string", length=255)
      */
     private $tag;
 
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+    /**
+     * @Gedmo\Slug(fields={"titre"}, updatable=false)
+     * @ORM\Column(length=255, unique=true)
+     */
+    protected $slug;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PostLike::class, mappedBy="article")
+     */
+    private $likes;
 
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -135,12 +157,12 @@ class Article
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(?\DateTimeImmutable $created_at): self
+    public function setCreatedAt(?\DateTime $created_at): self
     {
         $this->created_at = $created_at;
 
@@ -167,6 +189,36 @@ class Article
     public function setTag(string $tag): self
     {
         $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PostLike>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(PostLike $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(PostLike $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getArticle() === $this) {
+                $like->setArticle(null);
+            }
+        }
 
         return $this;
     }

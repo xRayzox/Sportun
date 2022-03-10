@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Commentaire;
+use App\Entity\PostLike;
 use App\Form\CommentaireType;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentaireRepository;
+use App\Repository\PostLikeRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -55,7 +58,6 @@ class CommentaireController extends AbstractController
             'article' => $post,
             'commentaires' => $comment,
             'form' => $form->createView()
-
         ]);
     }
 
@@ -213,4 +215,65 @@ class CommentaireController extends AbstractController
 //        ], 200);
 //    }
 
+
+
+
+    /**
+     * Permet de liker ou unliker un publication
+     * @Route ("/post/{id}/like", name="PosteLike")
+     * @param Article $publication
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
+    public function like(Article $publication,PostLikeRepository $likeRepository,EntityManagerInterface $manager,$id):Response
+    {
+
+        // $user = $this->getUser();
+
+        $idu=44; //id ta3 utilisateur
+
+
+        $user = $this->getDoctrine()->getRepository(User::class)->find($idu);
+
+
+
+        //   $publications=$this->getDoctrine()->getRepository(Publications::class)->find($id);
+
+
+        if (!$user) return $this->json([
+            'code' => 403,
+            'message' => "Unauthorized"
+        ], 403);
+
+
+
+        if($publication->JaimePar($user)) {
+            $like = $likeRepository->findOneBy ([
+                'post' => $publication,
+                'user' => $user
+            ]);
+            $manager->remove($like);
+            $manager->flush();
+
+            return $this->json([
+                'code' => 200,
+                'message' => 'Like bien supprimé',
+
+                'likes' => $likeRepository->count(['post' => $publication])
+            ], 200);
+        }
+
+        $like= new  PostLike();
+        $like->setArticle($publication);
+//            ->setUser($user);
+
+        $manager->persist($like);
+        $manager->flush();
+
+        return $this->json([
+            'code' => 200,
+            'message' => 'Like bien ajouté',
+            'likes' => $likeRepository->count(['post' => $publication])
+        ], 200);
+    }
 }

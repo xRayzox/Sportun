@@ -15,7 +15,6 @@
     <link rel="shortcut icon" href="{{asset('Front/img/favicon.png')}}">
     <!-- =================== STYLE =================== -->
     {% block css %}
-
         <link rel="stylesheet" href="{{asset('Front/css/slick.min.css')}}">
         <link rel="stylesheet" href="{{asset('Front/css/bootstrap-grid.css')}}">
         <link rel="stylesheet" href="{{asset('Front/css/font-awesome.min.css')}}">
@@ -23,14 +22,14 @@
     {% endblock %}
 {%endblock%}
 {% block content %}
-    <style>
-        .star{
-            font-size: 1.5rem;
-        }
-        .hover{
-            color: yellow;
-        }
-    </style>
+{#    <style>#}
+{#        .star{#}
+{#            font-size: 1.5rem;#}
+{#        }#}
+{#        .hover{#}
+{#            color: yellow;#}
+{#        }#}
+{#    </style>#}
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -43,7 +42,7 @@
     <!--===================== S-NEWS =====================-->
     <section class="s-news">
         <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v13.0&appId=683212913114745&autoLogAppEvents=1" nonce="J1tpdd1I"></script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk/debug.js#xfbml=1&version=v13.0&appId=683212913114745&autoLogAppEvents=1" nonce="J1tpdd1I"></script>
         <script>
             window.fbAsyncInit = function() {
                 FB.init({
@@ -51,6 +50,7 @@
                     autoLogAppEvents : true,
                     xfbml            : true,
                     version          : 'v13.0'
+
                 });
             };
         </script>
@@ -111,7 +111,7 @@
                                             {#                                        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</div>#}
                                             "<p class='review-comment'>"+data[i].text+"</p>"+
                                             "<a class='review-btn' href='http://127.0.0.1:8000/updatecomment/"+data[i].id+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i> modifier</a>"+
-                                            "<a class='review-btn' href='http://127.0.0.1:8000/supp/"+data[i].id+"'><i class='fa fa-times' aria-hidden='true'></i> supprimer</a>"+
+                                            "<a class='review-btn' href='http://127.0.0.1:8000/suppcomnt/"+data[i].id+"'><i class='fa fa-times' aria-hidden='true'></i> supprimer</a>"+
                                         "</div>"+
                                     "</div>";
                             }
@@ -206,7 +206,7 @@
                         </div>
                         <div class="post-content">
                             <div class="meta">
-                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ article.createdAt |date('d/m/y') }}</span>
+{#                                <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ article.createdAt |date('d/m/y h:m') }}</span>#}
                                 <span class="post-category"><i class="fa fa-tag" aria-hidden="true"></i><a href="#">{{ article.decription }}</a></span>
                             </div>
                             <h2 class="title">{{ article.titre }}</h2>
@@ -319,34 +319,7 @@
                                 <input class="inp-form" type="text" name="search" id="search" placeholder="Search">
                                 <button type="submit" class="btn-form"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
-{#                            <script>#}
-{#                                $( document ).ready(function() {#}
-{#                                    $("#search").keyup(function(e){#}
-{#                                        var value = $(this).val();#}
-{#                                        $.ajax({#}
-{#                                            url : "{{ path('searchStudentx') }}",#}
-{#                                            type : 'GET',#}
-{#                                            data: {#}
-{#                                                'searchValue' : value#}
-{#                                            },#}
-{#                                            success : function(retour){#}
-{#                                                if(retour){#}
-{#                                                    $('#t tbody#search').empty();#}
-{#                                                    $.each(JSON.parse(retour), function(i, obj) {#}
-{#                                                        $('#t tbody#search').append('<tr><td> '+obj.id+'  </td><td>    '+obj.nsc+'  </td><td>'+obj.email+' </td><td><a href="updateStudent/'+obj.id+'">modifier</a> </br><a href="deleteStudent/'+obj.id+'">supprimer</a></td></tr>');#}
-{#                                                    });#}
-{#                                                }#}
-{#                                                else#}
-{#                                                {#}
-
-{#                                                }#}
-{#                                            },#}
-{#                                        });#}
-{#                                        return false;#}
-{#                                    });#}
-{#                                });#}
-{#                            </script>#}
-                        </li>
+=                        </li>
                         <!--========= WIDGET-SEARCH END =========-->
                         <!--=========== WIDGET-ARHIVE ===========-->
                         <li class="widget widget-archive">

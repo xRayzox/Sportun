@@ -25,7 +25,7 @@ class Tag
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="tag")
+     * @ORM\Column(type="string", length=255)
      */
     private $articles;
 

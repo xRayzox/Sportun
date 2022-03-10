@@ -17,7 +17,7 @@
 						</div>
 						<div class="post-content">
 							<div class="meta">
-								<span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ article.createdAt |date('d/m/y') }}</span>
+{#								<span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ article.createdAt |date('d/m/y') }}</span>#}
 {#								<span class="post-category"><i class="fa fa-tag" aria-hidden="true"></i><a>Fitness</a></span>#}
 							</div>
 							<h2 class="title">{{ article.titre }}</h2>
@@ -40,8 +40,7 @@
 					<div class="pagination-cover">
 						<ul class="pagination">
 						{{ knp_pagination_render(article) }}
-
-						{#							<li class="pagination-item item-prev"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>#}
+							{#							<li class="pagination-item item-prev"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>#}
 {#							<li class="pagination-item active"><a href="#">1</a></li>#}
 {#							<li class="pagination-item"><a href="#">2</a></li>#}
 {#							<li class="pagination-item"><a href="#">3</a></li>#}
@@ -65,72 +64,72 @@
 						</li>
 						<!--========= WIDGET-SEARCH END =========-->
 						<!--=========== WIDGET-ARHIVE ===========-->
-						<li class="widget widget-archive">
-							<h3 class="title">Archive</h3>
-							<ul>
-								<li><a href="#">January 2019</a></li>
-								<li><a href="#">February 2019</a></li>
-								<li><a href="#">March 2019</a></li>
-								<li><a href="#">April 2019</a></li>
-								<li><a href="#">May 2019</a></li>
-							</ul>
-						</li>
+{#						<li class="widget widget-archive">#}
+{#							<h3 class="title">Archive</h3>#}
+{#							<ul>#}
+{#								<li><a href="#">January 2019</a></li>#}
+{#								<li><a href="#">February 2019</a></li>#}
+{#								<li><a href="#">March 2019</a></li>#}
+{#								<li><a href="#">April 2019</a></li>#}
+{#								<li><a href="#">May 2019</a></li>#}
+{#							</ul>#}
+{#						</li>#}
 						<!--========= WIDGET-ARHIVE END =========-->
 						<!--========= WIDGET-CATEGORIES =========-->
-						<li class="widget widget-categories">
-							<h3 class="title">Categories</h3>
-							<ul>
-								<li><a href="#">Training</a></li>
-								<li><a href="#">Courses</a></li>
-								<li><a href="#">Conferences</a></li>
-								<li><a href="#">Development</a></li>
-								<li><a href="#">UI/UX Designer</a></li>
-							</ul>
-						</li>
+{#						<li class="widget widget-categories">#}
+{#							<h3 class="title">Categories</h3>#}
+{#							<ul>#}
+{#								<li><a href="#">Training</a></li>#}
+{#								<li><a href="#">Courses</a></li>#}
+{#								<li><a href="#">Conferences</a></li>#}
+{#								<li><a href="#">Development</a></li>#}
+{#								<li><a href="#">UI/UX Designer</a></li>#}
+{#							</ul>#}
+{#						</li>#}
 						<!--======= WIDGET-CATEGORIES END =======-->
 						<!--======== WIDGET-RECENT-POSTS ========-->
-						<li class="widget widget-recent-posts">
-							<h3 class="title">Recent Blog Posts</h3>
-							<ul>
-								<li>
-									<a href="#">Mobile App Design: From Beginner to Intermediate</a>
-									<div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 27, 2019 at 5:47 pm</div>
-								</li>
-								<li>
-									<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
-									<div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 17, 2018 at 5:47 pm</div>
-								</li>
-								<li>
-									<a href="#">Nam libero tempore, cum soluta nobis est eligendi optio</a>
-									<div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 8, 2018 at 5:47 pm</div>
-								</li>
-							</ul>
-						</li>
+{#						<li class="widget widget-recent-posts">#}
+{#							<h3 class="title">Recent Blog Posts</h3>#}
+{#							<ul>#}
+{#								<li>#}
+{#									<a href="#">Mobile App Design: From Beginner to Intermediate</a>#}
+{#									<div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 27, 2019 at 5:47 pm</div>#}
+{#								</li>#}
+{#								<li>#}
+{#									<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>#}
+{#									<div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 17, 2018 at 5:47 pm</div>#}
+{#								</li>#}
+{#								<li>#}
+{#									<a href="#">Nam libero tempore, cum soluta nobis est eligendi optio</a>#}
+{#									<div class="date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 8, 2018 at 5:47 pm</div>#}
+{#								</li>#}
+{#							</ul>#}
+{#						</li>#}
 						<!--====== WIDGET-RECENT-POSTS END ======-->
 						<!--========== WIDGET-INSTAGRAM ==========-->
-						<li class="widget widget-instagram">
-							<h3 class="title">Instagram</h3>
-							<ul>
-								<li>
-									<a href="#"><img src="{{ asset('Front/img/insta-widget-1.jpg') }}" alt="img"></a>
-								</li>
-								<li>
-									<a href="#"><img src="{{ asset('Front/img/insta-widget-2.jpg') }}" alt="img"></a>
-								</li>
-								<li>
-									<a href="#"><img src="{{ asset('Front/img/insta-widget-3.jpg') }}" alt="img"></a>
-								</li>
-								<li>
-									<a href="#"><img src="{{ asset('Front/img/insta-widget-4.jpg') }}" alt="img"></a>
-								</li>
-								<li>
-									<a href="#"><img src="{{ asset('Front/img/insta-widget-5.jpg') }}" alt="img"></a>
-								</li>
-								<li>
-									<a href="#"><img src="{{ asset('Front/img/insta-widget-6.jpg') }}" alt="img"></a>
-								</li>
-							</ul>
-						</li>
+{#						<li class="widget widget-instagram">#}
+{#							<h3 class="title">Instagram</h3>#}
+{#							<ul>#}
+{#								<li>#}
+{#									<a href="#"><img src="{{ asset('Front/img/insta-widget-1.jpg') }}" alt="img"></a>#}
+{#								</li>#}
+{#								<li>#}
+{#									<a href="#"><img src="{{ asset('Front/img/insta-widget-2.jpg') }}" alt="img"></a>#}
+{#								</li>#}
+{#								<li>#}
+{#									<a href="#"><img src="{{ asset('Front/img/insta-widget-3.jpg') }}" alt="img"></a>#}
+{#								</li>#}
+{#								<li>#}
+{#									<a href="#"><img src="{{ asset('Front/img/insta-widget-4.jpg') }}" alt="img"></a>#}
+{#								</li>#}
+{#								<li>#}
+{#									<a href="#"><img src="{{ asset('Front/img/insta-widget-5.jpg') }}" alt="img"></a>#}
+{#								</li>#}
+{#								<li>#}
+{#									<a href="#"><img src="{{ asset('Front/img/insta-widget-6.jpg') }}" alt="img"></a>#}
+{#								</li>#}
+{#							</ul>#}
+{#						</li>#}
 						<!--======== WIDGET-INSTAGRAM END ========-->
 					</ul>
 				</div>
