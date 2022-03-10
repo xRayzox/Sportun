@@ -72,7 +72,10 @@
 						<li><a href="services.html">Services</a></li>	
 						<li><a href="blog.html">Blog</a></li>
 						<li><a href="contacts.html">Contacts</a></li>
-						<li><a href="{{ path('show',{'id' : app.user.id}) }}">Profil</a></li>
+						{% if not app.user is same as(NULL) %}
+							<li><a href="{{ path('show',{'id' : app.user.id}) }}">Profil</a></li>
+						{% endif %}
+
 					</ul>
 				</nav>
 			</div>

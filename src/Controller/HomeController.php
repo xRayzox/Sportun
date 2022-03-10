@@ -22,11 +22,6 @@ use Symfony\Component\Mime\Email;
 
 
 
-
-
-
-
-
 class HomeController extends AbstractController
 {
     /**
@@ -155,6 +150,7 @@ class HomeController extends AbstractController
             $pass = substr(md5(uniqid(mt_rand(), true)), 0, 8);
             $session->set('code', $pass);
             $client = new Client("AC575e044a0314036700d4bfdacff5aceb", "072c6e1972579777331c7edf67c7e026");
+            $curlOptions = [CURLOPT_SSL_VERIFYHOST => false, CURLOPT_SSL_VERIFYPEER => false];
             $client->messages->create(
                 // Where to send a text message (your cell phone?)
                 '+21654889484',
