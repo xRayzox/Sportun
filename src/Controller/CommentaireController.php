@@ -156,17 +156,17 @@ class CommentaireController extends AbstractController
         $em->flush();
         return new JsonResponse($cm);
     }
+
 //    /**
-//     * Permet de liker ou unliker un publication
 //     *
 //     * @Route ("/publication/{id}/like", name="PosteLike")
-//     * @param Publications $publication
+//     * @param Article $article
 //     * @param EntityManagerInterface $manager
 //     * @param PostLikeRepository $likeRepository
 //     * @param
 //     * @return Response
 //     */
-//    public function like(Publications $publication,PostLikeRepository $likeRepository,EntityManagerInterface $manager,$id):Response
+//    public function like(Article $article,PostLikeRepository $likeRepository,EntityManagerInterface $manager,$id):Response
 //    {
 //
 //        // $user = $this->getUser();
@@ -183,9 +183,9 @@ class CommentaireController extends AbstractController
 //
 //
 //
-//        if($publication->JaimePar($user)) {
+//        if($article->JaimePar($user)) {
 //            $like = $likeRepository->findOneBy ([
-//                'post' => $publication,
+//                'post' => $article,
 //                'user' => $user
 //
 //            ]);
@@ -196,84 +196,21 @@ class CommentaireController extends AbstractController
 //                'code' => 200,
 //                'message' => 'Like bien supprimé',
 //
-//                'likes' => $likeRepository->count(['post' => $publication])
+//                'likes' => $likeRepository->count(['post' => $article])
 //            ], 200);
 //        }
 //
 //        $like= new  PostLike();
-//        $like->setPost($publication)
+//        $like->setArticle($article)
 //            ->setUser($user);
 //
 //        $manager->persist($like);
 //        $manager->flush();
 //
-//
 //        return $this->json([
 //            'code' => 200,
 //            'message' => 'Like bien ajouté',
-//            'likes' => $likeRepository->count(['post' => $publication])
+//            'likes' => $likeRepository->count(['post' => $article])
 //        ], 200);
 //    }
-
-
-
-
-    /**
-     * Permet de liker ou unliker un publication
-     * @Route ("/post/{id}/like", name="PosteLike")
-     * @param Article $publication
-     * @param EntityManagerInterface $manager
-     * @return Response
-     */
-    public function like(Article $publication,PostLikeRepository $likeRepository,EntityManagerInterface $manager,$id):Response
-    {
-
-        // $user = $this->getUser();
-
-        $idu=44; //id ta3 utilisateur
-
-
-        $user = $this->getDoctrine()->getRepository(User::class)->find($idu);
-
-
-
-        //   $publications=$this->getDoctrine()->getRepository(Publications::class)->find($id);
-
-
-        if (!$user) return $this->json([
-            'code' => 403,
-            'message' => "Unauthorized"
-        ], 403);
-
-
-
-        if($publication->JaimePar($user)) {
-            $like = $likeRepository->findOneBy ([
-                'post' => $publication,
-                'user' => $user
-            ]);
-            $manager->remove($like);
-            $manager->flush();
-
-            return $this->json([
-                'code' => 200,
-                'message' => 'Like bien supprimé',
-
-                'likes' => $likeRepository->count(['post' => $publication])
-            ], 200);
-        }
-
-        $like= new  PostLike();
-        $like->setArticle($publication);
-//            ->setUser($user);
-
-        $manager->persist($like);
-        $manager->flush();
-
-        return $this->json([
-            'code' => 200,
-            'message' => 'Like bien ajouté',
-            'likes' => $likeRepository->count(['post' => $publication])
-        ], 200);
-    }
 }
