@@ -77,7 +77,6 @@ class Tag
                 $article->setTag(null);
             }
         }
-
         return $this;
     }
 }

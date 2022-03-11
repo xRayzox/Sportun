@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block head %}
+    <!-- =================== META =================== -->
     <meta property="og:url"                content="http://127.0.0.1:8000/single-blog/{{ article.id }}" />
     <meta property="og:type"               content="article" />
     <meta property="og:title"              content="{{ article.titre }}" />
@@ -7,7 +8,6 @@
     <meta property="og:image"              content="{{ asset('/upload/images/'~article.media) }}" />
     <meta charset="UTF-8">
     <title>SPORTUN</title>
-    <!-- =================== META =================== -->
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="format-detection" content="telephone=no">
@@ -126,7 +126,6 @@
         </script>
 
         <script src="{{ asset('https://unpkg.com/axios/dist/axios.min.js') }}"></script>
-
         <script>
             function onClickBtnLike(event) {
                 event.preventDefault();
@@ -242,23 +241,22 @@
 {#                                            </div>#}
 {#                                            <div class="col-2">#}
 {#                                                <span class="js-likes">{{ i.postLikes|length}}</span></div>#}
-
 {#                                        </div>#}
 {#                                    {% endif %}#}
 {#                                </a>#}
-
 {#                                <span class="post-tags"><i class="fa fa-hashtag" aria-hidden="true"></i><a href="#">Aenean</a><a href="#">Mattis</a></span>#}
 {#                                <div id="shareBtn" class="btn btn-success clearfix">partage sur facebook</div>#}
 {#                                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true">fb share</div>#}
 {#                                <script src="{{asset('Front/js/jscommnt.js')}}">#}
 {#                                </script>#}
-
 {#                                <div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>#}
 {#                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>#}
                                 <div class="fb-share-button"
                                      data-href="http://127.0.0.1:8000/single-blog/{{ article.id }}"
                                      data-layout="button_count">
                                 </div>
+                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </a>
                             </div>
                         </div>

@@ -50,7 +50,7 @@ class ArticleController extends AbstractController
             $filename);
             $em = $this->getDoctrine()->getManager();
             $article->setMedia($filename)
-            ->setCreatedAt(new \DateTimeImmutable());
+            ->setCreatedAt(new \DateTime());
             $em->persist($article);
             $em->flush();
             return $this->redirectToRoute('articleslist');
