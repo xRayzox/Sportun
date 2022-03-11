@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use  App\Entity\Map;
 use  App\Entity\Location;
 use App\Entity\Service;
@@ -21,10 +22,9 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-
-class HomeController extends AbstractController
+class MapBoxController extends AbstractController
 {
-           /**
+      /**
      * @Route("/map", name="map")
      */
     public function map(Request $request): Response
