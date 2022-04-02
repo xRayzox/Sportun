@@ -1,0 +1,3 @@
+[0401/181428.941:INFO:CONSOLE(4)] "Uncaught ReferenceError: L is not defined", source: https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js (4)
+[0401/181453.176:INFO:CONSOLE(4)] "Uncaught ReferenceError: L is not defined", source: https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js (4)
+[0401/181503.144:INFO:CONSOLE(4)] "Uncaught ReferenceError: L is not defined", source: https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js (4)
