@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="11" useXmlUI="false">
+    <image name="activation-background.jpg"  />
+    <image name="activation-background.jpg 1" type="multi"  />
+    <image name="confirmation-background.jpg"  />
+    <image name="confirmation-background.jpg 1" type="multi"  />
+    <image name="facebook-logo.png"  />
+    <image name="facebook-logo.png 1" type="multi"  />
+    <image name="Logo.png"  />
+    <image name="Logo.png 1" type="multi"  />
+    <image name="news-item-1.jpg"  />
+    <image name="news-item-1.jpg 1" type="multi"  />
+    <image name="news-item-2.jpg"  />
+    <image name="news-item-2.jpg 1" type="multi"  />
+    <image name="news-item-3.jpg"  />
+    <image name="news-item-3.jpg 1" type="multi"  />
+    <image name="news-item-4.jpg"  />
+    <image name="news-item-4.jpg 1" type="multi"  />
+    <image name="news-item.jpg"  />
+    <image name="news-item.jpg 1" type="multi"  />
+    <image name="news-tab-down-arrow.png"  />
+    <image name="news-tab-down-arrow.png 1" type="multi"  />
+    <image name="news-tab-down.png"  />
+    <image name="news-tab-down.png 1" type="multi"  />
+    <image name="on-off-off.png"  />
+    <image name="on-off-off.png 1" type="multi"  />
+    <image name="on-off-on.png"  />
+    <image name="on-off-on.png 1" type="multi"  />
+    <image name="profile-background.jpg"  />
+    <image name="profile-background.jpg 1" type="multi"  />
+    <image name="profile-pic.jpg"  />
+    <image name="profile-pic.jpg 1" type="multi"  />
+    <image name="signin-background.jpg"  />
+    <image name="signin-background.jpg 1" type="multi"  />
+    <image name="signup-background.jpg"  />
+    <image name="signup-background.jpg 1" type="multi"  />
+    <image name="smily.png"  />
+    <image name="smily.png 1" type="multi"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+    </theme>
+    <image name="timeline-background.jpg"  />
+    <image name="timeline-background.jpg 1" type="multi"  />
+    <image name="twitter-logo.png"  />
+    <image name="twitter-logo.png 1" type="multi"  />
+    <image name="welcome-background.jpg"  />
+    <image name="welcome-background.jpg 1" type="multi"  />
+    <image name="welcome-slide-1.png"  />
+    <image name="welcome-slide-1.png 1" type="multi"  />
+    <image name="welcome-slide-2.png"  />
+    <image name="welcome-slide-2.png 1" type="multi"  />
+    <image name="welcome-slide-3.png"  />
+    <image name="welcome-slide-3.png 1" type="multi"  />
+</resource>
