@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcommande.FXMLpanierController">
+   <children>
+      <TableView fx:id="tvPanier" layoutX="49.0" layoutY="69.0" prefHeight="200.0" prefWidth="470.0">
+        <columns>
+          <TableColumn fx:id="colidpanierproduit" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colproduitpanier" prefWidth="75.0" text="PRODUIT" />
+            <TableColumn fx:id="coldescriptionpanier" prefWidth="101.0" text="DESCRIPTION" />
+            <TableColumn fx:id="colprixpanier" prefWidth="101.0" text="PRIX (*1)" />
+            <TableColumn fx:id="colquantitepanier" prefWidth="117.0" text="QUANTITE" />
+        </columns>
+      </TableView>
+      <Button fx:id="increaseQuantite" layoutX="525.0" layoutY="112.0" mnemonicParsing="false" onAction="#increaseQuantite" text="+" />
+      <Button fx:id="decreaseQuantite" layoutX="564.0" layoutY="112.0" mnemonicParsing="false" onAction="#decreaseQuantite" text=" - " />
+      <TextField fx:id="panierUserId" editable="false" layoutX="102.0" layoutY="21.0" visible="false" />
+      <Button layoutX="521.0" layoutY="151.0" mnemonicParsing="false" onAction="#deletePanierProduit" prefHeight="25.0" prefWidth="75.0" text="ELIMINER" />
+      <Button fx:id="deleteAllPanier" layoutX="514.0" layoutY="279.0" mnemonicParsing="false" onAction="#deleteAllPanier" text="Vider Panier" />
+      <TextField fx:id="tfpanierid" editable="false" layoutY="279.0" visible="false" />
+      <Button fx:id="redirectCommande" layoutX="192.0" layoutY="304.0" mnemonicParsing="false" onAction="#redirectCommande" text="Valider &amp; Passer au Commande" />
+      <TextField fx:id="totalpanier" layoutX="160.0" layoutY="353.0" />
+      <TextField fx:id="contenupanier" layoutX="325.0" layoutY="353.0" />
+   </children>
+</AnchorPane>

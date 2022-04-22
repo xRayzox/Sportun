@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcommande.FXMLcommandeController">
+   <children>
+      <VBox layoutX="34.0" layoutY="24.0" prefHeight="170.0" prefWidth="187.0" spacing="20.0">
+         <children>
+            <Label text="ID">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" text="Nom">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" text="Produit">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="27.0" text="Total">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="235.0" layoutY="24.0" prefHeight="170.0" prefWidth="208.0" spacing="20.0">
+         <children>
+            <TextField fx:id="txidCommande" editable="false" />
+            <TextField fx:id="txnomCommande" layoutX="10.0" layoutY="10.0" />
+            <TextField fx:id="txproduitCommande" editable="false" layoutX="10.0" layoutY="10.0" />
+            <TextField fx:id="txtotalCommande" editable="false" layoutX="10.0" layoutY="35.0" />
+         </children>
+      </VBox>
+      <TableView fx:id="tvCommande" layoutX="449.0" layoutY="24.0" onMouseClicked="#handleMouseAction" prefHeight="271.0" prefWidth="302.0">
+        <columns>
+          <TableColumn fx:id="colid" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colnom" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="colproduit" prefWidth="75.0" text="Produit" />
+            <TableColumn fx:id="coltotal" prefWidth="75.0" text="Total" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAjouterCommande" layoutX="34.0" layoutY="246.0" mnemonicParsing="false" onAction="#addCommande" text="Ajouter" />
+      <Button fx:id="btnModifierCommande" layoutX="107.0" layoutY="246.0" mnemonicParsing="false" onAction="#updateCommande" text="Modifier" />
+      <Button fx:id="btnSupprimerCommande" layoutX="202.0" layoutY="246.0" mnemonicParsing="false" onAction="#deleteCommande" text="Supprimer" />
+      <TextField fx:id="txpanieridd" layoutX="26.0" layoutY="295.0" />
+      <TextField fx:id="total" layoutX="399.0" layoutY="528.0" prefHeight="33.0" prefWidth="165.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextArea fx:id="contenu" layoutX="196.0" layoutY="404.0" prefHeight="89.0" prefWidth="556.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextArea>
+      <Line endX="286.0" layoutX="459.0" layoutY="512.0" startX="-257.0" />
+      <Line endX="100.0" layoutX="273.0" layoutY="540.0" startX="67.0" />
+      <Line endX="100.0" layoutX="273.0" layoutY="552.0" startX="67.0" />
+      <Line endX="-23.0" layoutX="196.0" layoutY="412.0" startX="-100.0">
+         <stroke>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </stroke>
+      </Line>
+      <Line endX="-23.0" layoutX="196.0" layoutY="483.0" startX="-100.0" />
+      <Polyline fill="#7c7c7c" layoutX="69.0" layoutY="402.0" points="77.0, 52.0, 26.5, 80.5, 77.0, 43.0, 26.5, 10.5" strokeType="INSIDE" />
+      <Label layoutX="202.0" layoutY="343.0" prefHeight="51.0" prefWidth="556.0" text="Somme  totale  de  votre  panier  en  Dt  :" textFill="#d02b2b">
+         <font>
+            <Font name="Harlow Solid Italic" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
