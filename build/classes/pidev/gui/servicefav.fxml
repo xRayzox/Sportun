@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="servicefav" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.servicefav">
+   <children>
+      <AnchorPane fx:id="Sample" prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+                <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
+               <children>
+                  <Button fx:id="utilisateur" alignment="BASELINE_LEFT" contentDisplay="CENTER" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Utilisateur" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Produits" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Services" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Blog" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Event" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351; -fx-border-radius: 5;" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Panier" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Pane layoutX="15.0" layoutY="106.0" onMouseClicked="#menu" prefHeight="61.0" prefWidth="245.0" style="-fx-background-color: #393351;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="17.0" onMouseClicked="#Home_space" text="Home Space" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+      <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="603.0" layoutY="509.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
+            <Pane layoutX="76.0" layoutY="106.0" />
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="767.0" layoutY="20.0" onMouseClicked="#closewinw" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/close_window.png" />
+               </image></ImageView>
+            <ListView fx:id="listserv" layoutX="56.0" layoutY="98.0" prefHeight="486.0" prefWidth="369.0" />
+            <Label layoutX="504.0" layoutY="143.0" text="Name" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_name" layoutX="607.0" layoutY="143.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="503.0" layoutY="192.0" prefHeight="27.0" prefWidth="95.0" text="Description" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_num_tel" layoutX="606.0" layoutY="353.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="503.0" layoutY="242.0" text="Title" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_type" layoutX="606.0" layoutY="298.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="503.0" layoutY="298.0" text="Type" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="503.0" layoutY="353.0" text="Phone" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_Description" layoutX="607.0" layoutY="192.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_Title" layoutX="607.0" layoutY="242.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="qr_image" fitHeight="196.0" fitWidth="233.0" layoutX="498.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="show_map" layoutX="64.0" layoutY="57.0" mnemonicParsing="false" onAction="#map_view_test" text="show map" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
