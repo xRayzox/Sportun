@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="StckFrontProduit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="726.0" prefWidth="1123.0" styleClass="Applicationlkol" stylesheets="@listcat.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MailController">
+   <children>
+      <AnchorPane prefHeight="726.0" prefWidth="942.0" style="-fx-background-color: white;" styleClass="Applicationlkol">
+         <children>
+            <Pane prefHeight="727.0" prefWidth="96.0" style="-fx-background-color: linear-gradient(to right top, #039BE5 , #4DD0E1); -fx-background-radius: 30px 0px 0px 30px;">
+               <children>
+                  <ImageView fitHeight="71.0" fitWidth="70.0" layoutX="13.0" layoutY="76.0" onMouseClicked="#GoToFournisseur" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/AddProduiticon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="10.0" layoutY="148.0" onMouseClicked="#GoToFournisseur" prefHeight="17.0" prefWidth="70.0" text="List Events" textFill="WHITE" />
+                  <Label layoutX="13.0" layoutY="272.0" onMouseClicked="#GoToHomeProduit" text="Send E-mail" textFill="WHITE" />
+                  <Label layoutX="13.0" layoutY="401.0" onMouseClicked="#GoToProduit" text="View Statics" textFill="WHITE" />
+                  <ImageView fitHeight="71.0" fitWidth="70.0" layoutX="9.0" layoutY="199.0" onMouseClicked="#GoToHomeProduit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/email.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="71.0" fitWidth="70.0" layoutX="12.0" layoutY="324.0" onMouseClicked="#GoToProduit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/statisc.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Label layoutX="375.0" layoutY="24.0" prefHeight="46.0" prefWidth="381.0" text="Envoyer à un ami" textFill="#bfbbd0">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Pane fx:id="PaneBlur" layoutX="93.0" prefHeight="727.0" prefWidth="1034.0" style="-fx-background-color: white; -fx-opacity: 0.8;" visible="false" />
+            <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="1076.0" layoutY="14.0" onMouseClicked="#CloseWindowClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/close_window.png" />
+               </image>
+            </ImageView>
+           
+      <PasswordField fx:id="password" layoutX="323.0" layoutY="249.0" prefHeight="26.0" prefWidth="285.0" promptText="Password" />
+      <TextField fx:id="EmailTo" layoutX="327.0" layoutY="118.0" prefHeight="26.0" prefWidth="278.0" promptText="example@example.com" />
+      <TextField fx:id="EmailFrom" layoutX="327.0" layoutY="178.0" prefHeight="26.0" prefWidth="278.0" promptText="example@example.com" />
+      <Label layoutX="216.0" layoutY="122.0" text="Send to" />
+      <Label layoutX="216.0" layoutY="182.0" text="Send from" />
+      <Label layoutX="702.0" layoutY="182.0" text="&lt;-Has to be gmail" />
+      <Label layoutX="218.0" layoutY="253.0" text="Password" />
+      <TextField fx:id="subject" layoutX="327.0" layoutY="330.0" prefHeight="26.0" prefWidth="278.0" />
+      <Label layoutX="224.0" layoutY="334.0" text="Subject" />
+      <TextArea fx:id="msg" layoutX="337.0" layoutY="424.0" prefHeight="87.0" prefWidth="271.0" wrapText="true" />
+      <Label layoutX="224.0" layoutY="459.0" text="Message" />
+      
+      
+      <Button fx:id="sendbtn" layoutX="352.0" layoutY="539.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="26.0" prefWidth="103.0" text="Send" />
+      <Label fx:id="msgSent" layoutX="466.0" layoutY="312.0" prefHeight="18.0" prefWidth="126.0" text="Message Sent" visible="false" />
+            <Button fx:id="sendbtn1" layoutX="511.0" layoutY="541.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" text="Exit" />
+   
+         </children>
+         
+      </AnchorPane>
+   </children>
+</StackPane>

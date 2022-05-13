@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="448.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="gui.ChartController">
+    <stylesheets>
+        <URL value="@chart.css" />
+    </stylesheets>
+   <children>
+      <BarChart fx:id="promotion" layoutX="26.0" layoutY="59.0" prefHeight="374.0" prefWidth="482.0">
+        <xAxis>
+          <CategoryAxis fx:id="X" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="Y" prefHeight="238.0" prefWidth="0.0" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Text layoutX="203.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event promotion">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

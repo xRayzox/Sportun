@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListCatController">
+    <stylesheets>
+        <URL value="@listcat.css" />
+    </stylesheets>
+   <children>
+      <Text layoutX="144.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Catégorie" textAlignment="CENTER" wrappingWidth="241.00347900390625">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <ListView fx:id="listcat" layoutX="50.0" layoutY="113.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="btnmodif" layoutX="408.0" layoutY="119.0" mnemonicParsing="false" onAction="#clicmodif" prefHeight="45.0" prefWidth="130.0" text="Modifier" />
+      <Button fx:id="btnsupp" layoutX="408.0" layoutY="202.0" mnemonicParsing="false" onAction="#clicksupp" prefHeight="37.0" prefWidth="130.0" text="Supprimer" />
+   </children>
+</AnchorPane>
