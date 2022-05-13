@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="StckFrontProduit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="726.0" prefWidth="1123.0" styleClass="Applicationlkol" stylesheets="@listcat.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PiechartController">
+   <children>
+      <AnchorPane prefHeight="726.0" prefWidth="942.0" style="-fx-background-color: white;" styleClass="Applicationlkol">
+         <children>
+            <Pane prefHeight="727.0" prefWidth="96.0" style="-fx-background-color: linear-gradient(to right top, #039BE5 , #4DD0E1); -fx-background-radius: 30px 0px 0px 30px;">
+               <children>
+                  <ImageView fitHeight="71.0" fitWidth="70.0" layoutX="13.0" layoutY="76.0" onMouseClicked="#GoToFournisseur" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/AddProduiticon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="10.0" layoutY="157.0" onMouseClicked="#GoToFournisseur" prefHeight="17.0" prefWidth="70.0" text="List Events" textFill="WHITE" />
+                  <Label layoutX="13.0" layoutY="274.0" onMouseClicked="#GoToHomeProduit" text="Send E-mail" textFill="WHITE" />
+                  <Label layoutX="13.0" layoutY="412.0" onMouseClicked="#GoToProduit" text="View Statics" textFill="WHITE" />
+                  <ImageView fitHeight="71.0" fitWidth="70.0" layoutX="9.0" layoutY="198.0" onMouseClicked="#GoToHomeProduit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/email.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="71.0" fitWidth="70.0" layoutX="13.0" layoutY="320.0" onMouseClicked="#GoToProduit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/statisc.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="PaneBlur" layoutX="93.0" prefHeight="727.0" prefWidth="1034.0" style="-fx-background-color: white; -fx-opacity: 0.8;" visible="false" />
+            <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="1076.0" layoutY="14.0" onMouseClicked="#CloseWindowClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/close_window.png" />
+               </image>
+            </ImageView>
+      <PieChart fx:id="statistique" layoutX="312.0" layoutY="172.0" prefHeight="318.0" prefWidth="400.0" title="Marge de promotion par Evénnément " />
+         </children>
+         
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="506.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxpagination.FXMLDocumentController">
+    <children>
+        <Button fx:id="button" layoutX="169.0" layoutY="452.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="109.0" text="Select Images" />
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Pagination fx:id="pagination" layoutX="8.0" layoutY="22.0" maxPageIndicatorCount="5" pageCount="10" prefHeight="397.0" prefWidth="435.0" />
+    </children>
+</AnchorPane>

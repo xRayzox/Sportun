@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import de.jensd.fx.glyphs.GlyphsStack?>
+<?import de.jensd.fx.glyphs.control.GlyphCheckBox?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="641.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tableView.TableViewController">
+    <stylesheets>
+        <URL value="@tableview.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="studentsTable" layoutX="34.0" layoutY="157.0" prefHeight="265.0" prefWidth="574.0">
+        <columns>
+          <TableColumn fx:id="idCol" maxWidth="147.20001602172852" prefWidth="147.20001602172852" style="-fx-alignment: center;" text="ID" />
+          <TableColumn fx:id="nameCol" maxWidth="243.9999237060547" prefWidth="167.1999969482422" style="-fx-alignment: center;" text="Type Categorie" />
+            <TableColumn fx:id="birthCol" maxWidth="336.0000366210937" prefWidth="260.00006103515625" style="-fx-alignment: center;" text="Nom Categorie" />
+        </columns>
+      </TableView>
+      <Pane layoutY="59.0" prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Text layoutX="20.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catégorie Details" wrappingWidth="299.5367431640625">
+         <font>
+            <Font name="Bauhaus 93" size="32.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutX="589.0" layoutY="14.0" prefHeight="36.0" prefWidth="37.0" AnchorPane.rightAnchor="14.399999999999977" AnchorPane.topAnchor="14.0">
+         <children>
+            <FontAwesomeIconView glyphName="CLOSE" onMouseClicked="" size="20" styleClass="btn" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="51.0" layoutY="70.0" prefHeight="75.0" prefWidth="182.0">
+         <children>
+            <FontAwesomeIconView fill="#2196f3" glyphName="USER_PLUS" onMouseClicked="" size="45" styleClass="btn">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="#00e676" glyphName="REFRESH" layoutX="10.0" layoutY="65.0" onMouseClicked="" size="45" styleClass="btn">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="#455a64" glyphName="PRINT" layoutX="62.0" layoutY="65.0" onMouseClicked="" size="45" styleClass="btn" />
+            <GlyphCheckBox prefHeight="7.0" prefWidth="0.0" />
+            <GlyphCheckBox />
+            <GlyphsStack />
+         </children>
+      </HBox>
+      <Icon content="HELP_OUTLINE" />
+   </children>
+</AnchorPane>

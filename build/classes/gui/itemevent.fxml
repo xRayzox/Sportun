@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="215.0" prefWidth="225.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ItemeventController">
+    <stylesheets>
+        <URL value="@itemevent.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="13.0" layoutY="8.0" prefHeight="200.0" prefWidth="198.0">
+         <children>
+            <HBox prefHeight="60.0" prefWidth="134.0">
+               <children>
+                  <Label fx:id="nameevent" prefHeight="58.0" prefWidth="104.0" text="label" />
+                  <Label fx:id="prixevent" prefHeight="64.0" prefWidth="94.0" text="Label" textAlignment="CENTER" />
+               </children>
+            </HBox>
+            <ImageView fx:id="imgevent" fitHeight="123.0" fitWidth="199.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
