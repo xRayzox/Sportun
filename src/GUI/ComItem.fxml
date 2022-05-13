@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="0.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ComItemController">
+   <children>
+      <SplitMenuButton layoutX="527.0" layoutY="2.0" mnemonicParsing="false">
+        <items>
+          <MenuItem mnemonicParsing="false" text="modifier" />
+          <MenuItem mnemonicParsing="false" text="supprimer" />
+        </items>
+      </SplitMenuButton>
+      <VBox layoutX="-1.0" prefHeight="162.0" prefWidth="528.0">
+         <children>
+            <Label fx:id="lusername" prefHeight="40.0" prefWidth="544.0" text="username">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="txtComment" strokeType="OUTSIDE" strokeWidth="0.0" text="Textkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" wrappingWidth="523.826171875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

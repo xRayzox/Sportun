@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="628.0" prefWidth="877.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.ListArticleFrontoController">
+   <children>
+      <ButtonBar layoutX="198.0" layoutY="59.0" prefHeight="57.0" prefWidth="658.0" style="-fx-background-color: #F23849;">
+         <buttons>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #F23849;" text="home" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="33.0" style="-fx-background-color: #F23849;" text="produit" textFill="#f2eeee" />
+            <Button mnemonicParsing="false" prefHeight="34.0" style="-fx-background-color: #F23849;" text="service" textFill="#fffefe" />
+            <Button mnemonicParsing="false" prefHeight="33.0" style="-fx-background-color: #F23849;" text="Evennement" textFill="WHITE" />
+            <Button fx:id="btblog" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #F23849;" text="Blog" textFill="#fffefe">
+               <font>
+                  <Font name="Calibri Bold" size="12.0" />
+               </font>
+            </Button>
+         </buttons>
+      </ButtonBar>
+      <ImageView fitHeight="99.0" fitWidth="133.0" layoutX="33.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../blogimages/sportun.png" />
+         </image>
+      </ImageView>
+      <ScrollPane layoutX="86.0" layoutY="123.0" prefHeight="530.0" prefWidth="973.0">
+         <content>
+            <VBox fx:id="vbfront" prefHeight="2268.0" prefWidth="987.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

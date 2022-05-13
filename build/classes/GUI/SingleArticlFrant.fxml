@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="902.0" prefWidth="1035.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SingleArticlFrantController">
+   <children>
+      <ButtonBar layoutX="188.0" layoutY="49.0" prefHeight="57.0" prefWidth="658.0" style="-fx-background-color: #F23849;">
+        <buttons>
+          <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #F23849;" text="home" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="33.0" style="-fx-background-color: #F23849;" text="produit" textFill="#f2eeee" />
+            <Button mnemonicParsing="false" prefHeight="34.0" style="-fx-background-color: #F23849;" text="service" textFill="#fffefe" />
+            <Button mnemonicParsing="false" prefHeight="33.0" style="-fx-background-color: #F23849;" text="Evennement" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #F23849;" text="Blog" textFill="#fffefe">
+               <font>
+                  <Font name="Calibri Bold" size="12.0" />
+               </font>
+            </Button>
+        </buttons>
+      </ButtonBar>
+      <ScrollPane layoutX="-2.0" layoutY="101.0" prefHeight="804.0" prefWidth="1042.0">
+         <content>
+            <Pane prefHeight="2268.0" prefWidth="1022.0">
+               <children>
+                  <Text fx:id="txtdescription" fill="#8d8d8d" layoutX="215.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="desc" visible="false" wrappingWidth="383.13671875">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="180.0" layoutY="408.0" prefHeight="35.0" prefWidth="774.0">
+                     <children>
+                        <Button fx:id="btliko" mnemonicParsing="false" prefHeight="36.0" prefWidth="62.0" style="-fx-background-color: #FFFFFF;">
+                           <graphic>
+                              <ImageView fx:id="btlikes" fitHeight="28.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../blogimages/like-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Label fx:id="lLikes" prefHeight="35.0" prefWidth="148.0" text="likes:" textFill="#c34343">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btds" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #FFFFFF;" textFill="#dd0202">
+                           <graphic>
+                              <ImageView fx:id="btdislikes" fitHeight="30.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../blogimages/thusdown.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fitHeight="73.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../blogimages/comments-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lcommentaires" prefHeight="35.0" prefWidth="217.0" text="commentaires" textFill="#f54444">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lDate" prefHeight="35.0" prefWidth="260.0" text="date" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lhashtag" prefHeight="35.0" prefWidth="259.0" text="hashtages" textFill="#b53131">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../blogimages/hashtagicon-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lArticleTitre" layoutX="215.0" layoutY="29.0" prefHeight="53.0" prefWidth="732.0" text="Article Text" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="RED" />
+                              <Stop color="#570026" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <ImageView fx:id="ivArt" fitHeight="298.0" fitWidth="666.0" layoutX="204.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../wamp64/www/Sportun-Achwek/template/public/upload/images/1caf59b1062863d2ff089d0e1b9f8330.jpeg" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="215.0" layoutY="458.0" prefHeight="1961.0" prefWidth="659.0">
+                     <children>
+                        <Text fx:id="txtArt" strokeType="OUTSIDE" strokeWidth="0.0" text="Textlkmqdffffffffffffffffffffffffffffffffffffffffffffffffffffqfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffqf" wrappingWidth="658.13671875">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="trnsalate" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="translate" textFill="#f81d1d" />
+                        <Text fx:id="trannstxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="295.13671875" />
+                        <VBox fx:id="vbcom" prefHeight="1938.0" prefWidth="659.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+      <Label layoutX="376.0" layoutY="7.0" prefHeight="45.0" prefWidth="264.0" />
+      <ImageView fitHeight="57.0" fitWidth="114.0" layoutX="435.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="99.0" fitWidth="133.0" layoutX="23.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../blogimages/sportun.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

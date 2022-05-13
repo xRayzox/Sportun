@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="1083.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ModifierCommentaireController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="8.0" prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;">
+         <children>
+            <VBox layoutY="147.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="147.0">
+               <children>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Utilisateur" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Produits" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Services" textFill="#f8f7f8">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #FA2C56;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Blog" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Event" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #393351;" styleClass="button1" stylesheets="@../../../../../Downloads/waell/Pidev/src/pidev/css/fullpackstyling.css" text="Panier" textFill="WHITE">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #393351; -fx-background-radius: 5;">
+               <children>
+                  <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="272.0" layoutY="3.0" prefHeight="649.0" prefWidth="631.0">
+         <children>
+            <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
+            <TextField fx:id="tfmodifCom" layoutX="67.0" layoutY="339.0" />
+            <Text fx:id="txtusername" fill="#fa2c56" layoutX="66.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="usrname" wrappingWidth="133.13671875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button fx:id="btannuler" layoutX="366.0" layoutY="410.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: #393351;" text="annuler" textFill="#fc3b3b" />
+            <Button fx:id="btsub" layoutX="66.0" layoutY="416.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #393351;" text="submit" textFill="#fa2c56" />
+            <Text fill="#fa2c56" layoutX="101.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier Commentaire" wrappingWidth="369.13671875">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

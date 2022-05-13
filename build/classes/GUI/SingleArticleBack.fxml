@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SingleArticleBackController">
+   <top>
+      <Label prefHeight="61.0" prefWidth="495.0" text="             SPORTUN" textFill="#0377eb" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
+   </top>
+   <left>
+      <VBox fx:id="vbvbvb" prefHeight="508.0" prefWidth="145.0" style="-fx-background-color: #0199f1;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="148.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../blogimages/DLED-View-the-Dashboard-icon-BLUE-1-300x300.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btUtilisateur" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #0ca4fb;" text="Utilisateur" textFill="#035e93">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btService" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #0ca4fb;" text="Service" textFill="#0199f1">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btProduit" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #0ca4fb;" text="Produit" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btBlog" mnemonicParsing="false" prefHeight="44.0" prefWidth="188.0" style="-fx-background-color: #0ca4fb;" text="Blog" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btPanier" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #0ca4fb;" text="Panier" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btEvent" mnemonicParsing="false" prefHeight="44.0" prefWidth="188.0" style="-fx-background-color: #0ca4fb;" text="Events" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <WebView fx:id="wbview" prefHeight="147.0" prefWidth="137.0" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <Pane prefHeight="1056.0" prefWidth="1022.0">
+               <children>
+                  <Text fx:id="txtdescription" fill="#8d8d8d" layoutX="215.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="desc" visible="false" wrappingWidth="383.13671875">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="215.0" layoutY="408.0" prefHeight="35.0" prefWidth="739.0">
+                     <children>
+                        <Label fx:id="lLikes" prefHeight="38.0" prefWidth="78.0" text="likes:" textFill="#0377eb">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="73.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../blogimages/commenticon.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lcommentaires" prefHeight="35.0" prefWidth="113.0" text="commentaires" textFill="#0377eb">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lDate" prefHeight="35.0" prefWidth="159.0" text="date" textFill="#0377eb">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lhashtag" prefHeight="35.0" prefWidth="231.0" text="hashtages" textFill="#0377eb">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../blogimages/tagicon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lArticleTitre" layoutX="215.0" layoutY="29.0" prefHeight="53.0" prefWidth="732.0" text="Article Text" textFill="#0377eb" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="ivArt" fitHeight="326.0" fitWidth="730.0" layoutX="215.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../wamp64/www/Sportun-Achwek/template/public/upload/images/1caf59b1062863d2ff089d0e1b9f8330.jpeg" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="215.0" layoutY="458.0" prefHeight="621.0" prefWidth="659.0">
+                     <children>
+                        <Text fx:id="txtArt" strokeType="OUTSIDE" strokeWidth="0.0" text="Textlkmqdffffffffffffffffffffffffffffffffffffffffffffffffffffqfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffqf" wrappingWidth="658.13671875">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Text>
+                        <VBox fx:id="vbvbvbdvd" prefHeight="614.0" prefWidth="659.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

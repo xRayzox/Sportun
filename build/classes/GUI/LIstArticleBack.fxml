@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LIstArticleBackController">
+   <left>
+      <VBox prefHeight="629.0" prefWidth="162.0" style="-fx-background-color: #0ca4fb;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="148.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../blogimages/DLED-View-the-Dashboard-icon-BLUE-1-300x300.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btUtilisateur" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #0ca4fb;" text="Utilisateur" textFill="#035e93">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btService" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #0ca4fb;" text="Service" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btProduit" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #0ca4fb;" text="Produit" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btBlog" mnemonicParsing="false" prefHeight="44.0" prefWidth="188.0" style="-fx-background-color: #0ca4fb;" text="Blog" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btPanier" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #0ca4fb;" text="Panier" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btEvent" mnemonicParsing="false" prefHeight="44.0" prefWidth="188.0" style="-fx-background-color: #0ca4fb;" text="Events" textFill="#005a8f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <HBox prefHeight="30.0" prefWidth="162.0">
+               <children>
+                  <TextField fx:id="txtsearche" prefHeight="34.0" prefWidth="108.0" />
+                  <Button fx:id="btsearcher" mnemonicParsing="false" style="-fx-background-color: #0ca4fb;" text="find" />
+               </children>
+            </HBox>
+            <Button fx:id="bttri" mnemonicParsing="false" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #0ca4fb;" text="trier par tag" textFill="#0527e3">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="ajouterArt" mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #0ca4fb;" text="ajouterArticle" textFill="#054bc3">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <Label prefHeight="70.0" prefWidth="859.0" text="             Liste des Articles" textFill="#1196fc" BorderPane.alignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="57.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../blogimages/fleshArier.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="voboxid" prefHeight="2157.0" prefWidth="569.0" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

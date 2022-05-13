@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="678.0" prefWidth="967.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <TitledPane animated="false" layoutX="399.0" prefHeight="26.0" prefWidth="143.0" text="Articles" textOverrun="CLIP">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" visible="false" />
+        </content>
+         <font>
+            <Font size="29.0" />
+         </font>
+      </TitledPane>
+      <ListView layoutX="148.0" layoutY="139.0" prefHeight="450.0" prefWidth="638.0" />
+   </children>
+</AnchorPane>

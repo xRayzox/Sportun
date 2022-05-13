@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ModifierArticleController">
+   <top>
+      <Label prefHeight="39.0" prefWidth="230.0" text="Modifier Article" textFill="#007cda" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="206.0" fitWidth="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../blogimages/Dashboard-logo21.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btUtilisateur" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #ffffff;" text="Utilisateur" textFill="#5a93b5">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btService" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #ffffff;" text="Service" textFill="#5a93b5">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btProduit" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #ffffff;" text="Produit" textFill="#5a93b5">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btPanier" mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #ffffff;" text="Panier" textFill="#5a93b5">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btEvent" mnemonicParsing="false" prefHeight="44.0" prefWidth="210.0" style="-fx-background-color: #ffffff;" text="Events" textFill="#5a93b5">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btBlog" mnemonicParsing="false" prefHeight="44.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Blog" textFill="#5a93b5">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="267.0" prefWidth="102.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="162.0" text="titre  :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="23.0" prefWidth="102.0" text="tag   :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="102.0" text="description :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="122.0" prefWidth="102.0" text="text :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="21.0" prefWidth="102.0" text="image :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="94.0" prefHeight="347.0" prefWidth="207.0">
+               <children>
+                  <TextField fx:id="tfTitreArticle" prefHeight="25.0" prefWidth="245.0" />
+                  <TextField fx:id="tfTagArticle" />
+                  <TextField fx:id="tfTagDesc" />
+                  <TextArea fx:id="taArticle" prefHeight="140.0" prefWidth="272.0" />
+                  <HBox>
+                     <children>
+                        <Button fx:id="btimg" mnemonicParsing="false" onAction="#ImportImage" prefHeight="25.0" prefWidth="73.0" text="importer" />
+                        <Label fx:id="imagepath" prefHeight="24.0" prefWidth="117.0" />
+                     </children>
+                  </HBox>
+                  <ImageView fx:id="ImageIV" fitHeight="83.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <ImageView fitHeight="131.0" fitWidth="90.0" layoutX="324.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../blogimages/articleadd.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="138.0" layoutY="352.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="97.0" text="Annuler">
+               <font>
+                  <Font name="Tahoma" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btblog" layoutY="356.0" mnemonicParsing="false" onAction="#AjouterArticle" prefHeight="30.0" prefWidth="123.0" text="modifier" textFill="#656565">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
